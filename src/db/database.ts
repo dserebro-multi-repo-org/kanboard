@@ -362,6 +362,34 @@ export class Database {
 
   // ------------------------------------------------------------------ foreign keys
 
+  /**
+   * Run `callback` with foreign key checks disabled on ONE pinned connection (the setting is per
+   * session on MySQL/SQLite), re-enabling them on that same connection afterwards.
+   * Inside an already open transaction the connection is already fixed, so the callback just joins it.
+   */
+  async withForeignKeysDisabled<T>(callback: (db: Database) => Promise<T>): Promise<T> {
+    if (this.inTransaction()) {
+      return callback(this);
+    }
+
+    return this.connection.connection().execute(async (conn) => {
+      const pinned = new Database(conn as unknown as Connection, this.driver, {
+        shared: this.scope.shared,
+        transaction: null,
+        state: null,
+      });
+
+      await pinned.disableForeignKeys();
+
+      try {
+        return await callback(pinned);
+      } finally {
+        await pinned.enableForeignKeys();
+      }
+    });
+  }
+
+  /** Acts on the current executor connection only; use {@link withForeignKeysDisabled} to pin one. */
   async disableForeignKeys(): Promise<void> {
     if (this.dialect.disableForeignKeysSql !== null) {
       await this.exec(this.dialect.disableForeignKeysSql);

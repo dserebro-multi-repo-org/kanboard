@@ -73,24 +73,22 @@ export async function migrate(db: Database, schema: SchemaDefinition = getSchema
   const applied: number[] = [];
 
   for (let version = from + 1; version <= target; version++) {
-    await db.disableForeignKeys();
-
     try {
       const migration = schema.migrations[version];
 
-      await db.transaction(async (tx) => {
-        if (migration !== undefined) {
-          await migration(tx);
-        }
+      await db.withForeignKeysDisabled((pinned) =>
+        pinned.transaction(async (tx) => {
+          if (migration !== undefined) {
+            await migration(tx);
+          }
 
-        await setSchemaVersion(tx, version);
-      });
+          await setSchemaVersion(tx, version);
+        }),
+      );
 
       applied.push(version);
     } catch (error) {
       throw new MigrationError(version, error);
-    } finally {
-      await db.enableForeignKeys();
     }
   }
 

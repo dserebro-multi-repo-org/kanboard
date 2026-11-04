@@ -178,4 +178,14 @@ describe('migrate()', () => {
     expect(swimlanes).toHaveLength(1);
     expect(swimlanes[0]?.name).toBe('Default swimlane');
   });
+
+  it('leaves foreign keys enabled after a successful and after a failing migration', async () => {
+    const db = fresh();
+    await migrate(db, sqliteSchema, 5);
+    expect(Number((await db.exec('PRAGMA foreign_keys')).rows[0]?.foreign_keys)).toBe(1);
+
+    const failing = { ...sqliteSchema, latestVersion: 6, migrations: { ...sqliteSchema.migrations, 6: async () => { throw new Error('boom'); } } };
+    await expect(migrate(db, failing, 6)).rejects.toBeInstanceOf(MigrationError);
+    expect(Number((await db.exec('PRAGMA foreign_keys')).rows[0]?.foreign_keys)).toBe(1);
+  });
 });
