@@ -9,7 +9,7 @@ import { createTestContainer, spyLogger } from './helpers.js';
 let container: Container;
 let users: Array<Record<string, unknown>>;
 let selected: unknown[][];
-let notifications = '0';
+const notifications = '0';
 const log = spyLogger();
 let dir: string;
 
