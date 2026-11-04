@@ -1,0 +1,10 @@
+{# Notification template. Pre-resolved variable (see prepareNotificationVars in views/prepare/notification.ts): application_url. #}
+<html>
+<body>
+<h2>{{ task.title }} (#{{ task.id }})</h2>
+
+<p>{{ t('New attachment added "%s"', file.name) }}</p>
+
+{% include "notification/footer" %}
+</body>
+</html>

@@ -1,0 +1,1108 @@
+[
+ {
+  "name": "comment_create",
+  "template": "notification/comment_create",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "comment": {
+    "comment": "A comment with <i>html</i> & stuff",
+    "username": "bob",
+    "name": "Bob <B>"
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "comment_update",
+  "template": "notification/comment_update",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "comment": {
+    "comment": "A comment with <i>html</i> & stuff",
+    "username": "bob",
+    "name": "Bob <B>"
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "comment_delete",
+  "template": "notification/comment_delete",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "comment": {
+    "comment": "A comment with <i>html</i> & stuff",
+    "username": "bob",
+    "name": "Bob <B>"
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "comment_user_mention",
+  "template": "notification/comment_user_mention",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "comment": {
+    "comment": "A comment with <i>html</i> & stuff",
+    "username": "bob",
+    "name": "Bob <B>"
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "comment_create_anonymous",
+  "template": "notification/comment_create",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "comment": {
+    "comment": "hi",
+    "username": "",
+    "name": ""
+   }
+  }
+ },
+ {
+  "name": "comment_create_username_only",
+  "template": "notification/comment_create",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "comment": {
+    "comment": "hi",
+    "username": "bob",
+    "name": ""
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "footer",
+  "template": "notification/footer",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "footer_no_task_id",
+  "template": "notification/footer",
+  "vars": {
+   "task": {
+    "project_id": 3
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "footer_no_url",
+  "template": "notification/footer",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  }
+ },
+ {
+  "name": "subtask_create",
+  "template": "notification/subtask_create",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "subtask": {
+    "title": "Sub <1>",
+    "status_name": "In progress",
+    "name": "",
+    "username": "alice",
+    "time_estimated": 2.5,
+    "time_spent": 1.25
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "subtask_create_no_time",
+  "template": "notification/subtask_create",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "subtask": {
+    "title": "Sub <1>",
+    "status_name": "In progress",
+    "name": "",
+    "username": "",
+    "time_estimated": 0,
+    "time_spent": 1.25
+   }
+  }
+ },
+ {
+  "name": "subtask_delete",
+  "template": "notification/subtask_delete",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "subtask": {
+    "title": "Sub <1>",
+    "status_name": "In progress",
+    "name": "",
+    "username": "alice",
+    "time_estimated": 2.5,
+    "time_spent": 1.25
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "subtask_update",
+  "template": "notification/subtask_update",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "subtask": {
+    "title": "Sub <1>",
+    "status_name": "In progress",
+    "name": "",
+    "username": "alice",
+    "time_estimated": 2.5,
+    "time_spent": 1.25
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "subtask_update_spent_only",
+  "template": "notification/subtask_update",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "subtask": {
+    "title": "Sub <1>",
+    "status_name": "In progress",
+    "name": "",
+    "username": "alice",
+    "time_estimated": 0,
+    "time_spent": 1.25
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "subtask_update_estimated_only",
+  "template": "notification/subtask_update",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "subtask": {
+    "title": "Sub <1>",
+    "status_name": "In progress",
+    "name": "",
+    "username": "alice",
+    "time_estimated": 2.5,
+    "time_spent": 0
+   }
+  }
+ },
+ {
+  "name": "subtask_update_no_time",
+  "template": "notification/subtask_update",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "subtask": {
+    "title": "Sub <1>",
+    "status_name": "Done",
+    "name": "",
+    "username": "alice",
+    "time_estimated": 0,
+    "time_spent": 0
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_assignee_change",
+  "template": "notification/task_assignee_change",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_assignee_change_nobody",
+  "template": "notification/task_assignee_change",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "",
+    "assignee_name": "",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_assignee_change_username_only",
+  "template": "notification/task_assignee_change",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  }
+ },
+ {
+  "name": "task_close",
+  "template": "notification/task_close",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_open",
+  "template": "notification/task_open",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  }
+ },
+ {
+  "name": "task_create",
+  "template": "notification/task_create",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_create_minimal",
+  "template": "notification/task_create",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "",
+    "assignee_name": "John <Doe>",
+    "creator_username": "",
+    "creator_name": "",
+    "category_name": "",
+    "description": "",
+    "date_creation": 1700000000,
+    "date_due": 0
+   }
+  }
+ },
+ {
+  "name": "task_create_creator_name",
+  "template": "notification/task_create",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "Admin <A>",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_file_create",
+  "template": "notification/task_file_create",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "file": {
+    "name": "a <file> & \"x\".txt"
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_file_destroy",
+  "template": "notification/task_file_destroy",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "file": {
+    "name": "a <file>.txt"
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_internal_link_create_update",
+  "template": "notification/task_internal_link_create_update",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "task_link": {
+    "opposite_task_id": 7,
+    "label": "blocks"
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_internal_link_delete",
+  "template": "notification/task_internal_link_delete",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "task_link": {
+    "opposite_task_id": 7,
+    "label": "blocks"
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_move_column",
+  "template": "notification/task_move_column",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_move_position",
+  "template": "notification/task_move_position",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  }
+ },
+ {
+  "name": "task_move_project",
+  "template": "notification/task_move_project",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_move_swimlane_first",
+  "template": "notification/task_move_swimlane",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_move_swimlane_other",
+  "template": "notification/task_move_swimlane",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 2,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_overdue",
+  "template": "notification/task_overdue",
+  "vars": {
+   "project_name": "Proj <X>",
+   "tasks": [
+    {
+     "id": 1,
+     "title": "Fix <b>login</b> & \"quote\" it's",
+     "project_id": 3,
+     "project_name": "Proj <X>",
+     "column_title": "Ready & <set>",
+     "position": 4,
+     "swimlane_id": 0,
+     "swimlane_name": "Lane 1",
+     "assignee_username": "jdoe",
+     "assignee_name": "John <Doe>",
+     "creator_username": "admin",
+     "creator_name": "",
+     "category_name": "Cat & Co",
+     "description": "Some description\nsecond line",
+     "date_creation": 1700000000,
+     "date_due": 1700000000
+    },
+    {
+     "id": 2,
+     "title": "Other",
+     "project_id": 4,
+     "project_name": "P2",
+     "column_title": "Ready & <set>",
+     "position": 4,
+     "swimlane_id": 0,
+     "swimlane_name": "Lane 1",
+     "assignee_username": "",
+     "assignee_name": "John <Doe>",
+     "creator_username": "admin",
+     "creator_name": "",
+     "category_name": "Cat & Co",
+     "description": "Some description\nsecond line",
+     "date_creation": 1700000000,
+     "date_due": 1700100000
+    }
+   ]
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ },
+ {
+  "name": "task_overdue_no_url",
+  "template": "notification/task_overdue",
+  "vars": {
+   "project_name": "Proj",
+   "tasks": [
+    {
+     "id": 1,
+     "title": "Fix <b>login</b> & \"quote\" it's",
+     "project_id": 3,
+     "project_name": "Proj <X>",
+     "column_title": "Ready & <set>",
+     "position": 4,
+     "swimlane_id": 0,
+     "swimlane_name": "Lane 1",
+     "assignee_username": "jdoe",
+     "assignee_name": "John <Doe>",
+     "creator_username": "admin",
+     "creator_name": "",
+     "category_name": "Cat & Co",
+     "description": "Some description\nsecond line",
+     "date_creation": 1700000000,
+     "date_due": 1700000000
+    },
+    {
+     "id": 2,
+     "title": "Other",
+     "project_id": 4,
+     "project_name": "P2",
+     "column_title": "Ready & <set>",
+     "position": 4,
+     "swimlane_id": 0,
+     "swimlane_name": "Lane 1",
+     "assignee_username": "",
+     "assignee_name": "John <Doe>",
+     "creator_username": "admin",
+     "creator_name": "",
+     "category_name": "Cat & Co",
+     "description": "Some description\nsecond line",
+     "date_creation": 1700000000,
+     "date_due": 1700100000
+    }
+   ]
+  }
+ },
+ {
+  "name": "task_update",
+  "template": "notification/task_update",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   },
+   "changes": {
+    "a": 1,
+    "b": 2
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  },
+  "override": {
+   "task/changes": "stub:changes"
+  }
+ },
+ {
+  "name": "task_user_mention",
+  "template": "notification/task_user_mention",
+  "vars": {
+   "task": {
+    "id": 12,
+    "title": "Fix <b>login</b> & \"quote\" it's",
+    "project_id": 3,
+    "project_name": "Proj <X>",
+    "column_title": "Ready & <set>",
+    "position": 4,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane 1",
+    "assignee_username": "jdoe",
+    "assignee_name": "John <Doe>",
+    "creator_username": "admin",
+    "creator_name": "",
+    "category_name": "Cat & Co",
+    "description": "Some description\nsecond line",
+    "date_creation": 1700000000,
+    "date_due": 1700500000
+   }
+  },
+  "config": {
+   "application_url": "http://kb.example.com/"
+  }
+ }
+]

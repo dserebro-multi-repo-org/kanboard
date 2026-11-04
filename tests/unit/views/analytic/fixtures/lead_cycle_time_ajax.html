@@ -1,0 +1,14 @@
+
+<div class="panel">
+    <ul>
+        <li>Average lead time: <strong>2 days, 0 hours, 0 minutes, 0 seconds</strong></li>
+        <li>Average cycle time: <strong>0</strong></li>
+    </ul>
+</div>
+
+    <div class="js-chart-project-lead-cycle-time" data-params='{"metrics":[{"id":1,"date_creation":1700000000,"lead_time":5,"cycle_time":3}],"labelCycle":"Cycle Time","labelLead":"Lead Time"}'></div>
+    <form method="post" class="form-inline" action="?controller=AnalyticController&amp;action=leadAndCycleTime&amp;project_id=5" autocomplete="off">
+        <input type="hidden" name="csrf_token" value="8d0eda518e80e9128a50e204fac76c8b2df0111aa1cf13ead500dad2a31c535f"/>        <label for="form-from" >Start date</label><input type="text" name="from" id="form-from" value="01/01/2023" class="form-date" placeholder="11/04/2026">        <label for="form-to" >End date</label><input type="text" name="to" id="form-to" value="02/01/2023" class="form-date" placeholder="11/04/2026">        <div class="js-submit-buttons" data-params='{"submitLabel":"Execute","orLabel":"or","cancelLabel":"cancel","color":"blue","tabindex":null,"disabled":false}'></div>    </form>
+
+    <p class="alert alert-info">
+        This chart shows the average lead and cycle time for the last 1000 tasks over the time.    </p>

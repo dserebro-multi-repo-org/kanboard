@@ -1,0 +1,8 @@
+
+    <div class="js-chart-project-burndown" data-params='{"metrics":[["Date","Total"],["2023-01-01",5]],"labelTotal":"Total for all columns","dateFormat":"%Y-%m-%d"}'></div>
+<hr/>
+
+<form method="post" class="form-inline" action="?controller=AnalyticController&amp;action=burndown&amp;project_id=5" autocomplete="off">
+    <input type="hidden" name="csrf_token" value="2d75d4be6f5517ce5d332f03b4f8734b33ad47108cc9f0d447fdceb61ab34b8d"/>    <label for="form-from" >Start date</label><input type="text" name="from" id="form-from" value="01/01/2023" class="form-date" placeholder="11/04/2026">    <label for="form-to" >End date</label><input type="text" name="to" id="form-to" value="02/01/2023" class="form-date" placeholder="11/04/2026">    <div class="js-submit-buttons" data-params='{"submitLabel":"Execute","orLabel":"or","cancelLabel":"cancel","color":"blue","tabindex":null,"disabled":false}'></div></form>
+
+<p class="alert alert-info">This chart show the task complexity over the time (Work Remaining).</p>

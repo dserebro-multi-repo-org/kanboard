@@ -1,0 +1,10 @@
+{# Pre-resolved variable (async helper app.config): application_url (string, '' when not configured). See prepareNotificationVars in views/prepare/notification.ts. #}
+<hr/>
+Kanboard
+
+{% if application_url != '' %}
+    {% if task.id is defined and task.id is not null %}
+        - {{ helper.url.absoluteLink(t('view the task on Kanboard'), 'TaskViewController', 'show', {task_id: task.id}) | safe }}
+    {% endif %}
+    - {{ helper.url.absoluteLink(t('view the board on Kanboard'), 'BoardViewController', 'show', {project_id: task.project_id}) | safe }}
+{% endif %}

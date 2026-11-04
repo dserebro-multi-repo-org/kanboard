@@ -193,6 +193,8 @@ export function jsonEncode(value: unknown, hexApos = false): string {
   if (typeof value === 'boolean') return value ? 'true' : 'false';
   if (typeof value === 'number') return Number.isFinite(value) ? String(value) : '0';
   if (typeof value === 'string') return jsonString(value, hexApos);
+  // Nunjucks safe strings (`t()` results in views) are String objects: encode them like PHP strings.
+  if (value instanceof String) return jsonString(String(value), hexApos);
   if (Array.isArray(value)) return `[${value.map((item) => jsonEncode(item, hexApos)).join(',')}]`;
   const entries = Object.entries(value as Record<string, unknown>);
   if (entries.length === 0) return '[]';

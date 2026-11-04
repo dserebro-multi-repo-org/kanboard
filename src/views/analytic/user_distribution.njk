@@ -1,0 +1,35 @@
+{# Variables: is_ajax, metrics (list of {user, nb_tasks, percentage}). #}
+{% if not is_ajax %}
+    <div class="page-header">
+        <h2>{{ t('User repartition') }}</h2>
+    </div>
+{% endif %}
+
+{% if not (metrics | length) %}
+    <p class="alert">{{ t('Not enough data to show the graph.') }}</p>
+{% else %}
+    {{ helper.app.component('chart-project-user-distribution', {
+        metrics: metrics
+    }) | safe }}
+
+    <table class="table-striped">
+        <tr>
+            <th>{{ t('User') }}</th>
+            <th>{{ t('Number of tasks') }}</th>
+            <th>{{ t('Percentage') }}</th>
+        </tr>
+        {% for metric in metrics %}
+        <tr>
+            <td>
+                {{ metric.user }}
+            </td>
+            <td>
+                {{ metric.nb_tasks }}
+            </td>
+            <td>
+                {{ n(metric.percentage) }}%
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}

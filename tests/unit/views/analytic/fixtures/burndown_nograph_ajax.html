@@ -1,0 +1,9 @@
+
+    <p class="alert">You need at least 2 days of data to show the chart.</p>
+
+<hr/>
+
+<form method="post" class="form-inline" action="?controller=AnalyticController&amp;action=burndown&amp;project_id=5" autocomplete="off">
+    <input type="hidden" name="csrf_token" value="d11f78261cb50b289259d1ed594be28a6cf21072b781ee38c2810adb12909acd"/>    <label for="form-from" >Start date</label><input type="text" name="from" id="form-from" value="" class="form-date" placeholder="11/04/2026">    <label for="form-to" >End date</label><input type="text" name="to" id="form-to" value="" class="form-date" placeholder="11/04/2026">    <div class="js-submit-buttons" data-params='{"submitLabel":"Execute","orLabel":"or","cancelLabel":"cancel","color":"blue","tabindex":null,"disabled":false}'></div></form>
+
+<p class="alert alert-info">This chart show the task complexity over the time (Work Remaining).</p>

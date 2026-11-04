@@ -1,0 +1,44 @@
+
+<div class="panel">
+    <ul>
+        <li>Estimated hours: <strong>5.5</strong></li>
+        <li>Actual hours: <strong>5.25</strong></li>
+    </ul>
+</div>
+
+            <div class="js-chart-project-time-comparison" data-params='{"metrics":{"open":{"time_estimated":"2.5","time_spent":"1"},"closed":{"time_estimated":"3","time_spent":"4.25"}},"labelSpent":"Hours Spent","labelEstimated":"Hours Estimated","labelClosed":"Closed","labelOpen":"Open"}'></div>
+        <table class="table-fixed table-small table-scrolling">
+            <tr>
+                <th class="column-5"><a href="?controller=AnalyticController&amp;action=timeComparison&amp;project_id=5&amp;page=1&amp;order=tasks.id&amp;direction=ASC" class="js-modal-replace" title='' >Id</a></th>
+                <th>&#9650; <a href="?controller=AnalyticController&amp;action=timeComparison&amp;project_id=5&amp;page=1&amp;order=tasks.title&amp;direction=DESC" class="js-modal-replace" title='' >Title</a></th>
+                <th class="column-10"><a href="?controller=AnalyticController&amp;action=timeComparison&amp;project_id=5&amp;page=1&amp;order=tasks.is_active&amp;direction=ASC" class="js-modal-replace" title='' >Status</a></th>
+                <th class="column-12"><a href="?controller=AnalyticController&amp;action=timeComparison&amp;project_id=5&amp;page=1&amp;order=tasks.time_estimated&amp;direction=ASC" class="js-modal-replace" title='' >Estimated Time</a></th>
+                <th class="column-12"><a href="?controller=AnalyticController&amp;action=timeComparison&amp;project_id=5&amp;page=1&amp;order=tasks.time_spent&amp;direction=ASC" class="js-modal-replace" title='' >Actual Time</a></th>
+            </tr>
+                        <tr>
+                <td class="task-table color-yellow">
+                    <a href="?controller=TaskViewController&amp;action=show&amp;task_id=1" class="" title='View this task' >#1</a>                </td>
+                <td>
+                    <a href="?controller=TaskViewController&amp;action=show&amp;task_id=1" class="" title='View this task' >T &lt;1&gt;</a>                </td>
+                <td>
+                                            Open                                    </td>
+                <td>
+                    2.5                </td>
+                <td>
+                    1                </td>
+            </tr>
+                        <tr>
+                <td class="task-table color-blue">
+                    <a href="?controller=TaskViewController&amp;action=show&amp;task_id=2" class="" title='View this task' >#2</a>                </td>
+                <td>
+                    <a href="?controller=TaskViewController&amp;action=show&amp;task_id=2" class="" title='View this task' >T2 &amp; it&#039;s</a>                </td>
+                <td>
+                                            Closed                                    </td>
+                <td>
+                    3                </td>
+                <td>
+                    4.25                </td>
+            </tr>
+                    </table>
+
+            

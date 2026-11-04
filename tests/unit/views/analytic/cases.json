@@ -1,0 +1,648 @@
+[
+ {
+  "name": "avg_time_columns",
+  "template": "analytic/avg_time_columns",
+  "vars": {
+   "is_ajax": false,
+   "metrics": [
+    {
+     "title": "Backlog <b>",
+     "average": 90061
+    },
+    {
+     "title": "Done",
+     "average": 0
+    }
+   ]
+  }
+ },
+ {
+  "name": "avg_time_columns_empty",
+  "template": "analytic/avg_time_columns",
+  "vars": {
+   "is_ajax": false,
+   "metrics": []
+  }
+ },
+ {
+  "name": "burndown",
+  "template": "analytic/burndown",
+  "vars": {
+   "is_ajax": false,
+   "display_graph": true,
+   "metrics": [
+    [
+     "Date",
+     "Total"
+    ],
+    [
+     "2023-01-01",
+     5
+    ]
+   ],
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "values": {
+    "from": 1672531200,
+    "to": 1675209600
+   }
+  }
+ },
+ {
+  "name": "burndown_nograph",
+  "template": "analytic/burndown",
+  "vars": {
+   "is_ajax": false,
+   "display_graph": false,
+   "metrics": [],
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "values": {}
+  }
+ },
+ {
+  "name": "cfd",
+  "template": "analytic/cfd",
+  "vars": {
+   "is_ajax": false,
+   "display_graph": true,
+   "metrics": [
+    [
+     "Date",
+     "Ready"
+    ],
+    [
+     "2023-01-01",
+     5
+    ]
+   ],
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "values": {
+    "from": 1672531200,
+    "to": 1675209600
+   }
+  }
+ },
+ {
+  "name": "cfd_nograph",
+  "template": "analytic/cfd",
+  "vars": {
+   "is_ajax": false,
+   "display_graph": false,
+   "metrics": [],
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "values": {}
+  }
+ },
+ {
+  "name": "estimated_actual_column",
+  "template": "analytic/estimated_actual_column",
+  "vars": {
+   "is_ajax": false,
+   "metrics": [
+    {
+     "title": "Col <1>",
+     "hours_spent": 1.5,
+     "hours_estimated": 3
+    },
+    {
+     "title": "C2",
+     "hours_spent": 0,
+     "hours_estimated": 0
+    }
+   ]
+  }
+ },
+ {
+  "name": "estimated_actual_column_empty",
+  "template": "analytic/estimated_actual_column",
+  "vars": {
+   "is_ajax": false,
+   "metrics": []
+  }
+ },
+ {
+  "name": "lead_cycle_time",
+  "template": "analytic/lead_cycle_time",
+  "vars": {
+   "is_ajax": false,
+   "average": {
+    "avg_lead_time": 172800,
+    "avg_cycle_time": 0
+   },
+   "metrics": [
+    {
+     "id": 1,
+     "date_creation": 1700000000,
+     "lead_time": 5,
+     "cycle_time": 3
+    }
+   ],
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "values": {
+    "from": 1672531200,
+    "to": 1675209600
+   }
+  }
+ },
+ {
+  "name": "lead_cycle_time_empty",
+  "template": "analytic/lead_cycle_time",
+  "vars": {
+   "is_ajax": false,
+   "average": {
+    "avg_lead_time": 172800,
+    "avg_cycle_time": 0
+   },
+   "metrics": [],
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "values": {}
+  }
+ },
+ {
+  "name": "task_distribution",
+  "template": "analytic/task_distribution",
+  "vars": {
+   "is_ajax": false,
+   "metrics": [
+    {
+     "column_title": "Ready <x>",
+     "nb_tasks": 3,
+     "percentage": 42.5
+    },
+    {
+     "column_title": "Done",
+     "nb_tasks": 4,
+     "percentage": 1234.567
+    }
+   ]
+  }
+ },
+ {
+  "name": "task_distribution_empty",
+  "template": "analytic/task_distribution",
+  "vars": {
+   "is_ajax": false,
+   "metrics": []
+  }
+ },
+ {
+  "name": "user_distribution",
+  "template": "analytic/user_distribution",
+  "vars": {
+   "is_ajax": false,
+   "metrics": [
+    {
+     "user": "Bob <b>",
+     "nb_tasks": 3,
+     "percentage": 50
+    },
+    {
+     "user": "Unassigned",
+     "nb_tasks": 3,
+     "percentage": 50
+    }
+   ]
+  }
+ },
+ {
+  "name": "user_distribution_empty",
+  "template": "analytic/user_distribution",
+  "vars": {
+   "is_ajax": false,
+   "metrics": []
+  }
+ },
+ {
+  "name": "avg_time_columns_ajax",
+  "template": "analytic/avg_time_columns",
+  "vars": {
+   "is_ajax": true,
+   "metrics": [
+    {
+     "title": "Backlog <b>",
+     "average": 90061
+    },
+    {
+     "title": "Done",
+     "average": 0
+    }
+   ]
+  }
+ },
+ {
+  "name": "avg_time_columns_empty_ajax",
+  "template": "analytic/avg_time_columns",
+  "vars": {
+   "is_ajax": true,
+   "metrics": []
+  }
+ },
+ {
+  "name": "burndown_ajax",
+  "template": "analytic/burndown",
+  "vars": {
+   "is_ajax": true,
+   "display_graph": true,
+   "metrics": [
+    [
+     "Date",
+     "Total"
+    ],
+    [
+     "2023-01-01",
+     5
+    ]
+   ],
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "values": {
+    "from": 1672531200,
+    "to": 1675209600
+   }
+  }
+ },
+ {
+  "name": "burndown_nograph_ajax",
+  "template": "analytic/burndown",
+  "vars": {
+   "is_ajax": true,
+   "display_graph": false,
+   "metrics": [],
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "values": {}
+  }
+ },
+ {
+  "name": "cfd_ajax",
+  "template": "analytic/cfd",
+  "vars": {
+   "is_ajax": true,
+   "display_graph": true,
+   "metrics": [
+    [
+     "Date",
+     "Ready"
+    ],
+    [
+     "2023-01-01",
+     5
+    ]
+   ],
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "values": {
+    "from": 1672531200,
+    "to": 1675209600
+   }
+  }
+ },
+ {
+  "name": "cfd_nograph_ajax",
+  "template": "analytic/cfd",
+  "vars": {
+   "is_ajax": true,
+   "display_graph": false,
+   "metrics": [],
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "values": {}
+  }
+ },
+ {
+  "name": "estimated_actual_column_ajax",
+  "template": "analytic/estimated_actual_column",
+  "vars": {
+   "is_ajax": true,
+   "metrics": [
+    {
+     "title": "Col <1>",
+     "hours_spent": 1.5,
+     "hours_estimated": 3
+    },
+    {
+     "title": "C2",
+     "hours_spent": 0,
+     "hours_estimated": 0
+    }
+   ]
+  }
+ },
+ {
+  "name": "estimated_actual_column_empty_ajax",
+  "template": "analytic/estimated_actual_column",
+  "vars": {
+   "is_ajax": true,
+   "metrics": []
+  }
+ },
+ {
+  "name": "lead_cycle_time_ajax",
+  "template": "analytic/lead_cycle_time",
+  "vars": {
+   "is_ajax": true,
+   "average": {
+    "avg_lead_time": 172800,
+    "avg_cycle_time": 0
+   },
+   "metrics": [
+    {
+     "id": 1,
+     "date_creation": 1700000000,
+     "lead_time": 5,
+     "cycle_time": 3
+    }
+   ],
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "values": {
+    "from": 1672531200,
+    "to": 1675209600
+   }
+  }
+ },
+ {
+  "name": "lead_cycle_time_empty_ajax",
+  "template": "analytic/lead_cycle_time",
+  "vars": {
+   "is_ajax": true,
+   "average": {
+    "avg_lead_time": 172800,
+    "avg_cycle_time": 0
+   },
+   "metrics": [],
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "values": {}
+  }
+ },
+ {
+  "name": "task_distribution_ajax",
+  "template": "analytic/task_distribution",
+  "vars": {
+   "is_ajax": true,
+   "metrics": [
+    {
+     "column_title": "Ready <x>",
+     "nb_tasks": 3,
+     "percentage": 42.5
+    },
+    {
+     "column_title": "Done",
+     "nb_tasks": 4,
+     "percentage": 1234.567
+    }
+   ]
+  }
+ },
+ {
+  "name": "task_distribution_empty_ajax",
+  "template": "analytic/task_distribution",
+  "vars": {
+   "is_ajax": true,
+   "metrics": []
+  }
+ },
+ {
+  "name": "user_distribution_ajax",
+  "template": "analytic/user_distribution",
+  "vars": {
+   "is_ajax": true,
+   "metrics": [
+    {
+     "user": "Bob <b>",
+     "nb_tasks": 3,
+     "percentage": 50
+    },
+    {
+     "user": "Unassigned",
+     "nb_tasks": 3,
+     "percentage": 50
+    }
+   ]
+  }
+ },
+ {
+  "name": "user_distribution_empty_ajax",
+  "template": "analytic/user_distribution",
+  "vars": {
+   "is_ajax": true,
+   "metrics": []
+  }
+ },
+ {
+  "name": "layout_ajax",
+  "template": "analytic/layout",
+  "vars": {
+   "is_ajax": true,
+   "title": "Title <x>",
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "sidebar_template": "analytic/sidebar",
+   "content_for_sublayout": "<p>content</p>"
+  },
+  "router": {
+   "controller": "AnalyticController",
+   "action": "cfd"
+  }
+ },
+ {
+  "name": "layout",
+  "template": "analytic/layout",
+  "vars": {
+   "is_ajax": false,
+   "title": "T",
+   "project": {
+    "id": 5,
+    "name": "P"
+   },
+   "sidebar_template": "analytic/sidebar",
+   "content_for_sublayout": "<p>content</p>"
+  },
+  "router": {
+   "controller": "AnalyticController",
+   "action": "burndown"
+  },
+  "project_header_html": "<div class=\"project-header-stub\"></div>"
+ },
+ {
+  "name": "sidebar",
+  "template": "analytic/sidebar",
+  "vars": {
+   "project": {
+    "id": 5,
+    "name": "P"
+   }
+  },
+  "router": {
+   "controller": "AnalyticController",
+   "action": "timeComparison"
+  }
+ },
+ {
+  "name": "sidebar_other_page",
+  "template": "analytic/sidebar",
+  "vars": {
+   "project": {
+    "id": 5,
+    "name": "P"
+   }
+  },
+  "router": {
+   "controller": "TaskViewController",
+   "action": "show"
+  }
+ },
+ {
+  "name": "time_comparison",
+  "template": "analytic/time_comparison",
+  "vars": {
+   "is_ajax": false,
+   "metrics": {
+    "open": {
+     "time_estimated": "2.5",
+     "time_spent": "1"
+    },
+    "closed": {
+     "time_estimated": "3",
+     "time_spent": "4.25"
+    }
+   }
+  },
+  "paginator": {
+   "controller": "AnalyticController",
+   "action": "timeComparison",
+   "params": {
+    "project_id": 5
+   },
+   "collection": [
+    {
+     "id": 1,
+     "title": "T <1>",
+     "color_id": "yellow",
+     "is_active": 1,
+     "time_estimated": 2.5,
+     "time_spent": 1
+    },
+    {
+     "id": 2,
+     "title": "T2 & it's",
+     "color_id": "blue",
+     "is_active": 0,
+     "time_estimated": 3,
+     "time_spent": 4.25
+    }
+   ],
+   "max": 10,
+   "order": "tasks.id",
+   "direction": "DESC",
+   "page": 1
+  }
+ },
+ {
+  "name": "time_comparison_ajax",
+  "template": "analytic/time_comparison",
+  "vars": {
+   "is_ajax": true,
+   "metrics": {
+    "open": {
+     "time_estimated": "2.5",
+     "time_spent": "1"
+    },
+    "closed": {
+     "time_estimated": "3",
+     "time_spent": "4.25"
+    }
+   }
+  },
+  "paginator": {
+   "controller": "AnalyticController",
+   "action": "timeComparison",
+   "params": {
+    "project_id": 5
+   },
+   "collection": [
+    {
+     "id": 1,
+     "title": "T <1>",
+     "color_id": "yellow",
+     "is_active": 1,
+     "time_estimated": 2.5,
+     "time_spent": 1
+    },
+    {
+     "id": 2,
+     "title": "T2 & it's",
+     "color_id": "blue",
+     "is_active": 0,
+     "time_estimated": 3,
+     "time_spent": 4.25
+    }
+   ],
+   "max": 10,
+   "order": "tasks.title",
+   "direction": "ASC",
+   "page": 1
+  }
+ },
+ {
+  "name": "time_comparison_no_tasks",
+  "template": "analytic/time_comparison",
+  "vars": {
+   "is_ajax": false,
+   "metrics": {
+    "open": {
+     "time_estimated": "2.5",
+     "time_spent": "1"
+    },
+    "closed": {
+     "time_estimated": "3",
+     "time_spent": "4.25"
+    }
+   }
+  },
+  "paginator": {
+   "controller": "AnalyticController",
+   "action": "timeComparison",
+   "params": {
+    "project_id": 5
+   },
+   "collection": [],
+   "max": 10,
+   "order": "tasks.id",
+   "direction": "DESC",
+   "page": 1
+  }
+ }
+]
