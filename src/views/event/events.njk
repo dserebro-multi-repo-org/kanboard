@@ -1,3 +1,9 @@
+{#
+  Variables: events (array of event rows, each with creator_id, author_username, author_name, email,
+  avatar_path and event_content), avatar (imported avatar macro)
+  event.event_content is pre-rendered HTML of the per-type event template (output with | safe).
+  No async helper results are needed (see src/views/prepare/event.ts).
+#}
 {% if not events or events | length == 0 %}
     <p class="alert">{{ t('There is no activity yet.') }}</p>
 {% else %}
