@@ -8,3 +8,5 @@ export type { PluginInterface, PluginConstructor } from './plugin.js';
 export { NotificationTypeRegistry, NotificationTypes } from './notification.js';
 export type { NotificationInterface, NotificationConstructor } from './notification.js';
 export { AccessForbiddenException, PageNotFoundException, BaseException } from '../core/controller/exceptions.js';
+export { UserSessionStub } from './user-session.js';
+export type { UserSessionInterface } from './user-session.js';

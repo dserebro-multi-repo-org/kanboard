@@ -6,6 +6,10 @@ import type { EventManager } from '../core/event/event-manager.js';
 import type { Route } from '../core/http/route.js';
 import type { Router } from '../core/http/router.js';
 import type { Logger } from '../core/log/logger.js';
+import type { Database } from '../db/database.js';
+import type { UserSessionInterface } from '../foundation/user-session.js';
+import type { ConfigModel } from '../model/config-model.js';
+import type { SettingModel } from '../model/setting-model.js';
 import type { HelperRegistry } from '../foundation/helper.js';
 import type { NotificationTypeRegistry } from '../foundation/notification.js';
 import type { HookRegistry } from '../foundation/plugin.js';
@@ -32,6 +36,10 @@ declare module '../core/container/container.js' {
     helper: HelperRegistry;
     userNotificationTypeModel: NotificationTypeRegistry;
     projectNotificationTypeModel: NotificationTypeRegistry;
+    userSession: UserSessionInterface;
+    db: Database;
+    settingModel: SettingModel;
+    configModel: ConfigModel;
   }
 }
 

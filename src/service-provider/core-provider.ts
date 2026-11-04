@@ -6,6 +6,7 @@ import { EventManager } from '../core/event/event-manager.js';
 import { Route } from '../core/http/route.js';
 import { Router } from '../core/http/router.js';
 import { createLogger } from '../core/log/logger.js';
+import { UserSessionStub } from '../foundation/user-session.js';
 import { HelperRegistry } from '../foundation/helper.js';
 import { NotificationTypeRegistry } from '../foundation/notification.js';
 import { HookRegistry } from '../foundation/plugin.js';
@@ -19,6 +20,7 @@ import {
   RecurringTaskSubscriber,
   TransitionSubscriber,
 } from '../subscriber/stubs.js';
+import { DatabaseServiceProvider } from './database-provider.js';
 import './registry.js';
 
 /**
@@ -39,6 +41,7 @@ export class CoreServiceProvider implements ServiceProvider {
     container.register('helper', (c) => new HelperRegistry(c));
     container.register('userNotificationTypeModel', (c) => new NotificationTypeRegistry(c));
     container.register('projectNotificationTypeModel', (c) => new NotificationTypeRegistry(c));
+    container.register('userSession', () => new UserSessionStub());
     container.register('route', (c) => new Route({ enabled: c.get('config').ENABLE_URL_REWRITE }));
     container.register('router', (c) => new Router(c.get('route')));
 
@@ -67,5 +70,6 @@ export function createContainer(config: AppConfig): Container {
   const container = new Container();
   container.set('config', config);
   new CoreServiceProvider().register(container);
+  new DatabaseServiceProvider().register(container);
   return container;
 }
