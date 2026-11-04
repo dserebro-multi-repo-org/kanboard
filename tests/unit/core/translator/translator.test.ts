@@ -32,12 +32,13 @@ describe('Translator', () => {
     expect(tr.currency(5)).toBe('5,00 EUR');
   });
 
-  it('escapes arguments and the identifier is not escaped by translate itself', () => {
+  it('escapes the arguments and the translated string like PHP htmlspecialchars', () => {
     const tr = new Translator();
     expect(tr.translate('%s', '<b>')).toBe('&lt;b&gt;');
     expect(tr.translateNoEscaping('%s', '<b>')).toBe('<b>');
     expect(tr.translate('%s', "a&amp;b & 'q' \"d\"")).toBe('a&amp;b &amp; &#039;q&#039; &quot;d&quot;');
     expect(tr.translate('I have %d kids', 5)).toBe('I have 5 kids');
+    expect(tr.translate('<15m')).toBe('&lt;15m');
   });
 
   it('rejects invalid codes and path traversal', () => {

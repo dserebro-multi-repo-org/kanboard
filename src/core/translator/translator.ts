@@ -46,7 +46,8 @@ export class Translator {
 
   /** Get a translation, arguments are HTML escaped. */
   translate(identifier: string, ...args: unknown[]): string {
-    return sprintf(this.get(identifier, identifier), ...args.map(escapeHtml));
+    // PHP escapes every argument including the translated format string itself.
+    return sprintf(escapeHtml(this.get(identifier, identifier)), ...args.map(escapeHtml));
   }
 
   /** Get a translation with no HTML escaping. */

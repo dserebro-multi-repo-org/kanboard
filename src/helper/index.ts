@@ -1,7 +1,21 @@
 import type { HelperRegistry } from '../foundation/helper.js';
 import { registerBatchAHelpers } from './batch-a.js';
+import { registerBatchBHelpers } from './batch-b.js';
 
 export { registerBatchAHelpers } from './batch-a.js';
+export { registerBatchBHelpers } from './batch-b.js';
+export {
+  AvatarHelper,
+  BoardHelper,
+  CommentHelper,
+  DateHelper,
+  ProjectActivityHelper,
+  ProjectHeaderHelper,
+  ProjectRoleHelper,
+  SubtaskHelper,
+  TaskHelper,
+  UserHelper,
+} from './batch-b.js';
 export { HelperBase } from './helper-base.js';
 export {
   AppHelper,
@@ -24,5 +38,6 @@ export {
  */
 export function registerHelpers(registry: HelperRegistry): HelperRegistry {
   registerBatchAHelpers(registry);
+  registerBatchBHelpers(registry);
   return registry;
 }
