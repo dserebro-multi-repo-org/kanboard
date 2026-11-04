@@ -1,0 +1,119 @@
+[
+ {
+  "name": "tasks",
+  "template": "export/tasks",
+  "router": [
+   "ExportController",
+   "tasks"
+  ],
+  "vars": {
+   "project": {
+    "id": 7,
+    "name": "My <Project> & co"
+   },
+   "title": "Tasks <export>",
+   "values": {
+    "project_id": 7,
+    "from": 1672531200,
+    "to": 1675209600,
+    "bom": 1
+   }
+  }
+ },
+ {
+  "name": "subtasks",
+  "template": "export/subtasks",
+  "router": [
+   "ExportController",
+   "subtasks"
+  ],
+  "vars": {
+   "project": {
+    "id": 7,
+    "name": "My <Project> & co"
+   },
+   "title": "Tasks <export>",
+   "values": {
+    "project_id": 7,
+    "from": 1672531200,
+    "to": 1675209600,
+    "bom": 1
+   }
+  }
+ },
+ {
+  "name": "summary",
+  "template": "export/summary",
+  "router": [
+   "ExportController",
+   "summary"
+  ],
+  "vars": {
+   "project": {
+    "id": 7,
+    "name": "My <Project> & co"
+   },
+   "title": "Tasks <export>",
+   "values": {
+    "project_id": 7,
+    "from": 1672531200,
+    "to": 1675209600,
+    "bom": 1
+   }
+  }
+ },
+ {
+  "name": "transitions",
+  "template": "export/transitions",
+  "router": [
+   "ExportController",
+   "transitions"
+  ],
+  "vars": {
+   "project": {
+    "id": 7,
+    "name": "My <Project> & co"
+   },
+   "title": "Tasks <export>",
+   "values": {
+    "project_id": 7,
+    "from": 1672531200,
+    "to": 1675209600,
+    "bom": 1
+   }
+  }
+ },
+ {
+  "name": "tasks_nobom",
+  "template": "export/tasks",
+  "router": [
+   "ExportController",
+   "summary"
+  ],
+  "vars": {
+   "project": {
+    "id": 7,
+    "name": "My <Project> & co"
+   },
+   "title": "T",
+   "values": {
+    "project_id": 7
+   }
+  }
+ },
+ {
+  "name": "header",
+  "template": "export/header",
+  "router": [
+   "ExportController",
+   "transitions"
+  ],
+  "vars": {
+   "project": {
+    "id": 7,
+    "name": "My <Project> & co"
+   },
+   "title": "Header <em>raw</em>"
+  }
+ }
+]

@@ -1,0 +1,22 @@
+<div class="page-header">
+    <h2>My &lt;Project&gt; &amp; co &gt; Tasks <export></h2>
+    <ul>
+        <li class="active">
+            <a href="?controller=ExportController&amp;action=tasks&amp;project_id=7" class="js-modal-replace" title='' >Tasks</a>        </li>
+        <li >
+            <a href="?controller=ExportController&amp;action=subtasks&amp;project_id=7" class="js-modal-replace" title='' >Subtasks</a>        </li>
+        <li >
+            <a href="?controller=ExportController&amp;action=transitions&amp;project_id=7" class="js-modal-replace" title='' >Task transitions</a>        </li>
+        <li >
+            <a href="?controller=ExportController&amp;action=summary&amp;project_id=7" class="js-modal-replace" title='' >Daily project summary</a>        </li>
+            </ul>
+</div>
+
+<p class="alert alert-info">This report contains all tasks information for the given date range.</p>
+
+<form class="js-modal-ignore-form" method="post" action="?controller=ExportController&amp;action=tasks&amp;project_id=7" autocomplete="off">
+    <input type="hidden" name="csrf_token" value="d9844ec42fc89b015fc9c4aebc98b851fb595ee1aacf166fc1ff2ef4ee69d12d"/>    <input type="hidden" name="project_id" id="form-project_id" value="7"/>    <label for="form-from" >Start date</label><input type="text" name="from" id="form-from" value="01/01/2023" class="form-date" placeholder="11/04/2026">    <label for="form-to" >End date</label><input type="text" name="to" id="form-to" value="02/01/2023" class="form-date" placeholder="11/04/2026">    <label><input type="checkbox" name="bom" class="" value="1" checked="checked">&nbsp;Add a BOM at the beginning of the file (required for Microsoft Excel)</label>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-blue js-form-export">Export</button>
+        or        <a href="?controller=ExportController&amp;action=tasks&amp;project_id=7" class="js-modal-close" title='' >cancel</a>    </div>
+</form>
