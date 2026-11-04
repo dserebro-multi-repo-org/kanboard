@@ -157,9 +157,10 @@ describe('migrate()', () => {
     }
   });
 
-  it('knows only the SQLite schema for now', () => {
+  it('knows the SQLite, MySQL and PostgreSQL schemas', () => {
     expect(getSchema('sqlite')).toBe(sqliteSchema);
-    expect(() => getSchema('mysql')).toThrow(/mysql/);
+    expect(getSchema('mysql').latestVersion).toBe(139);
+    expect(getSchema('postgres').latestVersion).toBe(117);
     expect(sqliteSchema.latestVersion).toBe(128);
   });
 

@@ -1,0 +1,45 @@
+{#-
+  Port of app/Template/header/user_dropdown.php.
+  Variables: disable_logout (the DISABLE_LOGOUT constant, see prepareHeaderVars in src/views/prepare/header.ts)
+-#}
+<div class="dropdown">
+    <a href="#" class="dropdown-menu dropdown-menu-link-icon">{{ helper.avatar.currentUserSmall('avatar-inline') }}<i class="fa fa-caret-down"></i></a>
+    <ul>
+        <li class="no-hover"><strong>{{ helper.text.e(helper.user.getFullname()) }}</strong></li>
+        <li>
+            {{ helper.url.icon('tachometer', t('My dashboard'), 'DashboardController', 'show', {'user_id': helper.user.getId()}) }}
+        </li>
+        <li>
+            {{ helper.url.icon('home', t('My profile'), 'UserViewController', 'show', {'user_id': helper.user.getId()}) }}
+        </li>
+        <li>
+            {{ helper.url.icon('folder', t('Projects management'), 'ProjectListController', 'show') }}
+        </li>
+        {% if helper.user.hasAccess('UserListController', 'show') %}
+            <li>
+                {{ helper.url.icon('user', t('Users management'), 'UserListController', 'show') }}
+            </li>
+            <li>
+                {{ helper.url.icon('group', t('Groups management'), 'GroupListController', 'index') }}
+            </li>
+            <li>
+                {{ helper.url.icon('cubes', t('Plugins'), 'PluginController', 'show') }}
+            </li>
+            <li>
+                {{ helper.url.icon('cog', t('Settings'), 'ConfigController', 'index') }}
+            </li>
+        {% endif %}
+
+        {{ helper.hook.render('template:header:dropdown') }}
+
+        <li>
+            <i class="fa fa-fw fa-life-ring" aria-hidden="true"></i>
+            {{ helper.url.doc(t('Documentation')) }}
+        </li>
+        {% if not disable_logout %}
+            <li>
+                {{ helper.url.icon('sign-out', t('Logout'), 'AuthController', 'logout', {}, true) }}
+            </li>
+        {% endif %}
+    </ul>
+</div>

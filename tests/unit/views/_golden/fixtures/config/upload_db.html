@@ -1,0 +1,12 @@
+<div class="page-header">
+    <h2>Upload the database</h2>
+</div>
+
+<div class="alert">
+    <p>
+        You could upload the previously downloaded Sqlite database (Gzip format).    </p>
+</div>
+
+<form action="/?controller=ConfigController&amp;action=saveUploadedDb&amp;csrf_token=944760049a79cb604d68d2b783aee194d17b016e682085096bc5c75a4110376d" method="post" enctype="multipart/form-data">
+    <label for="form-file" >Database file</label>    <input type="file" name="file" id="form-file" >
+    <div class="js-submit-buttons" data-params='{"submitLabel":"Upload","orLabel":"or","cancelLabel":"cancel","color":"blue","tabindex":null,"disabled":false}'></div></form>

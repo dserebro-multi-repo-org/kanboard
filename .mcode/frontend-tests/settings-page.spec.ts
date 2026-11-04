@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("Placeholder settings page (/)", () => {
+test.describe("Milestone 2: settings rows rendered on / from migrated DB", () => {
   test("returns 200 text/html with title and headings", async ({ page, request }) => {
     const res = await request.get("/");
     expect(res.status()).toBe(200);
@@ -43,7 +43,7 @@ test.describe("Placeholder settings page (/)", () => {
   });
 });
 
-test.describe("Healthcheck", () => {
+test.describe("Milestone 2: Healthcheck DB connection", () => {
   test("GET /healthcheck returns JSON ok", async ({ request }) => {
     const res = await request.get("/healthcheck");
     expect(res.status()).toBe(200);
@@ -52,7 +52,7 @@ test.describe("Healthcheck", () => {
   });
 });
 
-test.describe("Unknown paths", () => {
+test.describe("Milestone 7: Unknown paths (no layout routes yet)", () => {
   for (const path of ["/nope", "/index.php", "/?controller=x"]) {
     test(`GET ${path} returns plain-text 404`, async ({ request }) => {
       const res = await request.get(path);

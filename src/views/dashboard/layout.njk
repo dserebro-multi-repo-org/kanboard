@@ -1,0 +1,35 @@
+{#-
+  Port of app/Template/dashboard/layout.php.
+  Variables: user, sidebar_template, content_for_sublayout (safe HTML), plus (see prepareDashboardLayoutVars in
+  src/views/prepare/dashboard.ts):
+    is_private_project_enabled  boolean, `app.config('disable_private_project', 0) == 0`
+-#}
+<section id="main">
+    <div class="page-header">
+        <ul>
+            {% if helper.user.hasAccess('ProjectCreationController', 'create') %}
+                <li>
+                    {{ helper.modal.medium('plus', t('New project'), 'ProjectCreationController', 'create') }}
+                </li>
+            {% endif %}
+            {% if is_private_project_enabled %}
+                <li>
+                    {{ helper.modal.medium('lock', t('New personal project'), 'ProjectCreationController', 'createPrivate') }}
+                </li>
+            {% endif %}
+            <li>
+                {{ helper.url.icon('folder', t('Project management'), 'ProjectListController', 'show') }}
+            </li>
+            <li>
+                {{ helper.modal.medium('dashboard', t('My activity stream'), 'ActivityController', 'user') }}
+            </li>
+            {{ helper.hook.render('template:dashboard:page-header:menu', {'user': user}) }}
+        </ul>
+    </div>
+    <section class="sidebar-container" id="dashboard">
+        {% include sidebar_template %}
+        <div class="sidebar-content">
+            {{ content_for_sublayout | safe }}
+        </div>
+    </section>
+</section>

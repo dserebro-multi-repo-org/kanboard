@@ -1,0 +1,26 @@
+{#-
+  Port of app/Template/dashboard/projects.php.
+  Variables: user, paginator (object with isEmpty(), getCollection(), getTotal() and toString() returning the
+  pagination HTML, echoed as safe HTML)
+-#}
+<div class="page-header">
+    <h2>{{ helper.url.link(t('My projects'), 'DashboardController', 'projects', {'user_id': user.id}) }} ({{ paginator.getTotal() }})</h2>
+</div>
+{% if paginator.isEmpty() %}
+    <p class="alert">{{ t('You are not a member of any project.') }}</p>
+{% else %}
+    <div class="table-list">
+        {% include "project_list/header" %}
+        {% for project in paginator.getCollection() %}
+            <div class="table-list-row table-border-left">
+                {% include "project_list/project_title" %}
+
+                {% include "project_list/project_details" %}
+
+                {% include "project_list/project_icons" %}
+            </div>
+        {% endfor %}
+    </div>
+
+    {{ paginator | safe }}
+{% endif %}

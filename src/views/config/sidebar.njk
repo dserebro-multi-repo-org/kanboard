@@ -1,0 +1,39 @@
+{#- Port of app/Template/config/sidebar.php -#}
+<div class="sidebar">
+    <ul>
+        <li {{ helper.app.checkMenuSelection('ConfigController', 'index') }}>
+            {{ helper.url.link(t('About'), 'ConfigController', 'index') }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('ConfigController', 'application') }}>
+            {{ helper.url.link(t('Application settings'), 'ConfigController', 'application') }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('ConfigController', 'email') }}>
+            {{ helper.url.link(t('Email settings'), 'ConfigController', 'email') }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('ConfigController', 'project') }}>
+            {{ helper.url.link(t('Project settings'), 'ConfigController', 'project') }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('ConfigController', 'board') }}>
+            {{ helper.url.link(t('Board settings'), 'ConfigController', 'board') }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('TagController', 'index') }}>
+            {{ helper.url.link(t('Tags management'), 'TagController', 'index') }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('LinkController') }}>
+            {{ helper.url.link(t('Link labels'), 'LinkController', 'show') }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('CurrencyController') }}>
+            {{ helper.url.link(t('Currency rates'), 'CurrencyController', 'show') }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('ConfigController', 'integrations') }}>
+            {{ helper.url.link(t('Integrations'), 'ConfigController', 'integrations') }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('ConfigController', 'webhook') }}>
+            {{ helper.url.link(t('Webhooks'), 'ConfigController', 'webhook') }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('ConfigController', 'api') }}>
+            {{ helper.url.link(t('API'), 'ConfigController', 'api') }}
+        </li>
+        {{ helper.hook.render('template:config:sidebar') }}
+    </ul>
+</div>

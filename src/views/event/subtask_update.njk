@@ -1,0 +1,28 @@
+{#
+  Pre-resolved variables (see prepareEventVars in src/views/prepare/event.ts):
+    date_creation_formatted  result of the async helper dt.datetime(date_creation)
+  Other variables: author, task, subtask, date_creation (as in app/Template/event/subtask_update.php)
+#}
+<p class="activity-title">
+    {{ e('%s updated a subtask for the task %s',
+        text.e(author),
+        url.link(t('#%d', task.id), 'TaskViewController', 'show', {task_id: task.id})
+    ) }}
+    <small class="activity-date">{{ date_creation_formatted }}</small>
+</p>
+<div class="activity-description">
+    <p class="activity-task-title">{{ task.title }}</p>
+
+    <ul>
+        <li>
+            {{ subtask.title }} (<strong>{{ t(subtask.status_name) }}</strong>)
+        </li>
+        <li>
+            {% if subtask.username %}
+                {{ t('Assigned to %s with an estimate of %s/%sh', subtask.name or subtask.username, subtask.time_spent, subtask.time_estimated) }}
+            {% else %}
+                {{ t('Not assigned, estimate of %sh', subtask.time_estimated) }}
+            {% endif %}
+        </li>
+    </ul>
+</div>

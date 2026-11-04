@@ -1,0 +1,25 @@
+{#-
+  Port of app/Template/header/creation_dropdown.php.
+  Variables: is_private_project_enabled (pre-resolved `app.config('disable_private_project', 0) == 0`,
+  see prepareHeaderVars in src/views/prepare/header.ts)
+-#}
+{% set has_project_creation_access = helper.user.hasAccess('ProjectCreationController', 'create') %}
+
+{% if has_project_creation_access or (not has_project_creation_access and is_private_project_enabled) %}
+    <div class="dropdown header-creation-menu">
+        <a href="#" class="dropdown-menu dropdown-menu-link-icon"><i class="fa fa-plus fa-fw"></i><i class="fa fa-caret-down"></i></a>
+        <ul>
+            {% if has_project_creation_access %}
+                <li>
+                    {{ helper.modal.medium('plus', t('New project'), 'ProjectCreationController', 'create') }}
+                </li>
+            {% endif %}
+            {% if is_private_project_enabled %}
+                <li>
+                    {{ helper.modal.medium('lock', t('New personal project'), 'ProjectCreationController', 'createPrivate') }}
+                </li>
+            {% endif %}
+            {{ helper.hook.render('template:header:creation-dropdown') }}
+        </ul>
+    </div>
+{% endif %}

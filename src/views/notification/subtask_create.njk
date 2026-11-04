@@ -1,0 +1,22 @@
+{# Notification template. Pre-resolved variable (see prepareNotificationVars in views/prepare/notification.ts): application_url. #}
+<html>
+<body>
+<h2>{{ task.title }} (#{{ task.id }})</h2>
+
+<h3>{{ t('New sub-task') }}</h3>
+
+<ul>
+    <li>{{ t('Title:') }} {{ subtask.title }}</li>
+    <li>{{ t('Status:') }} {{ t(subtask.status_name) }}</li>
+    <li>{{ t('Assignee:') }} {{ subtask.name or subtask.username or '?' }}</li>
+    {% if subtask.time_estimated %}
+        <li>
+            {{ t('Time tracking:') }}
+            {{ t('%sh estimated', n(subtask.time_estimated)) }}
+        </li>
+    {% endif %}
+</ul>
+
+{% include "notification/footer" %}
+</body>
+</html>

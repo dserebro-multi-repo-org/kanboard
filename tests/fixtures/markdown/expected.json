@@ -1,0 +1,1542 @@
+[
+    {
+        "input": "Test",
+        "public": false,
+        "output": "<p>Test</p>"
+    },
+    {
+        "input": "Test",
+        "public": true,
+        "output": "<p>Test</p>"
+    },
+    {
+        "input": "#123",
+        "public": false,
+        "output": "<p><a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=123\">#123</a></p>"
+    },
+    {
+        "input": "#123",
+        "public": true,
+        "output": "<p>#123</p>"
+    },
+    {
+        "input": "# Heading 1\r\n\r\nTask #123\r\n\r\n## Heading 2",
+        "public": false,
+        "output": "<h1>Heading 1</h1>\n<p>Task <a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=123\">#123</a></p>\n<h2>Heading 2</h2>"
+    },
+    {
+        "input": "# Heading 1\r\n\r\nTask #123\r\n\r\n## Heading 2",
+        "public": true,
+        "output": "<h1>Heading 1</h1>\n<p>Task #123</p>\n<h2>Heading 2</h2>"
+    },
+    {
+        "input": "Task #123",
+        "public": false,
+        "output": "<p>Task <a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=123\">#123</a></p>"
+    },
+    {
+        "input": "Task #123",
+        "public": true,
+        "output": "<p>Task #123</p>"
+    },
+    {
+        "input": "Task #1",
+        "public": false,
+        "output": "<p>Task <a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=1\">#1</a></p>"
+    },
+    {
+        "input": "Task #1",
+        "public": true,
+        "output": "<p>Task <a href=\"http://localhost/?controller=TaskViewController&amp;action=readonly&amp;token=tok1&amp;task_id=1\">#1</a></p>"
+    },
+    {
+        "input": "Check that: http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454",
+        "public": false,
+        "output": "<p>Check that: <a href=\"http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454\">http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454</a></p>"
+    },
+    {
+        "input": "Check that: http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454",
+        "public": true,
+        "output": "<p>Check that: <a href=\"http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454\">http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454</a></p>"
+    },
+    {
+        "input": "[item #123 is here](http://localhost)",
+        "public": false,
+        "output": "<p><a href=\"http://localhost\">item #123 is here</a></p>"
+    },
+    {
+        "input": "[item #123 is here](http://localhost)",
+        "public": true,
+        "output": "<p><a href=\"http://localhost\">item #123 is here</a></p>"
+    },
+    {
+        "input": "#123 extra text not consumed",
+        "public": false,
+        "output": "<p><a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=123\">#123</a> extra text not consumed</p>"
+    },
+    {
+        "input": "#123 extra text not consumed",
+        "public": true,
+        "output": "<p>#123 extra text not consumed</p>"
+    },
+    {
+        "input": "Text @admin @notfound",
+        "public": false,
+        "output": "<p>Text <a href=\"?controller=UserViewController&amp;action=profile&amp;user_id=1\" class=\"user-mention-link\" title=\"admin\" aria-label=\"admin\">@admin</a> @notfound</p>"
+    },
+    {
+        "input": "Text @admin @notfound",
+        "public": true,
+        "output": "<p>Text @admin @notfound</p>"
+    },
+    {
+        "input": "Text @admin,",
+        "public": false,
+        "output": "<p>Text <a href=\"?controller=UserViewController&amp;action=profile&amp;user_id=1\" class=\"user-mention-link\" title=\"admin\" aria-label=\"admin\">@admin</a>,</p>"
+    },
+    {
+        "input": "Text @admin,",
+        "public": true,
+        "output": "<p>Text @admin,</p>"
+    },
+    {
+        "input": "Text @admin!",
+        "public": false,
+        "output": "<p>Text <a href=\"?controller=UserViewController&amp;action=profile&amp;user_id=1\" class=\"user-mention-link\" title=\"admin\" aria-label=\"admin\">@admin</a>!</p>"
+    },
+    {
+        "input": "Text @admin!",
+        "public": true,
+        "output": "<p>Text @admin!</p>"
+    },
+    {
+        "input": "Text @admin? ",
+        "public": false,
+        "output": "<p>Text <a href=\"?controller=UserViewController&amp;action=profile&amp;user_id=1\" class=\"user-mention-link\" title=\"admin\" aria-label=\"admin\">@admin</a>? </p>"
+    },
+    {
+        "input": "Text @admin? ",
+        "public": true,
+        "output": "<p>Text @admin? </p>"
+    },
+    {
+        "input": "Text @admin.",
+        "public": false,
+        "output": "<p>Text <a href=\"?controller=UserViewController&amp;action=profile&amp;user_id=1\" class=\"user-mention-link\" title=\"admin\" aria-label=\"admin\">@admin</a>.</p>"
+    },
+    {
+        "input": "Text @admin.",
+        "public": true,
+        "output": "<p>Text @admin.</p>"
+    },
+    {
+        "input": "Text @admin: test",
+        "public": false,
+        "output": "<p>Text <a href=\"?controller=UserViewController&amp;action=profile&amp;user_id=1\" class=\"user-mention-link\" title=\"admin\" aria-label=\"admin\">@admin</a>: test</p>"
+    },
+    {
+        "input": "Text @admin: test",
+        "public": true,
+        "output": "<p>Text @admin: test</p>"
+    },
+    {
+        "input": "Text @firstname.lastname. test",
+        "public": false,
+        "output": "<p>Text <a href=\"?controller=UserViewController&amp;action=profile&amp;user_id=2\" class=\"user-mention-link\" title=\"Firstname Lastname\" aria-label=\"Firstname Lastname\">@firstname.lastname</a>. test</p>"
+    },
+    {
+        "input": "Text @firstname.lastname. test",
+        "public": true,
+        "output": "<p>Text @firstname.lastname. test</p>"
+    },
+    {
+        "input": "[mention @admin at localhost](http://localhost)",
+        "public": false,
+        "output": "<p><a href=\"http://localhost\">mention @admin at localhost</a></p>"
+    },
+    {
+        "input": "[mention @admin at localhost](http://localhost)",
+        "public": true,
+        "output": "<p><a href=\"http://localhost\">mention @admin at localhost</a></p>"
+    },
+    {
+        "input": "[XSS](javascript:alert(1))",
+        "public": false,
+        "output": "<p><a href=\"javascript%3Aalert(1)\">XSS</a></p>"
+    },
+    {
+        "input": "[XSS](javascript:alert(1))",
+        "public": true,
+        "output": "<p><a href=\"javascript%3Aalert(1)\">XSS</a></p>"
+    },
+    {
+        "input": "[XSS](JaVaScRiPt:alert(1))",
+        "public": false,
+        "output": "<p><a href=\"JaVaScRiPt%3Aalert(1)\">XSS</a></p>"
+    },
+    {
+        "input": "[XSS](JaVaScRiPt:alert(1))",
+        "public": true,
+        "output": "<p><a href=\"JaVaScRiPt%3Aalert(1)\">XSS</a></p>"
+    },
+    {
+        "input": "[x](data:text/html;base64,AAA)",
+        "public": false,
+        "output": "<p><a href=\"data%3Atext/html;base64,AAA\">x</a></p>"
+    },
+    {
+        "input": "[x](data:text/html;base64,AAA)",
+        "public": true,
+        "output": "<p><a href=\"data%3Atext/html;base64,AAA\">x</a></p>"
+    },
+    {
+        "input": "![img](javascript:alert(1))",
+        "public": false,
+        "output": "<p><img src=\"javascript%3Aalert(1)\" alt=\"img\" /></p>"
+    },
+    {
+        "input": "![img](javascript:alert(1))",
+        "public": true,
+        "output": "<p><img src=\"javascript%3Aalert(1)\" alt=\"img\" /></p>"
+    },
+    {
+        "input": "![img](http://localhost/a.png \"title\")",
+        "public": false,
+        "output": "<p><img src=\"http://localhost/a.png\" alt=\"img\" title=\"title\" /></p>"
+    },
+    {
+        "input": "![img](http://localhost/a.png \"title\")",
+        "public": true,
+        "output": "<p><img src=\"http://localhost/a.png\" alt=\"img\" title=\"title\" /></p>"
+    },
+    {
+        "input": "![img](data:image/png;base64,AAAA)",
+        "public": false,
+        "output": "<p><img src=\"data:image/png;base64,AAAA\" alt=\"img\" /></p>"
+    },
+    {
+        "input": "![img](data:image/png;base64,AAAA)",
+        "public": true,
+        "output": "<p><img src=\"data:image/png;base64,AAAA\" alt=\"img\" /></p>"
+    },
+    {
+        "input": "<script>alert(1)</script>",
+        "public": false,
+        "output": "<p>&lt;script&gt;alert(1)&lt;/script&gt;</p>"
+    },
+    {
+        "input": "<script>alert(1)</script>",
+        "public": true,
+        "output": "<p>&lt;script&gt;alert(1)&lt;/script&gt;</p>"
+    },
+    {
+        "input": "Hello <b>bold</b> <img src=x onerror=alert(0)>",
+        "public": false,
+        "output": "<p>Hello &lt;b&gt;bold&lt;/b&gt; &lt;img src=x onerror=alert(0)&gt;</p>"
+    },
+    {
+        "input": "Hello <b>bold</b> <img src=x onerror=alert(0)>",
+        "public": true,
+        "output": "<p>Hello &lt;b&gt;bold&lt;/b&gt; &lt;img src=x onerror=alert(0)&gt;</p>"
+    },
+    {
+        "input": "<div>block</div>",
+        "public": false,
+        "output": "<p>&lt;div&gt;block&lt;/div&gt;</p>"
+    },
+    {
+        "input": "<div>block</div>",
+        "public": true,
+        "output": "<p>&lt;div&gt;block&lt;/div&gt;</p>"
+    },
+    {
+        "input": "<!-- comment -->",
+        "public": false,
+        "output": "<p>&lt;!-- comment --&gt;</p>"
+    },
+    {
+        "input": "<!-- comment -->",
+        "public": true,
+        "output": "<p>&lt;!-- comment --&gt;</p>"
+    },
+    {
+        "input": "a & b < c > d \"q\" 'x'",
+        "public": false,
+        "output": "<p>a &amp; b &lt; c &gt; d &quot;q&quot; 'x'</p>"
+    },
+    {
+        "input": "a & b < c > d \"q\" 'x'",
+        "public": true,
+        "output": "<p>a &amp; b &lt; c &gt; d &quot;q&quot; 'x'</p>"
+    },
+    {
+        "input": "line one\nline two\nline three",
+        "public": false,
+        "output": "<p>line one<br />\nline two<br />\nline three</p>"
+    },
+    {
+        "input": "line one\nline two\nline three",
+        "public": true,
+        "output": "<p>line one<br />\nline two<br />\nline three</p>"
+    },
+    {
+        "input": "line one  \nline two",
+        "public": false,
+        "output": "<p>line one<br />\nline two</p>"
+    },
+    {
+        "input": "line one  \nline two",
+        "public": true,
+        "output": "<p>line one<br />\nline two</p>"
+    },
+    {
+        "input": "para one\n\npara two",
+        "public": false,
+        "output": "<p>para one</p>\n<p>para two</p>"
+    },
+    {
+        "input": "para one\n\npara two",
+        "public": true,
+        "output": "<p>para one</p>\n<p>para two</p>"
+    },
+    {
+        "input": "**bold** and __bold__ and *em* and _em_ and ***both***",
+        "public": false,
+        "output": "<p><strong>bold</strong> and <strong>bold</strong> and <em>em</em> and <em>em</em> and <strong><em>both</em></strong></p>"
+    },
+    {
+        "input": "**bold** and __bold__ and *em* and _em_ and ***both***",
+        "public": true,
+        "output": "<p><strong>bold</strong> and <strong>bold</strong> and <em>em</em> and <em>em</em> and <strong><em>both</em></strong></p>"
+    },
+    {
+        "input": "~~strike~~",
+        "public": false,
+        "output": "<p><del>strike</del></p>"
+    },
+    {
+        "input": "~~strike~~",
+        "public": true,
+        "output": "<p><del>strike</del></p>"
+    },
+    {
+        "input": "`code` and ``co`de``",
+        "public": false,
+        "output": "<p><code>code</code> and <code>co`de</code></p>"
+    },
+    {
+        "input": "`code` and ``co`de``",
+        "public": true,
+        "output": "<p><code>code</code> and <code>co`de</code></p>"
+    },
+    {
+        "input": "```\nfenced\ncode <b>\n```",
+        "public": false,
+        "output": "<pre><code>fenced\ncode &lt;b&gt;</code></pre>"
+    },
+    {
+        "input": "```\nfenced\ncode <b>\n```",
+        "public": true,
+        "output": "<pre><code>fenced\ncode &lt;b&gt;</code></pre>"
+    },
+    {
+        "input": "```php\n<?php echo 1;\n```",
+        "public": false,
+        "output": "<pre><code class=\"language-php\">&lt;?php echo 1;</code></pre>"
+    },
+    {
+        "input": "```php\n<?php echo 1;\n```",
+        "public": true,
+        "output": "<pre><code class=\"language-php\">&lt;?php echo 1;</code></pre>"
+    },
+    {
+        "input": "~~~\ntilde\n~~~",
+        "public": false,
+        "output": "<pre><code>tilde</code></pre>"
+    },
+    {
+        "input": "~~~\ntilde\n~~~",
+        "public": true,
+        "output": "<pre><code>tilde</code></pre>"
+    },
+    {
+        "input": "    indented code\n    more",
+        "public": false,
+        "output": "<pre><code>indented code\nmore</code></pre>"
+    },
+    {
+        "input": "    indented code\n    more",
+        "public": true,
+        "output": "<pre><code>indented code\nmore</code></pre>"
+    },
+    {
+        "input": "> quote\n> more\n\n> second",
+        "public": false,
+        "output": "<blockquote>\n<p>quote<br />\nmore</p>\n<p>second</p>\n</blockquote>"
+    },
+    {
+        "input": "> quote\n> more\n\n> second",
+        "public": true,
+        "output": "<blockquote>\n<p>quote<br />\nmore</p>\n<p>second</p>\n</blockquote>"
+    },
+    {
+        "input": "- a\n- b\n  - nested\n- c",
+        "public": false,
+        "output": "<ul>\n<li>a</li>\n<li>b\n<ul>\n<li>nested</li>\n</ul></li>\n<li>c</li>\n</ul>"
+    },
+    {
+        "input": "- a\n- b\n  - nested\n- c",
+        "public": true,
+        "output": "<ul>\n<li>a</li>\n<li>b\n<ul>\n<li>nested</li>\n</ul></li>\n<li>c</li>\n</ul>"
+    },
+    {
+        "input": "* a\n* b",
+        "public": false,
+        "output": "<ul>\n<li>a</li>\n<li>b</li>\n</ul>"
+    },
+    {
+        "input": "* a\n* b",
+        "public": true,
+        "output": "<ul>\n<li>a</li>\n<li>b</li>\n</ul>"
+    },
+    {
+        "input": "+ a\n+ b",
+        "public": false,
+        "output": "<ul>\n<li>a</li>\n<li>b</li>\n</ul>"
+    },
+    {
+        "input": "+ a\n+ b",
+        "public": true,
+        "output": "<ul>\n<li>a</li>\n<li>b</li>\n</ul>"
+    },
+    {
+        "input": "1. one\n2. two\n3. three",
+        "public": false,
+        "output": "<ol>\n<li>one</li>\n<li>two</li>\n<li>three</li>\n</ol>"
+    },
+    {
+        "input": "1. one\n2. two\n3. three",
+        "public": true,
+        "output": "<ol>\n<li>one</li>\n<li>two</li>\n<li>three</li>\n</ol>"
+    },
+    {
+        "input": "1. one\n\n2. loose",
+        "public": false,
+        "output": "<ol>\n<li>\n<p>one</p>\n</li>\n<li>\n<p>loose</p>\n</li>\n</ol>"
+    },
+    {
+        "input": "1. one\n\n2. loose",
+        "public": true,
+        "output": "<ol>\n<li>\n<p>one</p>\n</li>\n<li>\n<p>loose</p>\n</li>\n</ol>"
+    },
+    {
+        "input": "- [ ] todo\n- [x] done",
+        "public": false,
+        "output": "<ul>\n<li>[ ] todo</li>\n<li>[x] done</li>\n</ul>"
+    },
+    {
+        "input": "- [ ] todo\n- [x] done",
+        "public": true,
+        "output": "<ul>\n<li>[ ] todo</li>\n<li>[x] done</li>\n</ul>"
+    },
+    {
+        "input": "Title\n=====",
+        "public": false,
+        "output": "<h1>Title</h1>"
+    },
+    {
+        "input": "Title\n=====",
+        "public": true,
+        "output": "<h1>Title</h1>"
+    },
+    {
+        "input": "Sub\n---",
+        "public": false,
+        "output": "<h2>Sub</h2>"
+    },
+    {
+        "input": "Sub\n---",
+        "public": true,
+        "output": "<h2>Sub</h2>"
+    },
+    {
+        "input": "---",
+        "public": false,
+        "output": "<hr />"
+    },
+    {
+        "input": "---",
+        "public": true,
+        "output": "<hr />"
+    },
+    {
+        "input": "***",
+        "public": false,
+        "output": "<hr />"
+    },
+    {
+        "input": "***",
+        "public": true,
+        "output": "<hr />"
+    },
+    {
+        "input": "___",
+        "public": false,
+        "output": "<hr />"
+    },
+    {
+        "input": "___",
+        "public": true,
+        "output": "<hr />"
+    },
+    {
+        "input": "#NoSpace",
+        "public": false,
+        "output": "<h1>NoSpace</h1>"
+    },
+    {
+        "input": "#NoSpace",
+        "public": true,
+        "output": "<h1>NoSpace</h1>"
+    },
+    {
+        "input": "####### seven",
+        "public": false,
+        "output": "<p>####### seven</p>"
+    },
+    {
+        "input": "####### seven",
+        "public": true,
+        "output": "<p>####### seven</p>"
+    },
+    {
+        "input": "## Heading ##",
+        "public": false,
+        "output": "<h2>Heading</h2>"
+    },
+    {
+        "input": "## Heading ##",
+        "public": true,
+        "output": "<h2>Heading</h2>"
+    },
+    {
+        "input": "#hash then text",
+        "public": false,
+        "output": "<h1>hash then text</h1>"
+    },
+    {
+        "input": "#hash then text",
+        "public": true,
+        "output": "<h1>hash then text</h1>"
+    },
+    {
+        "input": "# #123 heading",
+        "public": false,
+        "output": "<h1>123 heading</h1>"
+    },
+    {
+        "input": "# #123 heading",
+        "public": true,
+        "output": "<h1>123 heading</h1>"
+    },
+    {
+        "input": "| a | b |\n|---|---|\n| 1 | 2 |",
+        "public": false,
+        "output": "<table>\n<thead>\n<tr>\n<th>a</th>\n<th>b</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td>2</td>\n</tr>\n</tbody>\n</table>"
+    },
+    {
+        "input": "| a | b |\n|---|---|\n| 1 | 2 |",
+        "public": true,
+        "output": "<table>\n<thead>\n<tr>\n<th>a</th>\n<th>b</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td>2</td>\n</tr>\n</tbody>\n</table>"
+    },
+    {
+        "input": "a | b\n--|--\n1 | 2",
+        "public": false,
+        "output": "<table>\n<thead>\n<tr>\n<th>a</th>\n<th>b</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td>2</td>\n</tr>\n</tbody>\n</table>"
+    },
+    {
+        "input": "a | b\n--|--\n1 | 2",
+        "public": true,
+        "output": "<table>\n<thead>\n<tr>\n<th>a</th>\n<th>b</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1</td>\n<td>2</td>\n</tr>\n</tbody>\n</table>"
+    },
+    {
+        "input": "<http://example.com>",
+        "public": false,
+        "output": "<p><a href=\"http://example.com\">http://example.com</a></p>"
+    },
+    {
+        "input": "<http://example.com>",
+        "public": true,
+        "output": "<p><a href=\"http://example.com\">http://example.com</a></p>"
+    },
+    {
+        "input": "<me@example.com>",
+        "public": false,
+        "output": "<p><a href=\"mailto:me@example.com\">me@example.com</a></p>"
+    },
+    {
+        "input": "<me@example.com>",
+        "public": true,
+        "output": "<p><a href=\"mailto:me@example.com\">me@example.com</a></p>"
+    },
+    {
+        "input": "http://example.com/path?x=1&y=2",
+        "public": false,
+        "output": "<p><a href=\"http://example.com/path?x=1&amp;y=2\">http://example.com/path?x=1&amp;y=2</a></p>"
+    },
+    {
+        "input": "http://example.com/path?x=1&y=2",
+        "public": true,
+        "output": "<p><a href=\"http://example.com/path?x=1&amp;y=2\">http://example.com/path?x=1&amp;y=2</a></p>"
+    },
+    {
+        "input": "www.example.com",
+        "public": false,
+        "output": "<p>www.example.com</p>"
+    },
+    {
+        "input": "www.example.com",
+        "public": true,
+        "output": "<p>www.example.com</p>"
+    },
+    {
+        "input": "https://example.com.",
+        "public": false,
+        "output": "<p><a href=\"https://example.com\">https://example.com</a>.</p>"
+    },
+    {
+        "input": "https://example.com.",
+        "public": true,
+        "output": "<p><a href=\"https://example.com\">https://example.com</a>.</p>"
+    },
+    {
+        "input": "(see http://example.com)",
+        "public": false,
+        "output": "<p>(see <a href=\"http://example.com\">http://example.com</a>)</p>"
+    },
+    {
+        "input": "(see http://example.com)",
+        "public": true,
+        "output": "<p>(see <a href=\"http://example.com\">http://example.com</a>)</p>"
+    },
+    {
+        "input": "mail me@example.com",
+        "public": false,
+        "output": "<p>mail me@example.com</p>"
+    },
+    {
+        "input": "mail me@example.com",
+        "public": true,
+        "output": "<p>mail me@example.com</p>"
+    },
+    {
+        "input": "[link](http://example.com \"title\")",
+        "public": false,
+        "output": "<p><a href=\"http://example.com\" title=\"title\">link</a></p>"
+    },
+    {
+        "input": "[link](http://example.com \"title\")",
+        "public": true,
+        "output": "<p><a href=\"http://example.com\" title=\"title\">link</a></p>"
+    },
+    {
+        "input": "[ref][1]\n\n[1]: http://example.com \"Ref\"",
+        "public": false,
+        "output": "<p><a href=\"http://example.com\" title=\"Ref\">ref</a></p>"
+    },
+    {
+        "input": "[ref][1]\n\n[1]: http://example.com \"Ref\"",
+        "public": true,
+        "output": "<p><a href=\"http://example.com\" title=\"Ref\">ref</a></p>"
+    },
+    {
+        "input": "[a](<http://a b>)",
+        "public": false,
+        "output": "<p>[a](&lt;<a href=\"http://a\">http://a</a> b&gt;)</p>"
+    },
+    {
+        "input": "[a](<http://a b>)",
+        "public": true,
+        "output": "<p>[a](&lt;<a href=\"http://a\">http://a</a> b&gt;)</p>"
+    },
+    {
+        "input": "[x](/relative/path)",
+        "public": false,
+        "output": "<p><a href=\"/relative/path\">x</a></p>"
+    },
+    {
+        "input": "[x](/relative/path)",
+        "public": true,
+        "output": "<p><a href=\"/relative/path\">x</a></p>"
+    },
+    {
+        "input": "[x](#anchor)",
+        "public": false,
+        "output": "<p><a href=\"#anchor\">x</a></p>"
+    },
+    {
+        "input": "[x](#anchor)",
+        "public": true,
+        "output": "<p><a href=\"#anchor\">x</a></p>"
+    },
+    {
+        "input": "[x](mailto:a@b.c)",
+        "public": false,
+        "output": "<p><a href=\"mailto:a@b.c\">x</a></p>"
+    },
+    {
+        "input": "[x](mailto:a@b.c)",
+        "public": true,
+        "output": "<p><a href=\"mailto:a@b.c\">x</a></p>"
+    },
+    {
+        "input": "[x](ftp://host/f)",
+        "public": false,
+        "output": "<p><a href=\"ftp://host/f\">x</a></p>"
+    },
+    {
+        "input": "[x](ftp://host/f)",
+        "public": true,
+        "output": "<p><a href=\"ftp://host/f\">x</a></p>"
+    },
+    {
+        "input": "\\*not em\\*",
+        "public": false,
+        "output": "<p>*not em*</p>"
+    },
+    {
+        "input": "\\*not em\\*",
+        "public": true,
+        "output": "<p>*not em*</p>"
+    },
+    {
+        "input": "\\# not heading",
+        "public": false,
+        "output": "<p># not heading</p>"
+    },
+    {
+        "input": "\\# not heading",
+        "public": true,
+        "output": "<p># not heading</p>"
+    },
+    {
+        "input": "trailing backslash\\",
+        "public": false,
+        "output": "<p>trailing backslash\\</p>"
+    },
+    {
+        "input": "trailing backslash\\",
+        "public": true,
+        "output": "<p>trailing backslash\\</p>"
+    },
+    {
+        "input": "Hello #",
+        "public": false,
+        "output": "<p>Hello #</p>"
+    },
+    {
+        "input": "Hello #",
+        "public": true,
+        "output": "<p>Hello #</p>"
+    },
+    {
+        "input": "Use # as marker and #12",
+        "public": false,
+        "output": "<p>Use <a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=12\">#12</a>s marker and <a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=12\">#12</a></p>"
+    },
+    {
+        "input": "Use # as marker and #12",
+        "public": true,
+        "output": "<p>Use # as marker and #12</p>"
+    },
+    {
+        "input": "#abc #4",
+        "public": false,
+        "output": "<h1>abc <a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=4\">#4</a></h1>"
+    },
+    {
+        "input": "#abc #4",
+        "public": true,
+        "output": "<h1>abc #4</h1>"
+    },
+    {
+        "input": "issue#5 and #6",
+        "public": false,
+        "output": "<p>issue<a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=5\">#5</a> and <a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=6\">#6</a></p>"
+    },
+    {
+        "input": "issue#5 and #6",
+        "public": true,
+        "output": "<p>issue#5 and #6</p>"
+    },
+    {
+        "input": "@",
+        "public": false,
+        "output": "<p>@</p>"
+    },
+    {
+        "input": "@",
+        "public": true,
+        "output": "<p>@</p>"
+    },
+    {
+        "input": "email@admin.com",
+        "public": false,
+        "output": "<p>email@admin.com</p>"
+    },
+    {
+        "input": "email@admin.com",
+        "public": true,
+        "output": "<p>email@admin.com</p>"
+    },
+    {
+        "input": "@admin\n@admin",
+        "public": false,
+        "output": "<p><a href=\"?controller=UserViewController&amp;action=profile&amp;user_id=1\" class=\"user-mention-link\" title=\"admin\" aria-label=\"admin\">@admin</a><br />\n<a href=\"?controller=UserViewController&amp;action=profile&amp;user_id=1\" class=\"user-mention-link\" title=\"admin\" aria-label=\"admin\">@admin</a></p>"
+    },
+    {
+        "input": "@admin\n@admin",
+        "public": true,
+        "output": "<p>@admin<br />\n@admin</p>"
+    },
+    {
+        "input": "`#123 in code` and `@admin`",
+        "public": false,
+        "output": "<p><code>#123 in code</code> and <code>@admin</code></p>"
+    },
+    {
+        "input": "`#123 in code` and `@admin`",
+        "public": true,
+        "output": "<p><code>#123 in code</code> and <code>@admin</code></p>"
+    },
+    {
+        "input": "```\n#123 @admin\n```",
+        "public": false,
+        "output": "<pre><code>#123 @admin</code></pre>"
+    },
+    {
+        "input": "```\n#123 @admin\n```",
+        "public": true,
+        "output": "<pre><code>#123 @admin</code></pre>"
+    },
+    {
+        "input": "**#123** and *@admin*",
+        "public": false,
+        "output": "<p><strong><a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=123\">#123</a></strong> and <em><a href=\"?controller=UserViewController&amp;action=profile&amp;user_id=1\" class=\"user-mention-link\" title=\"admin\" aria-label=\"admin\">@admin</a></em></p>"
+    },
+    {
+        "input": "**#123** and *@admin*",
+        "public": true,
+        "output": "<p><strong>#123</strong> and <em>@admin</em></p>"
+    },
+    {
+        "input": "~~#123~~",
+        "public": false,
+        "output": "<p><del><a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=123\">#123</a></del></p>"
+    },
+    {
+        "input": "~~#123~~",
+        "public": true,
+        "output": "<p><del>#123</del></p>"
+    },
+    {
+        "input": "> #123 quote",
+        "public": false,
+        "output": "<blockquote>\n<p><a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=123\">#123</a> quote</p>\n</blockquote>"
+    },
+    {
+        "input": "> #123 quote",
+        "public": true,
+        "output": "<blockquote>\n<p>#123 quote</p>\n</blockquote>"
+    },
+    {
+        "input": "- #123 item",
+        "public": false,
+        "output": "<ul>\n<li><a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=123\">#123</a> item</li>\n</ul>"
+    },
+    {
+        "input": "- #123 item",
+        "public": true,
+        "output": "<ul>\n<li>#123 item</li>\n</ul>"
+    },
+    {
+        "input": "[#123](http://x.y)",
+        "public": false,
+        "output": "<p><a href=\"http://x.y\">#123</a></p>"
+    },
+    {
+        "input": "[#123](http://x.y)",
+        "public": true,
+        "output": "<p><a href=\"http://x.y\">#123</a></p>"
+    },
+    {
+        "input": "<a href=\"http://x\">raw</a>",
+        "public": false,
+        "output": "<p>&lt;a href=&quot;<a href=\"http://x&quot;&gt;raw\">http://x\"&gt;raw</a>&lt;/a&gt;</p>"
+    },
+    {
+        "input": "<a href=\"http://x\">raw</a>",
+        "public": true,
+        "output": "<p>&lt;a href=&quot;<a href=\"http://x&quot;&gt;raw\">http://x\"&gt;raw</a>&lt;/a&gt;</p>"
+    },
+    {
+        "input": "&amp; &lt; &copy;",
+        "public": false,
+        "output": "<p>&amp; &lt; &copy;</p>"
+    },
+    {
+        "input": "&amp; &lt; &copy;",
+        "public": true,
+        "output": "<p>&amp; &lt; &copy;</p>"
+    },
+    {
+        "input": "&#35;123",
+        "public": false,
+        "output": "<p>&<a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=35\">#35</a>;123</p>"
+    },
+    {
+        "input": "&#35;123",
+        "public": true,
+        "output": "<p>&#35;123</p>"
+    },
+    {
+        "input": "*a*b*",
+        "public": false,
+        "output": "<p><em>a</em>b*</p>"
+    },
+    {
+        "input": "*a*b*",
+        "public": true,
+        "output": "<p><em>a</em>b*</p>"
+    },
+    {
+        "input": "**a*b**",
+        "public": false,
+        "output": "<p>*<em>a</em>b**</p>"
+    },
+    {
+        "input": "**a*b**",
+        "public": true,
+        "output": "<p>*<em>a</em>b**</p>"
+    },
+    {
+        "input": "snake_case_word",
+        "public": false,
+        "output": "<p>snake_case_word</p>"
+    },
+    {
+        "input": "snake_case_word",
+        "public": true,
+        "output": "<p>snake_case_word</p>"
+    },
+    {
+        "input": "2 * 3 * 4",
+        "public": false,
+        "output": "<p>2 <em> 3 </em> 4</p>"
+    },
+    {
+        "input": "2 * 3 * 4",
+        "public": true,
+        "output": "<p>2 <em> 3 </em> 4</p>"
+    },
+    {
+        "input": "a_b_c",
+        "public": false,
+        "output": "<p>a_b_c</p>"
+    },
+    {
+        "input": "a_b_c",
+        "public": true,
+        "output": "<p>a_b_c</p>"
+    },
+    {
+        "input": "Ünïcödé text 日本語",
+        "public": false,
+        "output": "<p>Ünïcödé text 日本語</p>"
+    },
+    {
+        "input": "Ünïcödé text 日本語",
+        "public": true,
+        "output": "<p>Ünïcödé text 日本語</p>"
+    },
+    {
+        "input": "line1\r\nline2\r\n\r\nline3",
+        "public": false,
+        "output": "<p>line1<br />\nline2</p>\n<p>line3</p>"
+    },
+    {
+        "input": "line1\r\nline2\r\n\r\nline3",
+        "public": true,
+        "output": "<p>line1<br />\nline2</p>\n<p>line3</p>"
+    },
+    {
+        "input": "tab\tseparated",
+        "public": false,
+        "output": "<p>tab separated</p>"
+    },
+    {
+        "input": "tab\tseparated",
+        "public": true,
+        "output": "<p>tab separated</p>"
+    },
+    {
+        "input": "  leading spaces",
+        "public": false,
+        "output": "<p>leading spaces</p>"
+    },
+    {
+        "input": "  leading spaces",
+        "public": true,
+        "output": "<p>leading spaces</p>"
+    },
+    {
+        "input": "trailing spaces   ",
+        "public": false,
+        "output": "<p>trailing spaces   </p>"
+    },
+    {
+        "input": "trailing spaces   ",
+        "public": true,
+        "output": "<p>trailing spaces   </p>"
+    },
+    {
+        "input": "\n\nleading newlines",
+        "public": false,
+        "output": "<p>leading newlines</p>"
+    },
+    {
+        "input": "\n\nleading newlines",
+        "public": true,
+        "output": "<p>leading newlines</p>"
+    },
+    {
+        "input": "",
+        "public": false,
+        "output": ""
+    },
+    {
+        "input": "",
+        "public": true,
+        "output": ""
+    },
+    {
+        "input": "1986\\. A great year",
+        "public": false,
+        "output": "<p>1986. A great year</p>"
+    },
+    {
+        "input": "1986\\. A great year",
+        "public": true,
+        "output": "<p>1986. A great year</p>"
+    },
+    {
+        "input": "- a\n\n  para in item\n- b",
+        "public": false,
+        "output": "<ul>\n<li>\n<p>a</p>\n<p>para in item</p>\n</li>\n<li>b</li>\n</ul>"
+    },
+    {
+        "input": "- a\n\n  para in item\n- b",
+        "public": true,
+        "output": "<ul>\n<li>\n<p>a</p>\n<p>para in item</p>\n</li>\n<li>b</li>\n</ul>"
+    },
+    {
+        "input": "> - list in quote",
+        "public": false,
+        "output": "<blockquote>\n<ul>\n<li>list in quote</li>\n</ul>\n</blockquote>"
+    },
+    {
+        "input": "> - list in quote",
+        "public": true,
+        "output": "<blockquote>\n<ul>\n<li>list in quote</li>\n</ul>\n</blockquote>"
+    },
+    {
+        "input": "<?php echo 1; ?>",
+        "public": false,
+        "output": "<p>&lt;?php echo 1; ?&gt;</p>"
+    },
+    {
+        "input": "<?php echo 1; ?>",
+        "public": true,
+        "output": "<p>&lt;?php echo 1; ?&gt;</p>"
+    },
+    {
+        "input": "<style>x{}</style>",
+        "public": false,
+        "output": "<p>&lt;style&gt;x{}&lt;/style&gt;</p>"
+    },
+    {
+        "input": "<style>x{}</style>",
+        "public": true,
+        "output": "<p>&lt;style&gt;x{}&lt;/style&gt;</p>"
+    },
+    {
+        "input": "<iframe src=\"x\"></iframe>",
+        "public": false,
+        "output": "<p>&lt;iframe src=&quot;x&quot;&gt;&lt;/iframe&gt;</p>"
+    },
+    {
+        "input": "<iframe src=\"x\"></iframe>",
+        "public": true,
+        "output": "<p>&lt;iframe src=&quot;x&quot;&gt;&lt;/iframe&gt;</p>"
+    },
+    {
+        "input": "<a href=\"javascript:alert(1)\" onclick=\"x\">x</a>",
+        "public": false,
+        "output": "<p>&lt;a href=&quot;javascript:alert(1)&quot; onclick=&quot;x&quot;&gt;x&lt;/a&gt;</p>"
+    },
+    {
+        "input": "<a href=\"javascript:alert(1)\" onclick=\"x\">x</a>",
+        "public": true,
+        "output": "<p>&lt;a href=&quot;javascript:alert(1)&quot; onclick=&quot;x&quot;&gt;x&lt;/a&gt;</p>"
+    },
+    {
+        "input": "![alt *em*](http://x.y/a.png)",
+        "public": false,
+        "output": "<p><img src=\"http://x.y/a.png\" alt=\"alt *em*\" /></p>"
+    },
+    {
+        "input": "![alt *em*](http://x.y/a.png)",
+        "public": true,
+        "output": "<p><img src=\"http://x.y/a.png\" alt=\"alt *em*\" /></p>"
+    },
+    {
+        "input": "[![img](http://x/i.png)](http://x/l)",
+        "public": false,
+        "output": "<p><a href=\"http://x/l\"><img src=\"http://x/i.png\" alt=\"img\" /></a></p>"
+    },
+    {
+        "input": "[![img](http://x/i.png)](http://x/l)",
+        "public": true,
+        "output": "<p><a href=\"http://x/l\"><img src=\"http://x/i.png\" alt=\"img\" /></a></p>"
+    },
+    {
+        "input": "[link [nested] text](http://x.y)",
+        "public": false,
+        "output": "<p><a href=\"http://x.y\">link [nested] text</a></p>"
+    },
+    {
+        "input": "[link [nested] text](http://x.y)",
+        "public": true,
+        "output": "<p><a href=\"http://x.y\">link [nested] text</a></p>"
+    },
+    {
+        "input": "[a](http://x.y/a_(b))",
+        "public": false,
+        "output": "<p><a href=\"http://x.y/a_(b)\">a</a></p>"
+    },
+    {
+        "input": "[a](http://x.y/a_(b))",
+        "public": true,
+        "output": "<p><a href=\"http://x.y/a_(b)\">a</a></p>"
+    },
+    {
+        "input": "<br>",
+        "public": false,
+        "output": "<p>&lt;br&gt;</p>"
+    },
+    {
+        "input": "<br>",
+        "public": true,
+        "output": "<p>&lt;br&gt;</p>"
+    },
+    {
+        "input": "line<br/>break",
+        "public": false,
+        "output": "<p>line&lt;br/&gt;break</p>"
+    },
+    {
+        "input": "line<br/>break",
+        "public": true,
+        "output": "<p>line&lt;br/&gt;break</p>"
+    },
+    {
+        "input": "- a\n- b\n\n- c",
+        "public": false,
+        "output": "<ul>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n</li>\n<li>\n<p>c</p>\n</li>\n</ul>"
+    },
+    {
+        "input": "- a\n- b\n\n- c",
+        "public": true,
+        "output": "<ul>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n</li>\n<li>\n<p>c</p>\n</li>\n</ul>"
+    },
+    {
+        "input": "- a\n\n  - nested\n- b",
+        "public": false,
+        "output": "<ul>\n<li>\n<p>a</p>\n<ul>\n<li>nested</li>\n</ul>\n</li>\n<li>b</li>\n</ul>"
+    },
+    {
+        "input": "- a\n\n  - nested\n- b",
+        "public": true,
+        "output": "<ul>\n<li>\n<p>a</p>\n<ul>\n<li>nested</li>\n</ul>\n</li>\n<li>b</li>\n</ul>"
+    },
+    {
+        "input": "1. a\n2. b\n   - x\n   - y\n3. c",
+        "public": false,
+        "output": "<ol>\n<li>a</li>\n<li>b\n<ul>\n<li>x</li>\n<li>y</li>\n</ul></li>\n<li>c</li>\n</ol>"
+    },
+    {
+        "input": "1. a\n2. b\n   - x\n   - y\n3. c",
+        "public": true,
+        "output": "<ol>\n<li>a</li>\n<li>b\n<ul>\n<li>x</li>\n<li>y</li>\n</ul></li>\n<li>c</li>\n</ol>"
+    },
+    {
+        "input": "> a\n\n> b\n\ntext",
+        "public": false,
+        "output": "<blockquote>\n<p>a</p>\n<p>b</p>\n</blockquote>\n<p>text</p>"
+    },
+    {
+        "input": "> a\n\n> b\n\ntext",
+        "public": true,
+        "output": "<blockquote>\n<p>a</p>\n<p>b</p>\n</blockquote>\n<p>text</p>"
+    },
+    {
+        "input": "> quote\nlazy",
+        "public": false,
+        "output": "<blockquote>\n<p>quote<br />\nlazy</p>\n</blockquote>"
+    },
+    {
+        "input": "> quote\nlazy",
+        "public": true,
+        "output": "<blockquote>\n<p>quote<br />\nlazy</p>\n</blockquote>"
+    },
+    {
+        "input": "text\n- list directly",
+        "public": false,
+        "output": "<p>text</p>\n<ul>\n<li>list directly</li>\n</ul>"
+    },
+    {
+        "input": "text\n- list directly",
+        "public": true,
+        "output": "<p>text</p>\n<ul>\n<li>list directly</li>\n</ul>"
+    },
+    {
+        "input": "para\n# header directly\nafter",
+        "public": false,
+        "output": "<p>para</p>\n<h1>header directly</h1>\n<p>after</p>"
+    },
+    {
+        "input": "para\n# header directly\nafter",
+        "public": true,
+        "output": "<p>para</p>\n<h1>header directly</h1>\n<p>after</p>"
+    },
+    {
+        "input": "Setext\n===\n\ntext  \nmore",
+        "public": false,
+        "output": "<h1>Setext</h1>\n<p>text<br />\nmore</p>"
+    },
+    {
+        "input": "Setext\n===\n\ntext  \nmore",
+        "public": true,
+        "output": "<h1>Setext</h1>\n<p>text<br />\nmore</p>"
+    },
+    {
+        "input": "`a\"b'c` and ```x```",
+        "public": false,
+        "output": "<p><code>a\"b'c</code> and <code>x</code></p>"
+    },
+    {
+        "input": "`a\"b'c` and ```x```",
+        "public": true,
+        "output": "<p><code>a\"b'c</code> and <code>x</code></p>"
+    },
+    {
+        "input": "```\nq\"uote 'x'\n```",
+        "public": false,
+        "output": "<pre><code>q\"uote 'x'</code></pre>"
+    },
+    {
+        "input": "```\nq\"uote 'x'\n```",
+        "public": true,
+        "output": "<pre><code>q\"uote 'x'</code></pre>"
+    },
+    {
+        "input": "    code \"q\" <b>",
+        "public": false,
+        "output": "<pre><code>code \"q\" &lt;b&gt;</code></pre>"
+    },
+    {
+        "input": "    code \"q\" <b>",
+        "public": true,
+        "output": "<pre><code>code \"q\" &lt;b&gt;</code></pre>"
+    },
+    {
+        "input": "[a](http://x.y \"t&t\")",
+        "public": false,
+        "output": "<p><a href=\"http://x.y\" title=\"t&amp;t\">a</a></p>"
+    },
+    {
+        "input": "[a](http://x.y \"t&t\")",
+        "public": true,
+        "output": "<p><a href=\"http://x.y\" title=\"t&amp;t\">a</a></p>"
+    },
+    {
+        "input": "[a](<b>)",
+        "public": false,
+        "output": "<p><a href=\"&lt;b&gt;\">a</a></p>"
+    },
+    {
+        "input": "[a](<b>)",
+        "public": true,
+        "output": "<p><a href=\"&lt;b&gt;\">a</a></p>"
+    },
+    {
+        "input": "[a][]\n\n[a]: /url",
+        "public": false,
+        "output": "<p><a href=\"/url\">a</a></p>"
+    },
+    {
+        "input": "[a][]\n\n[a]: /url",
+        "public": true,
+        "output": "<p><a href=\"/url\">a</a></p>"
+    },
+    {
+        "input": "[A][B]\n\n[b]: /u 'T'",
+        "public": false,
+        "output": "<p><a href=\"/u\" title=\"T\">A</a></p>"
+    },
+    {
+        "input": "[A][B]\n\n[b]: /u 'T'",
+        "public": true,
+        "output": "<p><a href=\"/u\" title=\"T\">A</a></p>"
+    },
+    {
+        "input": "![r][i]\n\n[i]: http://x/i.png",
+        "public": false,
+        "output": "<p><img src=\"http://x/i.png\" alt=\"r\" /></p>"
+    },
+    {
+        "input": "![r][i]\n\n[i]: http://x/i.png",
+        "public": true,
+        "output": "<p><img src=\"http://x/i.png\" alt=\"r\" /></p>"
+    },
+    {
+        "input": "*a **b** c*",
+        "public": false,
+        "output": "<p><em>a <strong>b</strong> c</em></p>"
+    },
+    {
+        "input": "*a **b** c*",
+        "public": true,
+        "output": "<p><em>a <strong>b</strong> c</em></p>"
+    },
+    {
+        "input": "__a *b* c__",
+        "public": false,
+        "output": "<p><strong>a <em>b</em> c</strong></p>"
+    },
+    {
+        "input": "__a *b* c__",
+        "public": true,
+        "output": "<p><strong>a <em>b</em> c</strong></p>"
+    },
+    {
+        "input": "*a\nb*",
+        "public": false,
+        "output": "<p><em>a<br />\nb</em></p>"
+    },
+    {
+        "input": "*a\nb*",
+        "public": true,
+        "output": "<p><em>a<br />\nb</em></p>"
+    },
+    {
+        "input": "http://a.com/x_y_z and http://b.org/*x*",
+        "public": false,
+        "output": "<p><a href=\"http://a.com/x_y_z\">http://a.com/x_y_z</a> and <a href=\"http://b.org/*x\">http://b.org/*x</a>*</p>"
+    },
+    {
+        "input": "http://a.com/x_y_z and http://b.org/*x*",
+        "public": true,
+        "output": "<p><a href=\"http://a.com/x_y_z\">http://a.com/x_y_z</a> and <a href=\"http://b.org/*x\">http://b.org/*x</a>*</p>"
+    },
+    {
+        "input": "text http://a.com, then",
+        "public": false,
+        "output": "<p>text <a href=\"http://a.com\">http://a.com</a>, then</p>"
+    },
+    {
+        "input": "text http://a.com, then",
+        "public": true,
+        "output": "<p>text <a href=\"http://a.com\">http://a.com</a>, then</p>"
+    },
+    {
+        "input": "'single' \"double\"",
+        "public": false,
+        "output": "<p>'single' &quot;double&quot;</p>"
+    },
+    {
+        "input": "'single' \"double\"",
+        "public": true,
+        "output": "<p>'single' &quot;double&quot;</p>"
+    },
+    {
+        "input": "*   star list\n*   two",
+        "public": false,
+        "output": "<ul>\n<li>star list</li>\n<li>two</li>\n</ul>"
+    },
+    {
+        "input": "*   star list\n*   two",
+        "public": true,
+        "output": "<ul>\n<li>star list</li>\n<li>two</li>\n</ul>"
+    },
+    {
+        "input": "1) paren",
+        "public": false,
+        "output": "<p>1) paren</p>"
+    },
+    {
+        "input": "1) paren",
+        "public": true,
+        "output": "<p>1) paren</p>"
+    },
+    {
+        "input": "a\\\nb",
+        "public": false,
+        "output": "<p>a\\<br />\nb</p>"
+    },
+    {
+        "input": "a\\\nb",
+        "public": true,
+        "output": "<p>a\\<br />\nb</p>"
+    },
+    {
+        "input": "Line with \\* and \\_ and \\\\ and \\q",
+        "public": false,
+        "output": "<p>Line with * and _ and \\ and \\q</p>"
+    },
+    {
+        "input": "Line with \\* and \\_ and \\\\ and \\q",
+        "public": true,
+        "output": "<p>Line with * and _ and \\ and \\q</p>"
+    },
+    {
+        "input": "~single~ ~~a b~~ ~~ x~~",
+        "public": false,
+        "output": "<p>~single~ <del>a b</del> ~~ x~~</p>"
+    },
+    {
+        "input": "~single~ ~~a b~~ ~~ x~~",
+        "public": true,
+        "output": "<p>~single~ <del>a b</del> ~~ x~~</p>"
+    },
+    {
+        "input": "<b>x</b> & &amp; &lt;",
+        "public": false,
+        "output": "<p>&lt;b&gt;x&lt;/b&gt; &amp; &amp; &lt;</p>"
+    },
+    {
+        "input": "<b>x</b> & &amp; &lt;",
+        "public": true,
+        "output": "<p>&lt;b&gt;x&lt;/b&gt; &amp; &amp; &lt;</p>"
+    },
+    {
+        "input": "@admin* and (@admin) and @admin's",
+        "public": false,
+        "output": "<p>@admin* and (@admin) and @admin's</p>"
+    },
+    {
+        "input": "@admin* and (@admin) and @admin's",
+        "public": true,
+        "output": "<p>@admin* and (@admin) and @admin's</p>"
+    },
+    {
+        "input": "#12abc #0 ##5",
+        "public": false,
+        "output": "<p><a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=12\">#12</a>abc <a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=0\">#0</a> <a href=\"?controller=TaskViewController&amp;action=show&amp;task_id=5\">#5</a>5</p>"
+    },
+    {
+        "input": "#12abc #0 ##5",
+        "public": true,
+        "output": "<p>#12abc #0 ##5</p>"
+    },
+    {
+        "input": "- item\n\n- item2\n\n  more",
+        "public": false,
+        "output": "<ul>\n<li>\n<p>item</p>\n</li>\n<li>\n<p>item2</p>\n<p>more</p>\n</li>\n</ul>"
+    },
+    {
+        "input": "- item\n\n- item2\n\n  more",
+        "public": true,
+        "output": "<ul>\n<li>\n<p>item</p>\n</li>\n<li>\n<p>item2</p>\n<p>more</p>\n</li>\n</ul>"
+    },
+    {
+        "input": "Term\n: def",
+        "public": false,
+        "output": "<p>Term<br />\n: def</p>"
+    },
+    {
+        "input": "Term\n: def",
+        "public": true,
+        "output": "<p>Term<br />\n: def</p>"
+    },
+    {
+        "input": "| a | b |\n|:-:|--:|\n| 1 | 2 |\n| 3 | 4 |",
+        "public": false,
+        "output": "<table>\n<thead>\n<tr>\n<th style=\"text-align: center;\">a</th>\n<th style=\"text-align: right;\">b</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: center;\">1</td>\n<td style=\"text-align: right;\">2</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">3</td>\n<td style=\"text-align: right;\">4</td>\n</tr>\n</tbody>\n</table>"
+    },
+    {
+        "input": "| a | b |\n|:-:|--:|\n| 1 | 2 |\n| 3 | 4 |",
+        "public": true,
+        "output": "<table>\n<thead>\n<tr>\n<th style=\"text-align: center;\">a</th>\n<th style=\"text-align: right;\">b</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: center;\">1</td>\n<td style=\"text-align: right;\">2</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">3</td>\n<td style=\"text-align: right;\">4</td>\n</tr>\n</tbody>\n</table>"
+    },
+    {
+        "input": "***\ntext\n---",
+        "public": false,
+        "output": "<hr />\n<h2>text</h2>"
+    },
+    {
+        "input": "***\ntext\n---",
+        "public": true,
+        "output": "<hr />\n<h2>text</h2>"
+    },
+    {
+        "input": "    \n\ntext",
+        "public": false,
+        "output": "<p>text</p>"
+    },
+    {
+        "input": "    \n\ntext",
+        "public": true,
+        "output": "<p>text</p>"
+    },
+    {
+        "input": "# h\ntext\n## h2\n- l",
+        "public": false,
+        "output": "<h1>h</h1>\n<p>text</p>\n<h2>h2</h2>\n<ul>\n<li>l</li>\n</ul>"
+    },
+    {
+        "input": "# h\ntext\n## h2\n- l",
+        "public": true,
+        "output": "<h1>h</h1>\n<p>text</p>\n<h2>h2</h2>\n<ul>\n<li>l</li>\n</ul>"
+    },
+    {
+        "input": "~~~php\ncode\n~~~",
+        "public": false,
+        "output": "<pre><code class=\"language-php\">code</code></pre>"
+    },
+    {
+        "input": "~~~php\ncode\n~~~",
+        "public": true,
+        "output": "<pre><code class=\"language-php\">code</code></pre>"
+    },
+    {
+        "input": "```js title\nx\n```",
+        "public": false,
+        "output": "<pre><code class=\"language-js\">x</code></pre>"
+    },
+    {
+        "input": "```js title\nx\n```",
+        "public": true,
+        "output": "<pre><code class=\"language-js\">x</code></pre>"
+    },
+    {
+        "input": "> ```\n> code\n> ```",
+        "public": false,
+        "output": "<blockquote>\n<pre><code>code</code></pre>\n</blockquote>"
+    },
+    {
+        "input": "> ```\n> code\n> ```",
+        "public": true,
+        "output": "<blockquote>\n<pre><code>code</code></pre>\n</blockquote>"
+    }
+]

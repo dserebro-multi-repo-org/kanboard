@@ -1,0 +1,34 @@
+{# Variables: is_ajax, average ({avg_lead_time, avg_cycle_time}), metrics, project, values. #}
+{% if not is_ajax %}
+    <div class="page-header">
+        <h2>{{ t('Average Lead and Cycle time') }}</h2>
+    </div>
+{% endif %}
+
+<div class="panel">
+    <ul>
+        <li>{{ t('Average lead time: ') }}<strong>{{ helper.dt.duration(average.avg_lead_time) }}</strong></li>
+        <li>{{ t('Average cycle time: ') }}<strong>{{ helper.dt.duration(average.avg_cycle_time) }}</strong></li>
+    </ul>
+</div>
+
+{% if not (metrics | length) %}
+    <p class="alert">{{ t('Not enough data to show the graph.') }}</p>
+{% else %}
+    {{ helper.app.component('chart-project-lead-cycle-time', {
+        metrics: metrics,
+        labelCycle: t('Cycle Time'),
+        labelLead: t('Lead Time')
+    }) | safe }}
+
+    <form method="post" class="form-inline" action="{{ helper.url.href('AnalyticController', 'leadAndCycleTime', {project_id: project.id}) }}" autocomplete="off">
+        {{ helper.form.csrf() }}
+        {{ helper.form.date(t('Start date'), 'from', values) }}
+        {{ helper.form.date(t('End date'), 'to', values) }}
+        {{ helper.modal.submitButtons({submitLabel: t('Execute')}) }}
+    </form>
+
+    <p class="alert alert-info">
+        {{ t('This chart shows the average lead and cycle time for the last %d tasks over the time.', 1000) }}
+    </p>
+{% endif %}

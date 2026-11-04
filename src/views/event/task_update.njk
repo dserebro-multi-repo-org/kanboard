@@ -1,0 +1,20 @@
+{#
+  Pre-resolved variables (see prepareEventVars in src/views/prepare/event.ts):
+    date_creation_formatted  result of the async helper dt.datetime(date_creation)
+  Other variables: author, task, changes (optional, passed on to task/changes), date_creation (as in app/Template/event/task_update.php)
+#}
+<p class="activity-title">
+    {{ e('%s updated the task %s',
+        text.e(author),
+        url.link(t('#%d', task.id), 'TaskViewController', 'show', {task_id: task.id})
+    ) }}
+    <small class="activity-date">{{ date_creation_formatted }}</small>
+</p>
+<div class="activity-description">
+    <p class="activity-task-title">{{ task.title }}</p>
+    {% if changes is defined and changes is not none %}
+        <div class="activity-changes">
+            {% include "task/changes" %}
+        </div>
+    {% endif %}
+</div>

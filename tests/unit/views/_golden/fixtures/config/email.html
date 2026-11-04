@@ -1,0 +1,16 @@
+<div class="page-header">
+    <h2>Email settings</h2>
+</div>
+<form method="post" action="/?controller=ConfigController&amp;action=save&amp;redirect=email" autocomplete="off">
+    <input type="hidden" name="csrf_token" value="f710e12285345dc72b67f82458705548fbcf5fb6409ffd7dd55a5420178ca1a6"/>
+    <fieldset>
+        <legend>Outgoing Emails</legend>
+                    <label for="form-mail_sender_address" >Email sender address</label>            <input type="text" name="mail_sender_address" id="form-mail_sender_address" value="a@b.c" class="" placeholder="notifications@kanboard.local">
+            <label for="form-mail_transport" >Email transport</label>            <select name="mail_transport" id="form-mail_transport" class="" ><option value="smtp" selected="selected">SMTP</option><option value="mail">Mail</option></select>            </fieldset>
+
+    <span class="hook"> values=23</span>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-blue">Save</button>
+    </div>
+</form>

@@ -6,8 +6,11 @@ import { EventManager } from '../core/event/event-manager.js';
 import { Route } from '../core/http/route.js';
 import { Router } from '../core/http/router.js';
 import { createLogger } from '../core/log/logger.js';
+import { Translator } from '../core/translator/translator.js';
+import { Template } from '../core/template/template.js';
 import { UserSessionStub } from '../foundation/user-session.js';
 import { HelperRegistry } from '../foundation/helper.js';
+import { registerHelpers } from '../helper/index.js';
 import { NotificationTypeRegistry } from '../foundation/notification.js';
 import { HookRegistry } from '../foundation/plugin.js';
 import {
@@ -35,10 +38,19 @@ export class CoreServiceProvider implements ServiceProvider {
       return createLogger({ driver: config.LOG_DRIVER, logFile: config.LOG_FILE, debug: config.DEBUG });
     });
 
+    container.register('translator', () => Translator.getInstance());
     container.register('eventManager', () => new EventManager());
     container.register('hook', () => new HookRegistry());
     container.register('memoryCache', () => new MemoryCache());
-    container.register('helper', (c) => new HelperRegistry(c));
+    container.register('helper', (c) => registerHelpers(new HelperRegistry(c)));
+    container.register(
+      'template',
+      (c) =>
+        new Template(c.get('helper'), {
+          pluginsDir: c.get('config').PLUGINS_DIR,
+          translator: () => c.get('translator'),
+        }),
+    );
     container.register('userNotificationTypeModel', (c) => new NotificationTypeRegistry(c));
     container.register('projectNotificationTypeModel', (c) => new NotificationTypeRegistry(c));
     container.register('userSession', () => new UserSessionStub());

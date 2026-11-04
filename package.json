@@ -9,7 +9,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc -p tsconfig.build.json && node scripts/copy-views.mjs",
     "typecheck": "tsc --noEmit",
     "dev": "tsx watch src/server.ts",
     "start": "node dist/server.js",
@@ -22,14 +22,22 @@
     "better-sqlite3": "^11.0.0",
     "fastify": "^5.0.0",
     "kysely": "^0.27.0",
+    "markdown-it": "^14.1.0",
     "mysql2": "^3.11.0",
+    "nunjucks": "^3.2.4",
     "pg": "^8.13.0",
+    "sharp": "^0.34.0",
     "zod": "^3.23.0"
+  },
+  "overrides": {
+    "esbuild": "0.28.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
     "@types/better-sqlite3": "^7.6.0",
+    "@types/markdown-it": "^14.1.0",
     "@types/node": "^22.0.0",
+    "@types/nunjucks": "^3.2.6",
     "@types/pg": "^8.11.0",
     "eslint": "^9.0.0",
     "tsx": "^4.19.0",

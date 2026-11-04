@@ -1,0 +1,129 @@
+[
+ {
+  "name": "layout_basic",
+  "template": "layout",
+  "vars": {
+   "title": "My page",
+   "content_for_layout": "<p>Body &amp; content</p>",
+   "description": "A **tip**",
+   "board_selector": {
+    "1": "Project one",
+    "2": "Project <two>"
+   },
+   "project": {
+    "id": 3,
+    "name": "My <Project> & Co",
+    "task_limit": 10,
+    "is_public": 0,
+    "is_private": 0,
+    "token": "tok",
+    "nb_active_tasks": 4
+   }
+  },
+  "fixture": "layout/layout_basic.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ],
+   "hooks": [
+    {
+     "hook": "template:layout:head",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:layout:top",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:layout:bottom",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:layout:css",
+     "template": "assets/css/print.min.css"
+    },
+    {
+     "hook": "template:layout:js",
+     "template": "assets/js/app.min.js"
+    }
+   ],
+   "config": {
+    "application_stylesheet": "body { color: red; }"
+   }
+  },
+  "prepare": [
+   "layout",
+   "header"
+  ],
+  "replace_first_style": true
+ },
+ {
+  "name": "layout_no_layout",
+  "template": "layout",
+  "vars": {
+   "title": "Public board",
+   "page_title": "Page <b>",
+   "content_for_layout": "<div>board</div>",
+   "no_layout": true,
+   "not_editable": true,
+   "board_public_refresh_interval": 60
+  },
+  "fixture": "layout/layout_no_layout.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ]
+  },
+  "prepare": [
+   "layout"
+  ],
+  "replace_first_style": true
+ },
+ {
+  "name": "layout_task_nonadmin",
+  "template": "layout",
+  "vars": {
+   "title": "Task page",
+   "content_for_layout": "<div>task</div>",
+   "project": {
+    "id": 3,
+    "name": "My <Project> & Co",
+    "task_limit": 0,
+    "is_public": 0,
+    "is_private": 0,
+    "token": "tok",
+    "nb_active_tasks": 1
+   },
+   "task": {
+    "id": 7,
+    "title": "T"
+   }
+  },
+  "fixture": "layout/layout_task_nonadmin.html",
+  "state": {
+   "route": [
+    "TaskViewController",
+    "show"
+   ],
+   "user": {
+    "id": 2,
+    "username": "jdoe",
+    "name": "John Doe",
+    "role": "app-user",
+    "email": "",
+    "avatar_path": "",
+    "theme": "light"
+   },
+   "config": {
+    "disable_private_project": "1"
+   }
+  },
+  "prepare": [
+   "layout",
+   "header"
+  ],
+  "replace_first_style": true
+ }
+]

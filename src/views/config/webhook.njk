@@ -1,0 +1,24 @@
+{#- Port of app/Template/config/webhook.php. Variables: values (webhook_url, webhook_token), errors -#}
+<div class="page-header">
+    <h2>{{ t('Webhook settings') }}</h2>
+</div>
+<form method="post" action="{{ helper.url.href('ConfigController', 'save', {'redirect': 'webhook'}) }}" autocomplete="off">
+    {{ helper.form.csrf() }}
+
+    {{ helper.form.label(t('Webhook URL'), 'webhook_url') }}
+    {{ helper.form.text('webhook_url', values, errors) }}
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-blue">{{ t('Save') }}</button>
+    </div>
+</form>
+
+<div class="page-header margin-top">
+    <h2>{{ t('Webhook token') }}</h2>
+</div>
+<div class="panel">
+    {{ t('Webhook token:') }}
+    <strong>{{ helper.text.e(values.webhook_token) }}</strong>
+</div>
+
+{{ helper.url.link(t('Reset token'), 'ConfigController', 'token', {'type': 'webhook'}, true, 'btn btn-red') }}

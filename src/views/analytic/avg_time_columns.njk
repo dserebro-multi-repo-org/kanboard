@@ -1,0 +1,32 @@
+{# Variables: is_ajax, metrics (list of {title, average}). #}
+{% if not is_ajax %}
+    <div class="page-header">
+        <h2>{{ t('Average time spent in each column') }}</h2>
+    </div>
+{% endif %}
+
+{% if not (metrics | length) %}
+    <p class="alert">{{ t('Not enough data to show the graph.') }}</p>
+{% else %}
+    {{ helper.app.component('chart-project-avg-time-column', {
+        metrics: metrics,
+        label: t('Average time spent')
+    }) | safe }}
+
+    <table class="table-striped">
+        <tr>
+            <th>{{ t('Column') }}</th>
+            <th>{{ t('Average time spent') }}</th>
+        </tr>
+        {% for column in metrics %}
+            <tr>
+                <td>{{ column.title }}</td>
+                <td>{{ helper.dt.duration(column.average) }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <p class="alert alert-info">
+        {{ t('This chart shows the average time spent in each column for the last %d tasks.', 1000) }}
+    </p>
+{% endif %}

@@ -1,0 +1,31 @@
+{# Variables: project. #}
+<div class="sidebar">
+    <ul>
+        <li {{ helper.app.checkMenuSelection('AnalyticController', 'taskDistribution') | safe }}>
+            {{ helper.modal.replaceLink(t('Task distribution'), 'AnalyticController', 'taskDistribution', {project_id: project.id}) }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('AnalyticController', 'userDistribution') | safe }}>
+            {{ helper.modal.replaceLink(t('User repartition'), 'AnalyticController', 'userDistribution', {project_id: project.id}) }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('AnalyticController', 'cfd') | safe }}>
+            {{ helper.modal.replaceLink(t('Cumulative flow diagram'), 'AnalyticController', 'cfd', {project_id: project.id}) }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('AnalyticController', 'burndown') | safe }}>
+            {{ helper.modal.replaceLink(t('Burndown chart'), 'AnalyticController', 'burndown', {project_id: project.id}) }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('AnalyticController', 'averageTimeByColumn') | safe }}>
+            {{ helper.modal.replaceLink(t('Average time into each column'), 'AnalyticController', 'averageTimeByColumn', {project_id: project.id}) }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('AnalyticController', 'leadAndCycleTime') | safe }}>
+            {{ helper.modal.replaceLink(t('Lead and cycle time'), 'AnalyticController', 'leadAndCycleTime', {project_id: project.id}) }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('AnalyticController', 'timeComparison') | safe }}>
+            {{ helper.modal.replaceLink(t('Estimated vs actual time'), 'AnalyticController', 'timeComparison', {project_id: project.id}) }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('AnalyticController', 'estimatedVsActualByColumn') | safe }}>
+            {{ helper.modal.replaceLink(t('Estimated vs actual time per column'), 'AnalyticController', 'estimatedVsActualByColumn', {project_id: project.id}) }}
+        </li>
+
+        {{ helper.hook.render('template:analytic:sidebar', {project: project}) }}
+    </ul>
+</div>

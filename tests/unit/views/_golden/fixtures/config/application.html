@@ -1,0 +1,29 @@
+<div class="page-header">
+    <h2>Application settings</h2>
+</div>
+<form method="post" action="/?controller=ConfigController&amp;action=save&amp;redirect=application" autocomplete="off">
+    <input type="hidden" name="csrf_token" value="252ee950ca04d07556689764a840aa6220f86239a7c4d0c5dec307368a562a45"/>
+    <fieldset>
+        <label for="form-application_url" >Application URL</label>        <input type="text" name="application_url" id="form-application_url" value="https://kb.example.org/" class=" form-error" placeholder="https://example.kanboard.org/"><ul class="form-errors"><li>Bad URL</li></ul>        <p class="form-help">Example: https://example.kanboard.org/ (used to generate absolute URLs)</p>
+
+        <label for="form-application_language" >Language</label>        <select name="application_language" id="form-application_language" class="" ><option value="en_US" selected="selected">English</option><option value="fr_FR">Français</option></select>
+        <label><input type="checkbox" name="password_reset" class="" value="1" checked="checked">&nbsp;Enable &quot;Forget Password&quot;</label>    </fieldset>
+
+    <fieldset>
+        <label for="form-application_timezone" >Timezone</label>        <select name="application_timezone" id="form-application_timezone" class="" ><option value="UTC" selected="selected">UTC</option><option value="Europe/Paris">Europe/Paris</option></select>
+        <label for="form-application_date_format" >Date format</label>        <select name="application_date_format" id="form-application_date_format" class="" ><option value="m/d/Y" selected="selected">09/22/2024</option></select>        <p class="form-help">ISO format is always accepted, example: &quot;2026-01-02&quot; and &quot;2026_01_02&quot;</p>
+
+        <label for="form-application_time_format" >Time format</label>        <select name="application_time_format" id="form-application_time_format" class="" ><option value="H:i" selected="selected">24h</option></select>    </fieldset>
+
+    <fieldset>
+        <label><input type="checkbox" name="notifications_enabled" class="" value="1" >&nbsp;Enable notifications by default for all new users</label>    </fieldset>
+
+    <fieldset>
+        <label for="form-application_stylesheet" >Custom Stylesheet</label>        <textarea name="application_stylesheet" id="form-application_stylesheet" class="" >a { b: c }</textarea>    </fieldset>
+
+    <span class="hook"> values=23</span>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-blue">Save</button>
+    </div>
+</form>

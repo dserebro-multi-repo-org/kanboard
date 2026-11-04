@@ -1,0 +1,19 @@
+{#- Port of app/Template/header/title.php. Variables: title, project?, task?, description? -#}
+<h1>
+    <span class="logo">
+        {{ helper.url.link('K<span>B</span>', 'DashboardController', 'show', {}, false, '', t('Dashboard')) }}
+    </span>
+    <span class="title">
+        {% if project and (project | length) and task and task.id %}
+            {{ helper.url.link(helper.text.e(project.name), 'BoardViewController', 'show', {'project_id': project.id}) }}
+        {% else %}
+            {{ helper.text.e(title) }}
+            {% if project and (project | length) and project.task_limit and project.task_limit != 0 and 'nb_active_tasks' in project %}
+              (<span>{{ project.nb_active_tasks | int }}</span> / <span title="{{ t('Task limit') }}"><span class="ui-helper-hidden-accessible">{{ t('Task limit') }} </span>{{ helper.text.e(project.task_limit) }}</span>)
+            {% endif %}
+        {% endif %}
+    </span>
+    {% if description %}
+        {{ helper.app.tooltipHTML(description) }}
+    {% endif %}
+</h1>

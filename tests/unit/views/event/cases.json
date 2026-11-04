@@ -1,0 +1,547 @@
+[
+ {
+  "name": "task_close",
+  "template": "event/task_close",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000
+  }
+ },
+ {
+  "name": "task_create",
+  "template": "event/task_create",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000
+  }
+ },
+ {
+  "name": "task_open",
+  "template": "event/task_open",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000
+  }
+ },
+ {
+  "name": "task_update_nochanges",
+  "template": "event/task_update",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000
+  }
+ },
+ {
+  "name": "task_move_column",
+  "template": "event/task_move_column",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000
+  }
+ },
+ {
+  "name": "task_move_position",
+  "template": "event/task_move_position",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000
+  }
+ },
+ {
+  "name": "task_move_project",
+  "template": "event/task_move_project",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000
+  }
+ },
+ {
+  "name": "task_move_swimlane_named",
+  "template": "event/task_move_swimlane",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000
+  }
+ },
+ {
+  "name": "task_move_swimlane_first",
+  "template": "event/task_move_swimlane",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 0,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000
+  }
+ },
+ {
+  "name": "task_assignee_change_name",
+  "template": "event/task_assignee_change",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000
+  }
+ },
+ {
+  "name": "task_assignee_change_username",
+  "template": "event/task_assignee_change",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000
+  }
+ },
+ {
+  "name": "task_assignee_change_none",
+  "template": "event/task_assignee_change",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "",
+    "assignee_username": ""
+   },
+   "date_creation": 1700000000
+  }
+ },
+ {
+  "name": "task_file_create",
+  "template": "event/task_file_create",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000,
+   "file": {
+    "name": "a <b>.png"
+   }
+  }
+ },
+ {
+  "name": "task_file_destroy",
+  "template": "event/task_file_destroy",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000,
+   "file": {
+    "name": "a <b>.png"
+   }
+  }
+ },
+ {
+  "name": "task_internal_link_create_update",
+  "template": "event/task_internal_link_create_update",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000,
+   "task_link": {
+    "opposite_task_id": 9,
+    "label": "blocks <x>"
+   }
+  }
+ },
+ {
+  "name": "task_internal_link_delete",
+  "template": "event/task_internal_link_delete",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000,
+   "task_link": {
+    "opposite_task_id": 9,
+    "label": "blocks <x>"
+   }
+  }
+ },
+ {
+  "name": "comment_create",
+  "template": "event/comment_create",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000,
+   "comment": {
+    "comment": "Hello world"
+   }
+  }
+ },
+ {
+  "name": "comment_delete",
+  "template": "event/comment_delete",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000,
+   "comment": {
+    "comment": "Hello world"
+   }
+  }
+ },
+ {
+  "name": "comment_update",
+  "template": "event/comment_update",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000,
+   "comment": {
+    "comment": "Hello world"
+   }
+  }
+ },
+ {
+  "name": "comment_update_empty",
+  "template": "event/comment_update",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000,
+   "comment": {
+    "comment": ""
+   }
+  }
+ },
+ {
+  "name": "subtask_create",
+  "template": "event/subtask_create",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000,
+   "subtask": {
+    "title": "Sub <1>",
+    "status_name": "Done",
+    "username": "carl",
+    "name": "Carl <C>",
+    "time_spent": 1.5,
+    "time_estimated": 3
+   }
+  }
+ },
+ {
+  "name": "subtask_create_unassigned",
+  "template": "event/subtask_create",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000,
+   "subtask": {
+    "title": "Sub <2>",
+    "status_name": "Todo",
+    "username": null,
+    "name": null,
+    "time_spent": 0,
+    "time_estimated": 2
+   }
+  }
+ },
+ {
+  "name": "subtask_update",
+  "template": "event/subtask_update",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000,
+   "subtask": {
+    "title": "Sub <1>",
+    "status_name": "Done",
+    "username": "carl",
+    "name": "Carl <C>",
+    "time_spent": 1.5,
+    "time_estimated": 3
+   }
+  }
+ },
+ {
+  "name": "subtask_delete",
+  "template": "event/subtask_delete",
+  "vars": {
+   "author": "Bob <script>",
+   "task": {
+    "id": 3,
+    "title": "Fix <b>bug</b> & \"quotes\"",
+    "column_title": "Work \"in\" <progress>",
+    "position": 2,
+    "swimlane_id": 4,
+    "swimlane_name": "Lane <A>",
+    "project_name": "Proj & <X>",
+    "assignee_name": "Alice <A>",
+    "assignee_username": "alice"
+   },
+   "date_creation": 1700000000,
+   "subtask": {
+    "title": "Sub <1>",
+    "status_name": "Done",
+    "username": "carl",
+    "name": "Carl <C>",
+    "time_spent": 1.5,
+    "time_estimated": 3
+   }
+  }
+ },
+ {
+  "name": "events_empty",
+  "template": "event/events",
+  "vars": {
+   "events": []
+  }
+ },
+ {
+  "name": "events_list",
+  "template": "event/events",
+  "vars": {
+   "events": [
+    {
+     "creator_id": 0,
+     "author_username": "",
+     "author_name": "",
+     "email": "",
+     "avatar_path": "",
+     "event_content": "<p class=\"activity-title\">raw <b>html</b></p>"
+    },
+    {
+     "creator_id": 0,
+     "author_username": "",
+     "author_name": "",
+     "email": "",
+     "avatar_path": "",
+     "event_content": "<i>second</i>"
+    }
+   ]
+  }
+ }
+]
