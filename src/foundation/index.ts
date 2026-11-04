@@ -10,3 +10,7 @@ export type { NotificationInterface, NotificationConstructor } from './notificat
 export { AccessForbiddenException, PageNotFoundException, BaseException } from '../core/controller/exceptions.js';
 export { UserSessionStub } from './user-session.js';
 export type { UserSessionInterface } from './user-session.js';
+export * from './array-helpers.js';
+export { t, setTranslator, sprintf, htmlspecialchars } from './translator.js';
+export type { TranslatorLike } from './translator.js';
+export * from './formatter-collaborators.js';
