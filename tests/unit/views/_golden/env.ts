@@ -234,6 +234,7 @@ export async function makeViewEnv(): Promise<ViewEnv> {
 export function canonical(html: string): string {
   return html
     .replace(/\r\n/g, '\n')
+    .replace(/(\.(?:css|js))\?\d{9,}/g, '$1?MTIME')
     .replace(/(csrf_token=)[0-9a-zA-Z]+/g, '$1TOKEN')
     .replace(/(name="csrf_token" value=")[0-9a-zA-Z]+/g, '$1TOKEN')
     .replace(/\s+/g, ' ')
