@@ -1,10 +1,10 @@
-ActionController.php
-ActionCreationController.php
-ActivityController.php
-AnalyticController.php
-AppController.php
-AuthController.php
-AvatarFileController.php
-BaseController.php
-BoardAjaxController.php
-BoardPopoverController.php
+ActionController.php, BoardTooltipController.php, ConfigController.php, FileViewerController.php, PredefinedTaskDescriptionController.php, ProjectRoleRestrictionController.php, SwimlaneController.php, TaskImportController.php, TaskSuppressionController.php, UserModificationController.php
+ActionCreationController.php, BoardViewController.php, CronjobController.php, GroupAjaxController.php, ProjectActionDuplicationController.php, ProjectStatusController.php, TagController.php, TaskInternalLinkController.php, TaskViewController.php, UserStatusController.php
+ActivityController.php, CaptchaController.php, CurrencyController.php, GroupCreationController.php, ProjectCreationController.php, ProjectTagController.php, TaskAjaxController.php, TaskListController.php, TwoFactorController.php, UserViewController.php
+AnalyticController.php, CategoryController.php, CustomFilterController.php, GroupListController.php, ProjectEditController.php, ProjectUserOverviewController.php, TaskBulkChangePropertyController.php, TaskMailController.php, UserAjaxController.php, WebNotificationController.php
+AppController.php, ColumnController.php, DashboardController.php, GroupModificationController.php, ProjectFileController.php, ProjectViewController.php, TaskBulkController.php, TaskModificationController.php, UserApiAccessController.php
+AuthController.php, ColumnMoveRestrictionController.php, DocumentationController.php, ICalendarController.php, ProjectListController.php, SearchController.php, TaskBulkMoveColumnController.php, TaskMovePositionController.php, UserCreationController.php
+AvatarFileController.php, ColumnRestrictionController.php, ExportController.php, LinkController.php, ProjectOverviewController.php, SubtaskController.php, TaskCreationController.php, TaskPopoverController.php, UserCredentialController.php
+BaseController.php, CommentController.php, ExternalTaskCreationController.php, OAuthController.php, ProjectPermissionController.php, SubtaskConverterController.php, TaskDuplicationController.php, TaskRecurrenceController.php, UserImportController.php
+BoardAjaxController.php, CommentListController.php, ExternalTaskViewController.php, PasswordResetController.php, ProjectPredefinedContentController.php, SubtaskRestrictionController.php, TaskExternalLinkController.php, TaskReorderController.php, UserInviteController.php
+BoardPopoverController.php, CommentMailController.php, FeedController.php, PluginController.php, ProjectRoleController.php, SubtaskStatusController.php, TaskFileController.php, TaskStatusController.php, UserListController.php
