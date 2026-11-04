@@ -1,7 +1,5 @@
 # Kanboard Project Layout
 
-A short overview of the top-level directories in this repository.
-
 ## `app/`
 The application source code: controllers, models, core services
 (dependency injection, routing, helpers), templates, API procedures,
