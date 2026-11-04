@@ -6,7 +6,8 @@ export type MigrationFunction = (db: Database) => Promise<void>;
 
 /** The ordered list of schema migrations of a database engine. */
 export interface SchemaDefinition {
-  readonly driver: DbDriver;
+  /** Engine of the schema. `'mssql'` is schema-only: there is no runtime MSSQL driver (`DbDriver`) yet. */
+  readonly driver: DbDriver | 'mssql';
   /** Highest version (`Schema\VERSION`). */
   readonly latestVersion: number;
   /** Migrations by version number; a missing version is a no-op that only bumps the version. */
