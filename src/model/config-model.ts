@@ -3,7 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { gunzipSync, gzipSync } from 'node:zlib';
 import { getToken } from '../core/security/token.js';
 import { registerDatabaseService } from '../db/register.js';
-import { SettingModel, type SettingValues } from './setting-model.js';
+import { SettingModel, valueOrDefault, type SettingValues } from './setting-model.js';
 
 /** Database specific settings reported by {@link ConfigModel.getDatabaseOptions}. */
 export type DatabaseOptions = Record<string, unknown>;
@@ -16,8 +16,7 @@ export class ConfigModel extends SettingModel {
    */
   async get<D = string>(name: string, defaultValue: D = '' as D): Promise<string | D> {
     const options = await this.service('memoryCache').proxy<ConfigModel, Promise<Record<string, unknown>>>(this, 'getAll');
-    const value = options[name];
-    return value !== undefined && value !== null && value !== '' ? (value as string) : defaultValue;
+    return valueOrDefault(options[name], defaultValue);
   }
 
   /** Optimize the database (`VACUUM`); not supported by MySQL. */

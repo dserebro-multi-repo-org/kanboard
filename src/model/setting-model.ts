@@ -19,6 +19,11 @@ function toSqlValue(value: unknown): SqlValue {
   return String(value);
 }
 
+/** `defaultValue` when the value is missing or empty. */
+export function valueOrDefault<D>(value: unknown, defaultValue: D): string | D {
+  return value === undefined || value === null || value === '' ? defaultValue : (value as string);
+}
+
 /**
  * Application settings stored in the `settings` table (port of `app/Model/SettingModel.php`,
  * which is abstract in PHP: subclasses override {@link prepare}).
@@ -43,7 +48,7 @@ export class SettingModel extends BaseModel<SettingRow> {
   /** Value of a setting; `defaultValue` when it is missing or empty. */
   async getOption<D = string>(name: string, defaultValue: D = '' as D): Promise<string | D> {
     const value = await this.table().eq('option', name).findOneColumn<string>('value');
-    return value === null || value === '' ? defaultValue : value;
+    return valueOrDefault(value, defaultValue);
   }
 
   /** Whether the setting exists. */
@@ -62,12 +67,12 @@ export class SettingModel extends BaseModel<SettingRow> {
 
       for (const [option, value] of Object.entries(prepared)) {
         const data = { value: toSqlValue(value), changed_on: timestamp, changed_by: userId };
-        const table = tx.table(SettingModel.TABLE);
+        const query = () => tx.table(SettingModel.TABLE).eq('option', option);
 
-        if (await tx.table(SettingModel.TABLE).eq('option', option).exists()) {
-          results.push(await table.eq('option', option).update(data));
+        if (await query().exists()) {
+          results.push(await query().update(data));
         } else {
-          results.push(await table.insert({ option, ...data }));
+          results.push(await tx.table(SettingModel.TABLE).insert({ option, ...data }));
         }
       }
 
