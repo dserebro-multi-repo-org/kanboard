@@ -1,7 +1,5 @@
 # Kanboard Project Layout
 
-A short overview of the top-level directories of this repository.
-
 ## `app/`
 The application source. It holds the models, controllers, JSON-RPC API
 procedures, automation actions, notifications, helpers, core services, database
