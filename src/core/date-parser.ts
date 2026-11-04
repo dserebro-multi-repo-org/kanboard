@@ -1,4 +1,5 @@
 import { Base } from './container/base.js';
+import type { Container } from './container/container.js';
 import { createTimestampFromFormat, phpDate, phpMktime } from './php-date.js';
 
 type Values = Record<string, unknown>;
@@ -167,4 +168,15 @@ export class DateParser extends Base {
 /** PHP `ctype_digit((string) $value)`. */
 function isDigits(value: unknown): boolean {
   return /^[0-9]+$/.test(String(value ?? ''));
+}
+
+declare module './container/container.js' {
+  interface ServiceRegistry {
+    dateParser: DateParser;
+  }
+}
+
+/** The `dateParser` service, or a fresh instance when the provider is not registered yet. */
+export function getDateParser(container: Container): DateParser {
+  return container.has('dateParser') ? container.get('dateParser') : new DateParser(container);
 }
