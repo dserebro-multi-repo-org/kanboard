@@ -38,7 +38,7 @@ export interface RequestOptions {
   reverseProxyUserHeader?: string;
   reverseProxyEmailHeader?: string;
   reverseProxyFullnameHeader?: string;
-  /** Validates the `csrf_token` form field in `getValues()`; when missing, no CSRF check is made. */
+  /** Validates the `csrf_token` form field in `getValues()`; when missing, `getValues()` rejects every token. */
   csrfValidator?: (token: string) => boolean;
   /** Text returned by `getUserAgent()` when no user agent was sent. */
   unknownUserAgent?: string;
@@ -98,12 +98,12 @@ export class Request {
 
   /**
    * Submitted form values (without `csrf_token`). Returns `{}` when the CSRF token is missing or
-   * invalid (as in PHP). When no `csrfValidator` is configured only the presence of a token is required.
+   * invalid (as in PHP). When no `csrfValidator` is configured every token is rejected (fail closed) and `{}` is returned.
    */
   getValues(): Params {
     const token = this.post['csrf_token'];
     if (typeof token === 'string' && token !== '') {
-      const valid = this.options.csrfValidator ? this.options.csrfValidator(token) : true;
+      const valid = this.options.csrfValidator !== undefined && this.options.csrfValidator(token);
       if (valid) {
         const { csrf_token: _ignored, ...values } = this.post;
         return this.filterValues(values);

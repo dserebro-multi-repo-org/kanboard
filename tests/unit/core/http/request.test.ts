@@ -75,6 +75,7 @@ describe('Request basics', () => {
     expect(r.getRawValue('title')).toBe('T');
     expect(make({ body: { csrf_token: 'bad', title: 'T' } }, { csrfValidator: validator }).getValues()).toEqual({});
     expect(make({ body: { title: 'T' } }).getValues()).toEqual({});
+    expect(make({ body: { csrf_token: 'anything', title: 'T' } }).getValues()).toEqual({});
   });
 
   it('validates safe redirect URIs', () => {

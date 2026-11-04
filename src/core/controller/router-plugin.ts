@@ -16,6 +16,7 @@ declare module 'fastify' {
 }
 
 /** Adapt a Fastify request to the framework {@link Request} (Fastify `trustProxy` must stay off). */
+// TODO: pass a session-backed `csrfValidator` once the Security/Token CSRF store is ported.
 export function createRequest(req: FastifyRequest, container: AppContainer): Request {
   const config = container.get('config');
   const like: HttpRequestLike = {
