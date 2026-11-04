@@ -84,6 +84,14 @@ export class Route {
     return this;
   }
 
+  /** Whether a registered rewrite route matches the path (no dashboard fallback). */
+  hasRoute(path: string): boolean {
+    const items = path.replace(/^\/+/, '').split('/');
+    return this.paths.some(
+      (route) => route.count === items.length && route.items.every((item, i) => item.startsWith(':') || item === (items[i] ?? '')),
+    );
+  }
+
   /**
    * Find the route matching a path. Falls back to `DashboardController::show` when nothing matches
    * (with empty params).
