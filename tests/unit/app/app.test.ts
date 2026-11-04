@@ -76,6 +76,14 @@ describe('routing', () => {
     expect(body.id).toBe(7);
   });
 
+  it('answers malformed JSON on /jsonrpc.php with a JSON-RPC parse error', async () => {
+    const res = await app.inject({ method: 'POST', url: '/jsonrpc.php', headers: { 'content-type': 'application/json' }, payload: 'garbage' });
+    expect(res.statusCode).toBe(200);
+    const body = res.json<{ error: { code: number }; id: unknown }>();
+    expect(body.error.code).toBe(-32700);
+    expect(body.id).toBeNull();
+  });
+
   it('parses urlencoded form bodies and cookies', async () => {
     container.get('router').register('FormController', 'echo', ({ request, response }) => {
       response.json({ a: request.getRawFormValues()['a'], cookie: request.getCookie('sid') });

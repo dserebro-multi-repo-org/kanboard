@@ -100,6 +100,10 @@ export function registerRoutes(app: FastifyInstance, container: AppContainer): v
 export function errorHandler(app: FastifyInstance): void {
   app.setNotFoundHandler((_req, reply) => reply.code(404).type('text/plain; charset=utf-8').send('Page not found'));
   app.setErrorHandler((error: Error, req, reply) => {
+    const code = (error as Error & { code?: string }).code;
+    if (req.url.split('?')[0] === '/jsonrpc.php' && code === 'FST_ERR_CTP_INVALID_JSON_BODY') {
+      return reply.code(200).send({ jsonrpc: '2.0', error: { code: -32700, message: 'Parse error' }, id: null });
+    }
     let status = 500;
     let message = 'Internal Server Error';
     if (error instanceof PageNotFoundException) {
