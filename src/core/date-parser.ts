@@ -81,6 +81,42 @@ export class DateParser extends Base {
     ];
   }
 
+  private parserFormatsCache: string[] | null = null;
+
+  /**
+   * Load the settings-driven parser formats so that `getTimestampSync()` honours the user format.
+   * Needed by synchronous callers such as query filters (`BaseDateRangeFilter`).
+   */
+  async preload(): Promise<this> {
+    this.parserFormatsCache = await this.getParserFormats();
+    return this;
+  }
+
+  /** Synchronous `getTimestamp()` using the formats loaded by `preload()` (defaults otherwise). */
+  getTimestampSync(value: unknown): number {
+    if (isDigits(value)) {
+      return parseInt(String(value), 10);
+    }
+
+    const formats = this.parserFormatsCache ?? [
+      DateParser.DATE_FORMAT,
+      'Y-m-d',
+      'Y_m_d',
+      `${DateParser.DATE_FORMAT} ${DateParser.TIME_FORMAT}`,
+      'Y-m-d H:i',
+      'Y_m_d H:i',
+    ];
+
+    for (const format of formats) {
+      const timestamp = this.getValidDate(String(value ?? ''), format);
+      if (timestamp !== 0) {
+        return timestamp;
+      }
+    }
+
+    return 0;
+  }
+
   /** Parse a date and return a unix timestamp, trying different date formats. */
   async getTimestamp(value: unknown): Promise<number> {
     if (isDigits(value)) {

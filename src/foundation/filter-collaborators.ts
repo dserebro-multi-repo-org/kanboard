@@ -8,7 +8,9 @@ export interface DateParserLike {
   /** ISO date (or relative expression) to the timestamp of the beginning of that day. */
   getTimestampFromIsoFormat(value: string): number | false;
   /** Date string in one of the configured formats (or a digits-only timestamp) to a timestamp, 0 when invalid. */
-  getTimestamp(value: string): number | false;
+  getTimestamp(value: string): number | false | Promise<number | false>;
+  /** Synchronous variant (real `DateParser.getTimestampSync`, requires a prior `preload()`). */
+  getTimestampSync?(value: string): number | false;
 }
 
 /** Subset of `Kanboard\Model\ColorModel` used by the color filter. */
