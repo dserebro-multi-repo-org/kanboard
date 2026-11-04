@@ -84,6 +84,8 @@ function createMysql(config: DatabaseConfig): Connection {
 }
 
 function createPostgres(config: DatabaseConfig): Connection {
+  const useSsl = Boolean(config.DB_SSL_KEY || config.DB_SSL_CERT || config.DB_SSL_CA);
+
   const pool = new pg.Pool({
     host: config.DB_HOSTNAME || undefined,
     user: config.DB_USERNAME || undefined,
@@ -91,7 +93,14 @@ function createPostgres(config: DatabaseConfig): Connection {
     database: config.DB_NAME,
     port: config.DB_PORT ?? undefined,
     connectionTimeoutMillis: config.DB_TIMEOUT ? config.DB_TIMEOUT * 1000 : undefined,
-    ssl: config.DB_SSL_CA ? { ca: readFileOrUndefined(config.DB_SSL_CA), rejectUnauthorized: verifyServerCert(config.DB_VERIFY_SERVER_CERT) } : undefined,
+    ssl: useSsl
+      ? {
+          key: readFileOrUndefined(config.DB_SSL_KEY),
+          cert: readFileOrUndefined(config.DB_SSL_CERT),
+          ca: readFileOrUndefined(config.DB_SSL_CA),
+          rejectUnauthorized: verifyServerCert(config.DB_VERIFY_SERVER_CERT),
+        }
+      : undefined,
     // COUNT(*) and bigint columns are returned as strings by default; the PHP driver returned numbers.
     types: {
       getTypeParser: ((oid: number, format?: 'text' | 'binary') =>
