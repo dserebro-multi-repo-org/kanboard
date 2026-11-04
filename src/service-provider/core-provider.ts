@@ -43,6 +43,14 @@ export class CoreServiceProvider implements ServiceProvider {
     container.register('hook', () => new HookRegistry());
     container.register('memoryCache', () => new MemoryCache());
     container.register('helper', (c) => registerHelpers(new HelperRegistry(c)));
+    container.register(
+      'template',
+      (c) =>
+        new Template(c.get('helper'), {
+          pluginsDir: c.get('config').PLUGINS_DIR,
+          translator: () => c.get('translator'),
+        }),
+    );
     container.register('userNotificationTypeModel', (c) => new NotificationTypeRegistry(c));
     container.register('projectNotificationTypeModel', (c) => new NotificationTypeRegistry(c));
     container.register('userSession', () => new UserSessionStub());
