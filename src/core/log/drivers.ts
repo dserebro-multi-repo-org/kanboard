@@ -11,13 +11,13 @@ export interface DriverOptions {
   writer?: LineWriter;
 }
 
-/** Writes formatted lines to stdout (`app/Core/Log/Stdout.php`). */
-export class StdoutDriver extends BaseLogDriver {
-  private readonly writer: LineWriter;
+/** Base for drivers that write formatted lines to a line writer. */
+abstract class StreamDriver extends BaseLogDriver {
+  protected readonly writer: LineWriter;
 
-  constructor(options: DriverOptions = {}) {
+  constructor(defaultWriter: LineWriter, options: DriverOptions = {}) {
     super();
-    this.writer = options.writer ?? ((line) => void process.stdout.write(line));
+    this.writer = options.writer ?? defaultWriter;
     if (options.format) this.format = options.format;
   }
 
@@ -26,18 +26,17 @@ export class StdoutDriver extends BaseLogDriver {
   }
 }
 
-/** Writes formatted lines to stderr (`app/Core/Log/Stderr.php`). */
-export class StderrDriver extends BaseLogDriver {
-  private readonly writer: LineWriter;
-
+/** Writes formatted lines to stdout (`app/Core/Log/Stdout.php`). */
+export class StdoutDriver extends StreamDriver {
   constructor(options: DriverOptions = {}) {
-    super();
-    this.writer = options.writer ?? ((line) => void process.stderr.write(line));
-    if (options.format) this.format = options.format;
+    super((line) => void process.stdout.write(line), options);
   }
+}
 
-  log(level: string, message: string, context: LogContext = {}): void {
-    this.writer(this.formatMessage(level, message, context));
+/** Writes formatted lines to stderr (`app/Core/Log/Stderr.php`). */
+export class StderrDriver extends StreamDriver {
+  constructor(options: DriverOptions = {}) {
+    super((line) => void process.stderr.write(line), options);
   }
 }
 
@@ -64,18 +63,14 @@ export class FileDriver extends BaseLogDriver {
  * Equivalent of PHP `error_log()` (`app/Core/Log/System.php`): the "system" log of a Node process is stderr.
  * Output format is `[level] message`.
  */
-export class SystemDriver extends BaseLogDriver {
-  private readonly writer: LineWriter;
-
+export class SystemDriver extends StreamDriver {
   constructor(options: DriverOptions = {}) {
-    super();
-    this.writer = options.writer ?? ((line) => void process.stderr.write(line));
-    if (options.format) this.format = options.format;
+    super((line) => void process.stderr.write(line), options);
   }
 
-  log(level: string, message: string, context: LogContext = {}): void {
+  override log(level: string, message: string, context: LogContext = {}): void {
     if (this.format === 'json') {
-      this.writer(this.formatMessage(level, message, context));
+      super.log(level, message, context);
       return;
     }
     this.writer(`[${level}] ${this.interpolate(message, context)}\n`);
