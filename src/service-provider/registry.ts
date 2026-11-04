@@ -6,6 +6,8 @@ import type { EventManager } from '../core/event/event-manager.js';
 import type { Route } from '../core/http/route.js';
 import type { Router } from '../core/http/router.js';
 import type { Logger } from '../core/log/logger.js';
+import type { Translator } from '../core/translator/translator.js';
+import type { Template } from '../core/template/template.js';
 import type { Database } from '../db/database.js';
 import type { UserSessionInterface } from '../foundation/user-session.js';
 import type { ConfigModel } from '../model/config-model.js';
@@ -27,6 +29,7 @@ declare module '../core/container/container.js' {
   interface ServiceRegistry {
     config: AppConfig;
     logger: Logger;
+    translator: Translator;
     dispatcher: EventDispatcher;
     eventManager: EventManager;
     hook: HookRegistry;
@@ -34,6 +37,7 @@ declare module '../core/container/container.js' {
     route: Route;
     router: Router;
     helper: HelperRegistry;
+    template: Template;
     userNotificationTypeModel: NotificationTypeRegistry;
     projectNotificationTypeModel: NotificationTypeRegistry;
     userSession: UserSessionInterface;
