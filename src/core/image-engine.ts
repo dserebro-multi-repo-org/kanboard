@@ -64,7 +64,7 @@ function chunk(type: string, data: Buffer): Buffer {
 }
 
 /** Dimensions of PNG, GIF and JPEG blobs (the formats handled by `getimagesize`). */
-function sniffSize(blob: Buffer): { width: number; height: number } | null {
+export function sniffSize(blob: Buffer): { width: number; height: number } | null {
   if (blob.length >= 24 && blob.subarray(0, 8).equals(PNG_SIGNATURE)) {
     return { width: blob.readUInt32BE(16), height: blob.readUInt32BE(20) };
   }

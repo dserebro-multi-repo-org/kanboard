@@ -1,10 +1,13 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { PngImageEngine, type ImageEngine, type RasterImage } from './image-engine.js';
+import { SharpImageEngine } from './sharp-image-engine.js';
 
 export type { ImageEngine, RasterImage } from './image-engine.js';
 export { PngImageEngine } from './image-engine.js';
+export { SharpImageEngine } from './sharp-image-engine.js';
 
-let defaultEngine: ImageEngine = new PngImageEngine();
+/** `sharp` based engine (JPEG, GIF, PNG) when loadable, the built-in PNG only engine otherwise. */
+let defaultEngine: ImageEngine = SharpImageEngine.create() ?? new PngImageEngine();
 
 /** Replace the image engine used by new thumbnails (for example with a `sharp` based implementation). */
 export function setDefaultImageEngine(engine: ImageEngine): void {
