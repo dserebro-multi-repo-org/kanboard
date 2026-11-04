@@ -28,3 +28,23 @@ node_modules
 .phpunit.result.cache
 app/version.txt
 .php-cs-fixer.cache
+# Node / TypeScript
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Python (functional test tooling)
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+
+# Runtime data
+data/*.sqlite
+data/*.sqlite-journal
+data/*.sqlite-shm
+data/*.sqlite-wal
+data/*.db

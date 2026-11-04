@@ -26,6 +26,22 @@ Table of Contents
     - [Upgrade to a new version](https://docs.kanboard.org/v1/admin/upgrade/)
     - [Use Kanboard with Docker](https://docs.kanboard.org/v1/admin/docker/)
 
+Run with Node.js
+----------------
+
+Kanboard is being ported to TypeScript (Node.js >= 22, Fastify, Kysely).
+
+```bash
+npm ci
+npm run build
+npm start            # listens on 0.0.0.0:8080, SQLite database in ./data/db.sqlite
+curl http://localhost:8080/healthcheck
+```
+
+- `npm run dev` starts the server with auto-reload, `npm test` runs the Vitest suite.
+- Configuration comes from environment variables (`HOST`, `PORT`, `DB_DRIVER`, `DB_FILENAME`, `DATABASE_URL`, ...).
+- Docker: `docker compose -f docker-compose.sqlite.yml up` (also `.mysql.yml` and `.postgres.yml`).
+
 Credits
 -------
 

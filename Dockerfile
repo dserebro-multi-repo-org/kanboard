@@ -1,4 +1,14 @@
-FROM alpine:3.24
+# syntax=docker/dockerfile:1
+FROM node:22-alpine AS build
+WORKDIR /app
+RUN apk add --no-cache python3 make g++
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY tsconfig.json tsconfig.build.json ./
+COPY src ./src
+RUN npm run build && npm prune --omit=dev
+
+FROM node:22-alpine
 
 LABEL org.opencontainers.image.source="https://github.com/kanboard/kanboard" \
     org.opencontainers.image.title="Kanboard" \
@@ -8,28 +18,24 @@ LABEL org.opencontainers.image.source="https://github.com/kanboard/kanboard" \
     org.opencontainers.image.url="https://kanboard.org" \
     org.opencontainers.image.documentation="https://docs.kanboard.org"
 
-VOLUME ["/var/www/app/data", "/var/www/app/plugins", "/etc/nginx/ssl"]
+ARG VERSION=main.unknown_revision
+ENV NODE_ENV=production \
+    APP_VERSION=$VERSION \
+    HOST=0.0.0.0 \
+    PORT=8080
 
-EXPOSE 80 443
+WORKDIR /app
+RUN apk add --no-cache tzdata curl
+COPY --from=build /app/package.json ./
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
+RUN mkdir -p data plugins && chown -R node:node /app/data /app/plugins
 
-ARG VERSION
+USER node
+VOLUME ["/app/data", "/app/plugins"]
+EXPOSE 8080
 
-RUN apk --no-cache --update add \
-    tzdata openssl unzip nginx bash ca-certificates s6 curl ssmtp mailx php85 php85-phar php85-curl \
-    php85-fpm php85-json php85-zlib php85-xml php85-dom php85-ctype php85-zip php85-iconv \
-    php85-pdo php85-pdo_mysql php85-pdo_sqlite php85-pdo_pgsql php85-mbstring php85-session php85-bcmath \
-    php85-gd php85-openssl php85-sockets php85-posix php85-ldap php85-simplexml php85-xmlwriter && \
-    rm -rf /var/www/localhost && \
-    rm -f /etc/php85/php-fpm.d/www.conf && \
-    ln -sf /usr/bin/php85 /usr/bin/php
+HEALTHCHECK --start-period=5s --timeout=5s \
+  CMD curl -f http://localhost:8080/healthcheck || exit 1
 
-ADD . /var/www/app
-ADD docker/ /
-
-RUN rm -rf /var/www/app/docker && echo $VERSION > /var/www/app/app/version.txt
-
-HEALTHCHECK --start-period=3s --timeout=5s \
-  CMD curl -f http://localhost/healthcheck.php || exit 1
-
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-CMD []
+CMD ["node", "dist/server.js"]
