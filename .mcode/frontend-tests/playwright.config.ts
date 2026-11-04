@@ -1,20 +1,24 @@
 import { defineConfig } from "@playwright/test";
 
+const baseURL = process.env.BASE_URL || "http://localhost:8080";
+const mcodeDir = process.env.MCODE_DIR || ".";
+const chromePath = process.env.CHROME_PATH;
+
 export default defineConfig({
   testDir: ".",
   timeout: 30000,
   retries: 1,
   workers: 1,
   use: {
-    baseURL: "http://localhost:8080",
+    baseURL,
     headless: true,
-    launchOptions: { executablePath: process.env.CHROME_PATH || "/l2l/.agent-browser/browsers/chrome-157.0.8103.38/chrome", args: ["--no-sandbox"] },
+    launchOptions: { ...(chromePath ? { executablePath: chromePath } : {}), args: ["--no-sandbox"] },
     screenshot: "on",
     video: "off",
     trace: "retain-on-failure",
   },
   reporter: [
     ["list"],
-    ["json", { outputFile: `${process.env.MCODE_DIR}/fe_testing/playwright-results.json` }],
+    ["json", { outputFile: `${mcodeDir}/fe_testing/playwright-results.json` }],
   ],
 });
