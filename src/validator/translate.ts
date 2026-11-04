@@ -1,3 +1,5 @@
+import { Translator, escapeHtml } from '../core/translator/translator.js';
+
 /**
  * Minimal port of the `t()` translation helper for the validator layer.
  *
@@ -26,7 +28,7 @@ export function sprintf(format: string, ...args: unknown[]): string {
   });
 }
 
-/** Translate a message (en_US) and substitute its placeholders. */
+/** Translate a message through the real Translator (identity for en_US); only the arguments are HTML escaped. */
 export function t(message: string, ...args: unknown[]): string {
-  return args.length === 0 ? message : sprintf(message, ...args);
+  return Translator.getInstance().translateNoEscaping(message, ...args.map(escapeHtml));
 }

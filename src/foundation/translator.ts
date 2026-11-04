@@ -1,3 +1,5 @@
+import { Translator } from '../core/translator/translator.js';
+
 /**
  * Minimal translation facade standing in for the PHP global `t()` function until the localisation
  * milestone provides the real translator (stub removed in M15). By default strings are returned untranslated,
@@ -31,10 +33,10 @@ export function sprintf(format: string, args: readonly unknown[]): string {
   });
 }
 
+/** Delegates to the real Translator singleton (which is en_US / identity until a locale is loaded). */
 class DefaultTranslator implements TranslatorLike {
   translate(message: string, ...args: unknown[]): string {
-    const escaped = args.map((arg) => (typeof arg === 'string' ? htmlspecialchars(arg) : arg));
-    return sprintf(message, escaped);
+    return Translator.getInstance().translate(message, ...args);
   }
 }
 
