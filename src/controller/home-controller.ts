@@ -2,6 +2,8 @@ import type { AppContainer } from '../service-provider/index.js';
 
 const HIGHLIGHTED = ['application_url', 'application_language', 'application_timezone', 'application_date_format', 'application_time_format'];
 
+const SENSITIVE = /token|password|secret|key/i;
+
 /** Escape text for an HTML text/attribute context. */
 export function escapeHtml(value: unknown): string {
   return String(value ?? '')
@@ -23,7 +25,7 @@ export async function renderHome(container: AppContainer): Promise<string> {
   });
 
   const rows = names
-    .map((name) => `<tr><th scope="row">${escapeHtml(name)}</th><td>${escapeHtml(settings[name])}</td></tr>`)
+    .map((name) => `<tr><th scope="row">${escapeHtml(name)}</th><td>${SENSITIVE.test(name) ? '********' : escapeHtml(settings[name])}</td></tr>`)
     .join('\n');
 
   return `<!DOCTYPE html>

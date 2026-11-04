@@ -47,6 +47,14 @@ describe('home page', () => {
     expect(res.body).toContain('&lt;script&gt;');
   });
 
+  it('does not expose secret tokens', async () => {
+    const token = (await container.get('settingModel').getAll())['api_token'];
+    expect(token).toBeTruthy();
+    const res = await app.inject({ method: 'GET', url: '/' });
+    expect(res.body).toContain('api_token');
+    expect(res.body).not.toContain(String(token));
+  });
+
   it('is reachable through controller/action parameters', async () => {
     const res = await app.inject({ method: 'GET', url: '/?controller=DashboardController&action=show' });
     expect(res.statusCode).toBe(200);
