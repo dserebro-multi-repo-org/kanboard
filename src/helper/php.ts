@@ -33,8 +33,10 @@ export function phpTruthy(value: unknown): boolean {
   return !phpEmpty(value);
 }
 
-function isNumericString(value: string): boolean {
-  return /^[ \t\n\r\v\f]*[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[ \t\n\r\v\f]*$/.test(value);
+/** PHP `is_numeric`. */
+export function isNumeric(value: unknown): boolean {
+  if (typeof value === 'number') return true;
+  return typeof value === 'string' && /^[ \t\n\r\v\f]*[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[ \t\n\r\v\f]*$/.test(value);
 }
 
 /** PHP 8 loose comparison (`==`) for scalars. */
@@ -44,11 +46,11 @@ export function looseEquals(a: unknown, b: unknown): boolean {
   if (typeof a === 'boolean' || typeof b === 'boolean') return phpTruthy(a) === phpTruthy(b);
   if (typeof a === 'number' && typeof b === 'number') return a === b;
   if (typeof a === 'string' && typeof b === 'string') {
-    if (isNumericString(a) && isNumericString(b)) return Number(a) === Number(b);
+    if (isNumeric(a) && isNumeric(b)) return Number(a) === Number(b);
     return a === b;
   }
   const [num, str] = typeof a === 'number' ? [a, String(b)] : [b as number, String(a)];
-  if (isNumericString(str)) return Number(str) === num;
+  if (isNumeric(str)) return Number(str) === num;
   return String(num) === str;
 }
 

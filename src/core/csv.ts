@@ -1,4 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises';
+import { isNumeric } from '../helper/php.js';
 import { t } from '../foundation/translator.js';
 
 export type CsvCell = string | number | boolean | null | undefined;
@@ -228,7 +229,3 @@ export class Csv {
   }
 }
 
-/** PHP `is_numeric()` for strings. */
-export function isNumeric(value: string): boolean {
-  return /^[ \t\n\r\v\f]*[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[ \t\n\r\v\f]*$/.test(value);
-}

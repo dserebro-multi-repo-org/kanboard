@@ -8,6 +8,8 @@
  * asynchronous, so {@link Validator.execute} is asynchronous too.
  */
 
+import { isNumeric } from '../helper/php.js';
+
 export type Values = Record<string, unknown>;
 export type ValidationErrors = Record<string, string[]>;
 /** `[valid, errors]` tuple returned by every validator method (PHP `array($valid, $errors)`). */
@@ -54,17 +56,6 @@ function hasValue(data: Values, field: string): boolean {
   }
   const value = data[field];
   return value !== undefined && value !== null && value !== '';
-}
-
-/** PHP `is_numeric`. */
-export function isNumeric(value: unknown): boolean {
-  if (typeof value === 'number') {
-    return true;
-  }
-  if (typeof value === 'string') {
-    return /^[ \t\n\r\v\f]*[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?[ \t\n\r\v\f]*$/.test(value);
-  }
-  return false;
 }
 
 /** PHP 8 loose comparison `$a <=> $b` for scalars. */

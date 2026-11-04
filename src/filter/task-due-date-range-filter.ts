@@ -1,11 +1,12 @@
 import type { FilterInterface } from '../core/filter/filter-interface.js';
 import { TABLES } from '../foundation/model-constants.js';
+import { isNumeric } from '../helper/php.js';
 import { strtotime } from '../foundation/php-time.js';
 import { BaseFilter } from './base-filter.js';
 
 /** `is_numeric($v) ? $v : strtotime($v)` */
 function toTimestamp(value: string | number | undefined): number | false {
-  if (typeof value === 'number' || (typeof value === 'string' && value.trim() !== '' && Number.isFinite(Number(value)))) {
+  if (isNumeric(value)) {
     return Number(value);
   }
   return strtotime(String(value ?? ''));

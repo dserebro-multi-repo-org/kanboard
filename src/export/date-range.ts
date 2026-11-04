@@ -1,3 +1,4 @@
+import { isNumeric } from '../helper/php.js';
 import type { DateParser } from '../core/date-parser.js';
 
 /** `is_numeric($from) ? $from : removeTimeFromTimestamp(getTimestamp($from))` */
@@ -17,8 +18,4 @@ function addOneDay(timestamp: number): number {
   const d = new Date(timestamp * 1000);
   d.setDate(d.getDate() + 1);
   return Math.floor(d.getTime() / 1000);
-}
-
-function isNumeric(value: unknown): boolean {
-  return typeof value === 'number' || (typeof value === 'string' && value.trim() !== '' && !Number.isNaN(Number(value)));
 }
