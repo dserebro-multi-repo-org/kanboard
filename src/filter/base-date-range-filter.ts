@@ -1,15 +1,7 @@
-import type { DateParserLike } from '../foundation/filter-collaborators.js';
-import { BaseFilter } from './base-filter.js';
+import { DateParserFilter } from './date-parser-filter.js';
 
 /** Port of `Kanboard\Filter\BaseDateRangeFilter`: `from..to` date ranges. */
-export abstract class BaseDateRangeFilter extends BaseFilter {
-  protected dateParser!: DateParserLike;
-
-  setDateParser(dateParser: DateParserLike): this {
-    this.dateParser = dateParser;
-    return this;
-  }
-
+export abstract class BaseDateRangeFilter extends DateParserFilter {
   private timestamp(value: string): number {
     const parser = this.dateParser;
     if (parser.getTimestampSync !== undefined) return Number(parser.getTimestampSync(value));

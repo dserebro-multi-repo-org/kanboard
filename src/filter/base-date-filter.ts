@@ -1,5 +1,4 @@
-import type { DateParserLike } from '../foundation/filter-collaborators.js';
-import { BaseFilter } from './base-filter.js';
+import { DateParserFilter } from './date-parser-filter.js';
 
 const OPERATORS: ReadonlyArray<readonly [string, 'lte' | 'gte' | 'lt' | 'gt']> = [
   ['<=', 'lte'],
@@ -9,14 +8,7 @@ const OPERATORS: ReadonlyArray<readonly [string, 'lte' | 'gte' | 'lt' | 'gt']> =
 ];
 
 /** Port of `Kanboard\Filter\BaseDateFilter`: date comparison with an optional operator prefix. */
-export abstract class BaseDateFilter extends BaseFilter {
-  protected dateParser!: DateParserLike;
-
-  setDateParser(dateParser: DateParserLike): this {
-    this.dateParser = dateParser;
-    return this;
-  }
-
+export abstract class BaseDateFilter extends DateParserFilter {
   /** Strip the operator from the value and return the matching query method, `''` when there is none. */
   protected parseOperator(): 'lte' | 'gte' | 'lt' | 'gt' | '' {
     const value = this.stringValue;
