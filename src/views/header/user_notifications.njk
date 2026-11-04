@@ -1,0 +1,12 @@
+{#-
+  Port of app/Template/header/user_notifications.php.
+  Variables: has_notifications (pre-resolved `user.hasNotifications()`, see prepareHeaderVars in
+  src/views/prepare/header.ts)
+-#}
+<span class="notification">
+{% if has_notifications %}
+    {{ helper.modal.mediumIcon('bell web-notification-icon', t('Unread notifications'), 'WebNotificationController', 'show', {'user_id': helper.user.getId()}) }}
+{% else %}
+    {{ helper.modal.mediumIcon('bell', t('My notifications'), 'WebNotificationController', 'show', {'user_id': helper.user.getId()}) }}
+{% endif %}
+</span>

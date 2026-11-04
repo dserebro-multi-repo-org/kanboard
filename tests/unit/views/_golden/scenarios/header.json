@@ -1,0 +1,306 @@
+[
+ {
+  "name": "header_default",
+  "template": "header",
+  "vars": {
+   "title": "Dashboard",
+   "board_selector": {
+    "1": "Project one",
+    "2": "Project <two>"
+   },
+   "description": "Hello"
+  },
+  "fixture": "header/header_default.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ],
+   "hooks": [
+    {
+     "hook": "template:header:creation-dropdown",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:header:dropdown",
+     "template": "stub:hook_echo"
+    }
+   ]
+  },
+  "prepare": [
+   "header"
+  ]
+ },
+ {
+  "name": "header_project",
+  "template": "header",
+  "vars": {
+   "title": "Board",
+   "project": {
+    "id": 3,
+    "name": "My <Project> & Co",
+    "task_limit": 5,
+    "is_public": 0,
+    "is_private": 0,
+    "token": "tok",
+    "nb_active_tasks": 2
+   }
+  },
+  "fixture": "header/header_project.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ],
+   "notifications": true
+  },
+  "prepare": [
+   "header"
+  ]
+ },
+ {
+  "name": "header_task",
+  "template": "header",
+  "vars": {
+   "title": "Ignored",
+   "project": {
+    "id": 3,
+    "name": "My <Project> & Co",
+    "task_limit": 0,
+    "is_public": 0,
+    "is_private": 0,
+    "token": "tok"
+   },
+   "task": {
+    "id": 9
+   }
+  },
+  "fixture": "header/header_task.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ],
+   "user": {
+    "id": 2,
+    "username": "jdoe",
+    "name": "John Doe",
+    "role": "app-user",
+    "email": "",
+    "avatar_path": "",
+    "theme": "light"
+   }
+  },
+  "prepare": [
+   "header"
+  ]
+ },
+ {
+  "name": "header_user_private_disabled",
+  "template": "header",
+  "vars": {
+   "title": "T"
+  },
+  "fixture": "header/header_user_private_disabled.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ],
+   "user": {
+    "id": 2,
+    "username": "jdoe",
+    "name": "John Doe",
+    "role": "app-user",
+    "email": "",
+    "avatar_path": "",
+    "theme": "light"
+   },
+   "config": {
+    "disable_private_project": "1"
+   }
+  },
+  "prepare": [
+   "header"
+  ]
+ },
+ {
+  "name": "board_selector",
+  "template": "header/board_selector",
+  "vars": {
+   "board_selector": {
+    "1": "Project one",
+    "2": "Project <two>"
+   }
+  },
+  "fixture": "header/board_selector.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ]
+  }
+ },
+ {
+  "name": "creation_dropdown_admin",
+  "template": "header/creation_dropdown",
+  "vars": {},
+  "fixture": "header/creation_dropdown_admin.html",
+  "state": {
+   "hooks": [
+    {
+     "hook": "template:header:creation-dropdown",
+     "template": "stub:hook_echo"
+    }
+   ]
+  },
+  "prepare": [
+   "header"
+  ]
+ },
+ {
+  "name": "creation_dropdown_user",
+  "template": "header/creation_dropdown",
+  "vars": {},
+  "fixture": "header/creation_dropdown_user.html",
+  "state": {
+   "user": {
+    "id": 2,
+    "username": "jdoe",
+    "name": "John Doe",
+    "role": "app-user",
+    "email": "",
+    "avatar_path": "",
+    "theme": "light"
+   }
+  },
+  "prepare": [
+   "header"
+  ]
+ },
+ {
+  "name": "creation_dropdown_user_private_disabled",
+  "template": "header/creation_dropdown",
+  "vars": {},
+  "fixture": "header/creation_dropdown_user_private_disabled.html",
+  "state": {
+   "user": {
+    "id": 2,
+    "username": "jdoe",
+    "name": "John Doe",
+    "role": "app-user",
+    "email": "",
+    "avatar_path": "",
+    "theme": "light"
+   },
+   "config": {
+    "disable_private_project": "1"
+   }
+  },
+  "prepare": [
+   "header"
+  ]
+ },
+ {
+  "name": "title_plain",
+  "template": "header/title",
+  "vars": {
+   "title": "A & B <i>",
+   "project": null,
+   "task": null,
+   "description": null
+  },
+  "fixture": "header/title_plain.html"
+ },
+ {
+  "name": "title_limit",
+  "template": "header/title",
+  "vars": {
+   "title": "Board",
+   "project": {
+    "id": 1,
+    "name": "P",
+    "task_limit": "7",
+    "nb_active_tasks": "3"
+   },
+   "task": null,
+   "description": "Some *help*"
+  },
+  "fixture": "header/title_limit.html"
+ },
+ {
+  "name": "title_task",
+  "template": "header/title",
+  "vars": {
+   "title": "x",
+   "project": {
+    "id": 1,
+    "name": "Proj & <b>",
+    "task_limit": 0
+   },
+   "task": {
+    "id": 5
+   },
+   "description": null
+  },
+  "fixture": "header/title_task.html"
+ },
+ {
+  "name": "user_dropdown_admin",
+  "template": "header/user_dropdown",
+  "vars": {},
+  "fixture": "header/user_dropdown_admin.html",
+  "state": {
+   "hooks": [
+    {
+     "hook": "template:header:dropdown",
+     "template": "stub:hook_echo"
+    }
+   ]
+  },
+  "prepare": [
+   "header"
+  ]
+ },
+ {
+  "name": "user_dropdown_user",
+  "template": "header/user_dropdown",
+  "vars": {},
+  "fixture": "header/user_dropdown_user.html",
+  "state": {
+   "user": {
+    "id": 2,
+    "username": "jdoe",
+    "name": "John Doe",
+    "role": "app-user",
+    "email": "",
+    "avatar_path": "",
+    "theme": "light"
+   }
+  },
+  "prepare": [
+   "header"
+  ]
+ },
+ {
+  "name": "user_notifications_none",
+  "template": "header/user_notifications",
+  "vars": {},
+  "fixture": "header/user_notifications_none.html",
+  "prepare": [
+   "header"
+  ]
+ },
+ {
+  "name": "user_notifications_unread",
+  "template": "header/user_notifications",
+  "vars": {},
+  "fixture": "header/user_notifications_unread.html",
+  "state": {
+   "notifications": true
+  },
+  "prepare": [
+   "header"
+  ]
+ }
+]

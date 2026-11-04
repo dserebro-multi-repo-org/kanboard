@@ -1,0 +1,106 @@
+{#-
+  Port of app/Template/dashboard/overview.php.
+  Variables: user, project_paginator, overview_paginator (list of {project_id, project_name, paginator}).
+  Paginators are objects with isEmpty(), getCollection() and toString() returning the pagination HTML (echoed as
+  safe HTML). Pre-resolved (see prepareDashboardOverviewVars in src/views/prepare/dashboard.ts):
+    project_access  object keyed by project id: `user.hasProjectAccess('ProjectViewController', 'show', id)`
+  Included partials receive the loop variables `project`/`task`, `paginator` and `user_id`/`redirect` where PHP
+  passes them.
+-#}
+{{ helper.hook.render('template:dashboard:show:before-filter-box', {'user': user}) }}
+
+<div class="filter-box margin-bottom">
+    <form method="get" action="{{ helper.url.dir() }}" class="search">
+        {{ helper.form.hidden('controller', {'controller': 'SearchController'}) }}
+        {{ helper.form.hidden('action', {'action': 'index'}) }}
+
+        <div class="input-addon">
+            {{ helper.form.text('search', {}, {}, ['placeholder="' ~ t('Search') ~ '"', 'aria-label="' ~ t('Search') ~ '"'], 'input-addon-field') }}
+            <div class="input-addon-item">
+                {% include "app/filters_helper" %}
+            </div>
+        </div>
+    </form>
+</div>
+
+{{ helper.hook.render('template:dashboard:show:after-filter-box', {'user': user}) }}
+
+{% if not project_paginator.isEmpty() %}
+    <div class="table-list">
+        {% set paginator = project_paginator %}
+        {% include "project_list/header" %}
+        {% for project in project_paginator.getCollection() %}
+            <div class="table-list-row table-border-left">
+                <div>
+                    {% if project_access[project.id] %}
+                        {% include "project/dropdown" %}
+                    {% else %}
+                        <strong>{{ '#' ~ project.id }}</strong>
+                    {% endif %}
+
+                    {{ helper.hook.render('template:dashboard:project:before-title', {'project': project}) }}
+
+                    <span class="table-list-title {{ 'status-closed' if project.is_active == 0 else '' }}">
+                        {{ helper.url.link(helper.text.e(project.name), 'BoardViewController', 'show', {'project_id': project.id}) }}
+                    </span>
+
+                    {% if project.is_private and project.is_private != 0 %}
+                        <i class="fa fa-lock fa-fw" title="{{ t('Personal project') }}" role="img" aria-label="{{ t('Personal project') }}"></i>
+                    {% endif %}
+
+                    {{ helper.hook.render('template:dashboard:project:after-title', {'project': project}) }}
+
+                </div>
+                <div class="table-list-details">
+                    {% for column in project.columns %}
+                        <strong title="{{ t('Task count') }}"><span class="ui-helper-hidden-accessible">{{ t('Task count') }} </span>{{ column.nb_open_tasks }}</strong>
+                        <small>{{ helper.text.e(column.title) }}</small>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {{ project_paginator | safe }}
+{% endif %}
+
+{% if not overview_paginator or not (overview_paginator | length) %}
+    <p class="alert">{{ t('There is nothing assigned to you.') }}</p>
+{% else %}
+    {% for result in overview_paginator %}
+        {% if not result.paginator.isEmpty() %}
+            <div class="page-header">
+                <h2 id="project-tasks-{{ result.project_id }}">{{ helper.url.link(helper.text.e(result.project_name), 'BoardViewController', 'show', {'project_id': result.project_id}) }}</h2>
+            </div>
+
+            <div class="table-list">
+                {% set paginator = result.paginator %}
+                {% include "task_list/header" %}
+
+                {% for task in result.paginator.getCollection() %}
+                    <div class="table-list-row color-{{ helper.text.e(task.color_id) }}">
+                        {% set redirect = 'dashboard' %}
+                        {% include "task_list/task_title" %}
+                        {% set redirect = null %}
+
+                        {% include "task_list/task_details" %}
+
+                        {% include "task_list/task_avatars" %}
+
+                        {% include "task_list/task_icons" %}
+
+                        {% set user_id = user.id %}
+                        {% include "task_list/task_subtasks" %}
+                        {% set user_id = null %}
+
+                        {{ helper.hook.render('template:dashboard:task:footer', {'task': task}) }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            {{ result.paginator | safe }}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{{ helper.hook.render('template:dashboard:show', {'user': user}) }}

@@ -1,0 +1,1 @@
+<span class="hook"><?= isset($project) ? 'project='.$project['id'] : '' ?><?= isset($user) ? ' user='.$user['id'] : '' ?><?= isset($task) ? ' task='.$task['id'] : '' ?><?= isset($values) ? ' values='.count($values) : '' ?></span>

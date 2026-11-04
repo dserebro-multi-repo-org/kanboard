@@ -1,0 +1,22 @@
+{#-
+  Port of app/Template/header.php.
+  Variables: title, description?, board_selector?, project?, task?, plus (see prepareHeaderVars in
+  src/views/prepare/header.ts): has_notifications, is_private_project_enabled, disable_logout.
+-#}
+{% set _title %}{% include "header/title" %}{% endset %}
+
+{% set _top_right_corner %}{% include "header/user_notifications" %}&nbsp;{% include "header/creation_dropdown" %}&nbsp;{% include "header/user_dropdown" %}{% endset %}
+
+<header>
+    <div class="title-container">
+        {{ _title | safe }}
+    </div>
+    <div class="board-selector-container">
+        {% if board_selector and (board_selector | length) %}
+            {% include "header/board_selector" %}
+        {% endif %}
+    </div>
+    <div class="menus-container">
+        {{ _top_right_corner | safe }}
+    </div>
+</header>

@@ -1,0 +1,36 @@
+{#-
+  Port of app/Template/dashboard/tasks.php.
+  Variables: user, paginator (object with isEmpty(), getCollection(), getTotal() and toString() returning the
+  pagination HTML, echoed as safe HTML)
+  Included partials receive the loop variable `task` (and `redirect` where PHP passes it).
+-#}
+<div class="page-header">
+    <h2>{{ helper.url.link(t('My tasks'), 'DashboardController', 'tasks', {'user_id': user.id}) }} ({{ paginator.getTotal() }})</h2>
+</div>
+{% if paginator.isEmpty() %}
+    <p class="alert">{{ t('There is nothing assigned to you.') }}</p>
+{% else %}
+    <div class="table-list">
+        {% include "task_list/header" %}
+
+        {% for task in paginator.getCollection() %}
+            <div class="table-list-row color-{{ helper.text.e(task.color_id) }}">
+                {% set redirect = 'dashboard-tasks' %}
+                {% include "task_list/task_title" %}
+                {% set redirect = null %}
+
+                {% include "task_list/task_details" %}
+
+                {% include "task_list/task_avatars" %}
+
+                {% include "task_list/task_icons" %}
+
+                {% include "task_list/task_subtasks" %}
+
+                {{ helper.hook.render('template:dashboard:task:footer', {'task': task}) }}
+            </div>
+        {% endfor %}
+    </div>
+
+    {{ paginator | safe }}
+{% endif %}

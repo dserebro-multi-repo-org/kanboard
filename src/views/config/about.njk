@@ -1,0 +1,107 @@
+{#-
+  Port of app/Template/config/about.php.
+  Variables from the controller: db_version, user_agent, db_size, db_options (object name => value).
+  Pre-resolved environment values (PHP constants / file reads, see prepareAboutVars in
+  src/views/prepare/config.ts):
+    app_version           APP_VERSION
+    php_version           PHP_VERSION (runtime version string)
+    php_sapi              PHP_SAPI
+    http_client_backend   Kanboard\Core\Http\Client::backend()
+    os_version            php_uname('s') . ' ' . php_uname('r')
+    db_driver             DB_DRIVER
+    license_html          nl2br(file_get_contents(ROOT_DIR/LICENSE)) (trusted HTML, echoed raw)
+-#}
+<div class="page-header">
+    <h2>{{ t('About') }}</h2>
+</div>
+<div class="panel">
+    <ul>
+        <li>
+            {{ t('Official website:') }}
+            <a href="https://kanboard.org/" target="_blank" rel="noopener noreferrer">https://kanboard.org/</a>
+        </li>
+        <li>
+            {{ t('Author:') }}
+            <strong>Frédéric Guillot</strong> (<a href="https://github.com/kanboard/kanboard/graphs/contributors" target="_blank" rel="noopener noreferrer">{{ t('contributors') }}</a>)
+        </li>
+        <li>
+            {{ t('License:') }}
+            <strong>MIT</strong>
+        </li>
+    </ul>
+</div>
+
+<div class="page-header">
+    <h2>{{ t('Configuration') }}</h2>
+</div>
+<div class="panel">
+    <ul>
+        <li>
+            {{ t('Application version:') }}
+            <strong>{{ app_version | safe }}</strong>
+        </li>
+        <li>
+            {{ t('PHP version:') }}
+            <strong>{{ php_version | safe }}</strong>
+        </li>
+        <li>
+            {{ t('PHP SAPI:') }}
+            <strong>{{ php_sapi | safe }}</strong>
+        </li>
+        <li>
+            {{ t('HTTP Client:') }}
+            <strong>{{ http_client_backend | safe }}</strong>
+        </li>
+        <li>
+            {{ t('OS version:') }}
+            <strong>{{ os_version | safe }}</strong>
+        </li>
+        <li>
+            {{ t('Database driver:') }}
+            <strong>{{ db_driver | safe }}</strong>
+        </li>
+        <li>
+            {{ t('Database version:') }}
+            <strong>{{ helper.text.e(db_version) }}</strong>
+        </li>
+        <li>
+            {{ t('Browser:') }}
+            <strong>{{ helper.text.e(user_agent) }}</strong>
+        </li>
+    </ul>
+</div>
+
+{% if db_driver == 'sqlite' %}
+    <div class="page-header">
+        <h2>{{ t('Database') }}</h2>
+    </div>
+    <div class="panel">
+        <ul>
+            <li>
+                {{ t('Database size:') }}
+                <strong>{{ helper.text.bytes(db_size) }}</strong>
+            </li>
+            <li>
+                {{ helper.url.link(t('Download the database'), 'ConfigController', 'downloadDb', {}, true) }}&nbsp;
+                {{ t('(Gzip compressed Sqlite file)') }}
+            </li>
+            <li>
+                {{ helper.url.link(t('Upload the database'), 'ConfigController', 'uploadDb', {}, false, 'js-modal-medium') }}
+            </li>
+            <li>
+                {{ helper.url.link(t('Optimize the database'), 'ConfigController', 'optimizeDb', {}, true) }}&nbsp;
+                {{ t('(VACUUM command)') }}
+            </li>
+            {% for option, value in db_options %}
+                <li><strong>{{ helper.text.e(option) }}</strong> = {{ helper.text.e(value) }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+<div class="page-header">
+    <h2>{{ t('License') }}</h2>
+</div>
+<div class="panel">
+{{ license_html | safe }}
+</div>

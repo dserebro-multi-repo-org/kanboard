@@ -1,0 +1,10 @@
+{#- Port of app/Template/config/layout.php. Variables: sidebar_template, content_for_sublayout (safe HTML) -#}
+<section id="main">
+    <section class="sidebar-container" id="config-section">
+        {% include sidebar_template %}
+
+        <div class="sidebar-content">
+            {{ content_for_sublayout | safe }}
+        </div>
+    </section>
+</section>

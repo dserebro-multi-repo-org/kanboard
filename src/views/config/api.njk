@@ -1,0 +1,18 @@
+{#- Port of app/Template/config/api.php. Variables: values (api_token) -#}
+<div class="page-header">
+    <h2>{{ t('API') }}</h2>
+</div>
+<div class="panel">
+    <ul>
+        <li>
+            {{ t('API token:') }}
+            <strong>{{ helper.text.e(values.api_token) }}</strong>
+        </li>
+        <li>
+            {{ t('API endpoint:') }}
+            <strong>{{ helper.text.e(helper.url.base()) }}jsonrpc.php</strong>
+        </li>
+    </ul>
+</div>
+
+{{ helper.url.link(t('Reset token'), 'ConfigController', 'token', {'type': 'api'}, true, 'btn btn-red') }}

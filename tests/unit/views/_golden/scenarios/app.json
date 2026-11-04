@@ -1,0 +1,56 @@
+[
+ {
+  "name": "forbidden",
+  "template": "app/forbidden",
+  "vars": {},
+  "fixture": "app/forbidden.html"
+ },
+ {
+  "name": "notfound",
+  "template": "app/notfound",
+  "vars": {},
+  "fixture": "app/notfound.html"
+ },
+ {
+  "name": "filters_helper",
+  "template": "app/filters_helper",
+  "vars": {},
+  "fixture": "app/filters_helper.html",
+  "state": {
+   "hooks": [
+    {
+     "hook": "template:app:filters-helper:before",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:app:filters-helper:after",
+     "template": "stub:hook_echo"
+    }
+   ]
+  }
+ },
+ {
+  "name": "filters_helper_project",
+  "template": "app/filters_helper",
+  "vars": {
+   "reset": "status:open",
+   "project": {
+    "id": 4,
+    "name": "P"
+   }
+  },
+  "fixture": "app/filters_helper_project.html",
+  "state": {
+   "hooks": [
+    {
+     "hook": "template:app:filters-helper:before",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:app:filters-helper:after",
+     "template": "stub:hook_echo"
+    }
+   ]
+  }
+ }
+]

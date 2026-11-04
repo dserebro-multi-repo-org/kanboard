@@ -1,0 +1,48 @@
+{#-
+  Port of app/Template/config/application.php.
+  Variables: values, errors, languages, timezones, date_formats, time_formats
+-#}
+<div class="page-header">
+    <h2>{{ t('Application settings') }}</h2>
+</div>
+<form method="post" action="{{ helper.url.href('ConfigController', 'save', {'redirect': 'application'}) }}" autocomplete="off">
+    {{ helper.form.csrf() }}
+
+    <fieldset>
+        {{ helper.form.label(t('Application URL'), 'application_url') }}
+        {{ helper.form.text('application_url', values, errors, ['placeholder="https://example.kanboard.org/"']) }}
+        <p class="form-help">{{ t('Example: https://example.kanboard.org/ (used to generate absolute URLs)') }}</p>
+
+        {{ helper.form.label(t('Language'), 'application_language') }}
+        {{ helper.form.select('application_language', languages, values, errors) }}
+
+        {{ helper.form.checkbox('password_reset', t('Enable "Forget Password"'), 1, values.password_reset == 1) }}
+    </fieldset>
+
+    <fieldset>
+        {{ helper.form.label(t('Timezone'), 'application_timezone') }}
+        {{ helper.form.select('application_timezone', timezones, values, errors) }}
+
+        {{ helper.form.label(t('Date format'), 'application_date_format') }}
+        {{ helper.form.select('application_date_format', date_formats, values, errors) }}
+        <p class="form-help">{{ t('ISO format is always accepted, example: "%s" and "%s"', dt('Y-m-d'), dt('Y_m_d')) }}</p>
+
+        {{ helper.form.label(t('Time format'), 'application_time_format') }}
+        {{ helper.form.select('application_time_format', time_formats, values, errors) }}
+    </fieldset>
+
+    <fieldset>
+        {{ helper.form.checkbox('notifications_enabled', t('Enable notifications by default for all new users'), 1, values.notifications_enabled is defined and values.notifications_enabled == 1) }}
+    </fieldset>
+
+    <fieldset>
+        {{ helper.form.label(t('Custom Stylesheet'), 'application_stylesheet') }}
+        {{ helper.form.textarea('application_stylesheet', values, errors) }}
+    </fieldset>
+
+    {{ helper.hook.render('template:config:application', {'values': values, 'errors': errors}) }}
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-blue">{{ t('Save') }}</button>
+    </div>
+</form>

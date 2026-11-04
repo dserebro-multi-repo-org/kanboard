@@ -1,0 +1,1 @@
+<!-- task_list/header paginator_total=<?= $paginator->getTotal() ?> -->

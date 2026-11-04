@@ -1,0 +1,92 @@
+{#-
+  Port of app/Template/project_header/dropdown.php.
+  Variables: project, board_view, plus (pre-resolved async helper results, see prepareProjectHeaderVars in
+  src/views/prepare/project_header.ts):
+    board_collapsed  boolean, `board.isCollapsed(project.id)`
+    project_access   object of booleans `user.hasProjectAccess(controller, action, project.id)` with keys
+                     task_creation, custom_filter, analytic, export, task_import, project_view
+-#}
+{% set csrf_token = helper.app.getToken().getReusableCSRFToken() %}
+<div class="dropdown">
+    <a href="#" class="dropdown-menu action-menu" title="{{ t('Configure this project') }}" aria-label="{{ t('Configure this project') }}"><i class="fa fa-cog"></i><i class="fa fa-caret-down"></i></a>
+    <ul>
+        {% if board_view %}
+        <li>
+            <span class="filter-display-mode" {{ '' if board_collapsed else 'style="display: none;"' | safe }}>
+                {{ helper.url.icon('expand', t('Expand tasks'), 'BoardAjaxController', 'expand', {'project_id': project.id, 'csrf_token': csrf_token}, false, 'board-display-mode', t('Keyboard shortcut: "%s"', 's')) }}
+            </span>
+            <span class="filter-display-mode" {{ 'style="display: none;"' | safe if board_collapsed else '' }}>
+                {{ helper.url.icon('compress', t('Collapse tasks'), 'BoardAjaxController', 'collapse', {'project_id': project.id, 'csrf_token': csrf_token}, false, 'board-display-mode', t('Keyboard shortcut: "%s"', 's')) }}
+            </span>
+        </li>
+        <li>
+            <span class="filter-compact">
+                <i class="fa fa-th fa-fw"></i> <a href="#" class="filter-toggle-scrolling" title="{{ t('Keyboard shortcut: "%s"', 'c') }}">{{ t('Compact view') }}</a>
+            </span>
+            <span class="filter-wide" style="display: none">
+                <i class="fa fa-arrows-h fa-fw"></i> <a href="#" class="filter-toggle-scrolling" title="{{ t('Keyboard shortcut: "%s"', 'c') }}">{{ t('Horizontal scrolling') }}</a>
+            </span>
+        </li>
+        <li>
+            <span class="filter-vert-collapse">
+                <i class="fa fa-arrow-up fa-fw"></i> <a href="#" class="filter-vert-toggle-collapse">{{ t('Collapse vertically') }}</a>
+            </span>
+            <span class="filter-vert-expand" style="display: none">
+                <i class="fa fa-arrow-down fa-fw"></i> <a href="#" class="filter-vert-toggle-collapse">{{ t('Expand vertically') }}</a>
+            </span>
+        </li>
+        {% endif %}
+
+        {% if project_access.task_creation %}
+            <li>
+                {{ helper.modal.large('plus', t('Add a new task'), 'TaskCreationController', 'show', {'project_id': project.id}) }}
+            </li>
+        {% endif %}
+
+        <li>
+            {{ helper.modal.medium('dashboard', t('Activity'), 'ActivityController', 'project', {'project_id': project.id}) }}
+        </li>
+
+        {% if project_access.custom_filter %}
+            <li>
+                {{ helper.modal.medium('filter', t('Add custom filters'), 'CustomFilterController', 'create', {'project_id': project.id}) }}
+            </li>
+        {% endif %}
+
+        {% if project.is_public and project.is_public != 0 %}
+            <li>
+                {{ helper.url.icon('share-alt', t('Public link'), 'BoardViewController', 'readonly', {'token': project.token}, false, '', '', true) }}
+            </li>
+        {% endif %}
+
+        {{ helper.hook.render('template:project:dropdown', {'project': project}) }}
+
+        {% if project_access.analytic %}
+            <li>
+                {{ helper.modal.large('line-chart', t('Analytics'), 'AnalyticController', 'taskDistribution', {'project_id': project.id}) }}
+            </li>
+        {% endif %}
+
+        {% if project_access.export %}
+            <li>
+                {{ helper.modal.medium('upload', t('Exports'), 'ExportController', 'tasks', {'project_id': project.id}) }}
+            </li>
+        {% endif %}
+
+        {% if project_access.task_import %}
+            <li>
+                {{ helper.modal.medium('download', t('Import tasks'), 'TaskImportController', 'show', {'project_id': project.id}) }}
+            </li>
+        {% endif %}
+
+        {% if project_access.project_view %}
+            <li>
+                {{ helper.url.icon('cog', t('Configure this project'), 'ProjectViewController', 'show', {'project_id': project.id}) }}
+            </li>
+        {% endif %}
+
+        <li>
+            {{ helper.url.icon('folder', t('Manage projects'), 'ProjectListController', 'show') }}
+        </li>
+    </ul>
+</div>

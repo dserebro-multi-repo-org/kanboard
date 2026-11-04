@@ -1,0 +1,476 @@
+[
+ {
+  "name": "about_sqlite",
+  "template": "config/about",
+  "vars": {
+   "app_version": "1.2.3",
+   "php_version": "8.9.0",
+   "php_sapi": "cli",
+   "http_client_backend": "cURL",
+   "os_version": "Linux 6.1",
+   "db_version": "3.40 <x>",
+   "user_agent": "Mozilla & Co",
+   "db_size": 12345,
+   "db_options": {
+    "journal_mode": "wal",
+    "a<b": "c&d"
+   }
+  },
+  "fixture": "config/about_sqlite.html",
+  "state": {
+   "route": [
+    "ConfigController",
+    "about"
+   ]
+  },
+  "prepare": [
+   "about"
+  ],
+  "replace_strong": {
+   "Application version:": "1.2.3",
+   "PHP version:": "8.9.0",
+   "PHP SAPI:": "cli",
+   "HTTP Client:": "cURL",
+   "OS version:": "Linux 6.1"
+  }
+ },
+ {
+  "name": "api",
+  "template": "config/api",
+  "vars": {
+   "values": {
+    "api_token": "tok<en>",
+    "webhook_token": "wh&tok",
+    "webhook_url": "http://x/y",
+    "application_url": "https://kb.example.org/",
+    "application_language": "en_US",
+    "password_reset": "1",
+    "application_timezone": "UTC",
+    "application_date_format": "m/d/Y",
+    "application_time_format": "H:i",
+    "notifications_enabled": "0",
+    "application_stylesheet": "a { b: c }",
+    "board_highlight_period": "172800",
+    "board_public_refresh_interval": "60",
+    "board_private_refresh_interval": "10",
+    "default_color": "yellow",
+    "board_columns": "Backlog, Done",
+    "project_categories": "Bug",
+    "disable_private_project": "1",
+    "subtask_restriction": "0",
+    "subtask_time_tracking": "1",
+    "cfd_include_closed_tasks": "1",
+    "mail_sender_address": "a@b.c",
+    "mail_transport": "smtp"
+   }
+  },
+  "fixture": "config/api.html",
+  "state": {
+   "route": [
+    "ConfigController",
+    "api"
+   ]
+  }
+ },
+ {
+  "name": "application",
+  "template": "config/application",
+  "vars": {
+   "values": {
+    "api_token": "tok<en>",
+    "webhook_token": "wh&tok",
+    "webhook_url": "http://x/y",
+    "application_url": "https://kb.example.org/",
+    "application_language": "en_US",
+    "password_reset": "1",
+    "application_timezone": "UTC",
+    "application_date_format": "m/d/Y",
+    "application_time_format": "H:i",
+    "notifications_enabled": "0",
+    "application_stylesheet": "a { b: c }",
+    "board_highlight_period": "172800",
+    "board_public_refresh_interval": "60",
+    "board_private_refresh_interval": "10",
+    "default_color": "yellow",
+    "board_columns": "Backlog, Done",
+    "project_categories": "Bug",
+    "disable_private_project": "1",
+    "subtask_restriction": "0",
+    "subtask_time_tracking": "1",
+    "cfd_include_closed_tasks": "1",
+    "mail_sender_address": "a@b.c",
+    "mail_transport": "smtp"
+   },
+   "errors": {
+    "application_url": [
+     "Bad URL"
+    ]
+   },
+   "languages": {
+    "en_US": "English",
+    "fr_FR": "Fran\u00e7ais"
+   },
+   "timezones": {
+    "UTC": "UTC",
+    "Europe/Paris": "Europe/Paris"
+   },
+   "date_formats": {
+    "m/d/Y": "09/22/2024"
+   },
+   "time_formats": {
+    "H:i": "24h"
+   }
+  },
+  "fixture": "config/application.html",
+  "state": {
+   "route": [
+    "ConfigController",
+    "application"
+   ],
+   "hooks": [
+    {
+     "hook": "template:config:application",
+     "template": "stub:hook_echo"
+    }
+   ]
+  },
+  "freeze_date": "2026-01-02"
+ },
+ {
+  "name": "board",
+  "template": "config/board",
+  "vars": {
+   "values": {
+    "api_token": "tok<en>",
+    "webhook_token": "wh&tok",
+    "webhook_url": "http://x/y",
+    "application_url": "https://kb.example.org/",
+    "application_language": "en_US",
+    "password_reset": "1",
+    "application_timezone": "UTC",
+    "application_date_format": "m/d/Y",
+    "application_time_format": "H:i",
+    "notifications_enabled": "0",
+    "application_stylesheet": "a { b: c }",
+    "board_highlight_period": "172800",
+    "board_public_refresh_interval": "60",
+    "board_private_refresh_interval": "10",
+    "default_color": "yellow",
+    "board_columns": "Backlog, Done",
+    "project_categories": "Bug",
+    "disable_private_project": "1",
+    "subtask_restriction": "0",
+    "subtask_time_tracking": "1",
+    "cfd_include_closed_tasks": "1",
+    "mail_sender_address": "a@b.c",
+    "mail_transport": "smtp"
+   },
+   "errors": {}
+  },
+  "fixture": "config/board.html",
+  "state": {
+   "route": [
+    "ConfigController",
+    "board"
+   ],
+   "hooks": [
+    {
+     "hook": "template:config:board",
+     "template": "stub:hook_echo"
+    }
+   ]
+  }
+ },
+ {
+  "name": "email",
+  "template": "config/email",
+  "vars": {
+   "values": {
+    "api_token": "tok<en>",
+    "webhook_token": "wh&tok",
+    "webhook_url": "http://x/y",
+    "application_url": "https://kb.example.org/",
+    "application_language": "en_US",
+    "password_reset": "1",
+    "application_timezone": "UTC",
+    "application_date_format": "m/d/Y",
+    "application_time_format": "H:i",
+    "notifications_enabled": "0",
+    "application_stylesheet": "a { b: c }",
+    "board_highlight_period": "172800",
+    "board_public_refresh_interval": "60",
+    "board_private_refresh_interval": "10",
+    "default_color": "yellow",
+    "board_columns": "Backlog, Done",
+    "project_categories": "Bug",
+    "disable_private_project": "1",
+    "subtask_restriction": "0",
+    "subtask_time_tracking": "1",
+    "cfd_include_closed_tasks": "1",
+    "mail_sender_address": "a@b.c",
+    "mail_transport": "smtp"
+   },
+   "errors": {},
+   "mail_transports": {
+    "smtp": "SMTP",
+    "mail": "Mail"
+   }
+  },
+  "fixture": "config/email.html",
+  "state": {
+   "route": [
+    "ConfigController",
+    "email"
+   ],
+   "hooks": [
+    {
+     "hook": "template:config:email",
+     "template": "stub:hook_echo"
+    }
+   ]
+  },
+  "prepare": [
+   "config"
+  ]
+ },
+ {
+  "name": "integrations_empty",
+  "template": "config/integrations",
+  "vars": {
+   "values": {
+    "api_token": "tok<en>",
+    "webhook_token": "wh&tok",
+    "webhook_url": "http://x/y",
+    "application_url": "https://kb.example.org/",
+    "application_language": "en_US",
+    "password_reset": "1",
+    "application_timezone": "UTC",
+    "application_date_format": "m/d/Y",
+    "application_time_format": "H:i",
+    "notifications_enabled": "0",
+    "application_stylesheet": "a { b: c }",
+    "board_highlight_period": "172800",
+    "board_public_refresh_interval": "60",
+    "board_private_refresh_interval": "10",
+    "default_color": "yellow",
+    "board_columns": "Backlog, Done",
+    "project_categories": "Bug",
+    "disable_private_project": "1",
+    "subtask_restriction": "0",
+    "subtask_time_tracking": "1",
+    "cfd_include_closed_tasks": "1",
+    "mail_sender_address": "a@b.c",
+    "mail_transport": "smtp"
+   }
+  },
+  "fixture": "config/integrations_empty.html",
+  "state": {
+   "route": [
+    "ConfigController",
+    "integrations"
+   ]
+  }
+ },
+ {
+  "name": "integrations_hook",
+  "template": "config/integrations",
+  "vars": {
+   "values": {
+    "api_token": "tok<en>",
+    "webhook_token": "wh&tok",
+    "webhook_url": "http://x/y",
+    "application_url": "https://kb.example.org/",
+    "application_language": "en_US",
+    "password_reset": "1",
+    "application_timezone": "UTC",
+    "application_date_format": "m/d/Y",
+    "application_time_format": "H:i",
+    "notifications_enabled": "0",
+    "application_stylesheet": "a { b: c }",
+    "board_highlight_period": "172800",
+    "board_public_refresh_interval": "60",
+    "board_private_refresh_interval": "10",
+    "default_color": "yellow",
+    "board_columns": "Backlog, Done",
+    "project_categories": "Bug",
+    "disable_private_project": "1",
+    "subtask_restriction": "0",
+    "subtask_time_tracking": "1",
+    "cfd_include_closed_tasks": "1",
+    "mail_sender_address": "a@b.c",
+    "mail_transport": "smtp"
+   }
+  },
+  "fixture": "config/integrations_hook.html",
+  "state": {
+   "route": [
+    "ConfigController",
+    "integrations"
+   ],
+   "hooks": [
+    {
+     "hook": "template:config:integrations",
+     "template": "stub:hook_echo"
+    }
+   ]
+  }
+ },
+ {
+  "name": "keyboard_shortcuts",
+  "template": "config/keyboard_shortcuts",
+  "vars": {},
+  "fixture": "config/keyboard_shortcuts.html",
+  "state": {
+   "route": [
+    "ConfigController",
+    "keyboard_shortcuts"
+   ]
+  }
+ },
+ {
+  "name": "layout",
+  "template": "config/layout",
+  "vars": {
+   "sidebar_template": "config/sidebar",
+   "content_for_sublayout": "<p>sub</p>"
+  },
+  "fixture": "config/layout.html",
+  "state": {
+   "route": [
+    "ConfigController",
+    "email"
+   ],
+   "hooks": [
+    {
+     "hook": "template:config:sidebar",
+     "template": "stub:hook_echo"
+    }
+   ]
+  }
+ },
+ {
+  "name": "project",
+  "template": "config/project",
+  "vars": {
+   "values": {
+    "api_token": "tok<en>",
+    "webhook_token": "wh&tok",
+    "webhook_url": "http://x/y",
+    "application_url": "https://kb.example.org/",
+    "application_language": "en_US",
+    "password_reset": "1",
+    "application_timezone": "UTC",
+    "application_date_format": "m/d/Y",
+    "application_time_format": "H:i",
+    "notifications_enabled": "0",
+    "application_stylesheet": "a { b: c }",
+    "board_highlight_period": "172800",
+    "board_public_refresh_interval": "60",
+    "board_private_refresh_interval": "10",
+    "default_color": "yellow",
+    "board_columns": "Backlog, Done",
+    "project_categories": "Bug",
+    "disable_private_project": "0",
+    "subtask_restriction": "0",
+    "subtask_time_tracking": "1",
+    "cfd_include_closed_tasks": "1",
+    "mail_sender_address": "a@b.c",
+    "mail_transport": "smtp"
+   },
+   "errors": {},
+   "colors": {
+    "yellow": "Yellow",
+    "blue": "Blue"
+   },
+   "default_columns": "Backlog, Ready"
+  },
+  "fixture": "config/project.html",
+  "state": {
+   "route": [
+    "ConfigController",
+    "project"
+   ]
+  }
+ },
+ {
+  "name": "sidebar_api",
+  "template": "config/sidebar",
+  "vars": {},
+  "fixture": "config/sidebar_api.html",
+  "state": {
+   "route": [
+    "ConfigController",
+    "api"
+   ],
+   "hooks": [
+    {
+     "hook": "template:config:sidebar",
+     "template": "stub:hook_echo"
+    }
+   ]
+  }
+ },
+ {
+  "name": "sidebar_link_labels",
+  "template": "config/sidebar",
+  "vars": {},
+  "fixture": "config/sidebar_link_labels.html",
+  "state": {
+   "route": [
+    "LinkController",
+    "show"
+   ]
+  }
+ },
+ {
+  "name": "upload_db",
+  "template": "config/upload_db",
+  "vars": {},
+  "fixture": "config/upload_db.html",
+  "state": {
+   "route": [
+    "ConfigController",
+    "upload_db"
+   ]
+  }
+ },
+ {
+  "name": "webhook",
+  "template": "config/webhook",
+  "vars": {
+   "values": {
+    "api_token": "tok<en>",
+    "webhook_token": "wh&tok",
+    "webhook_url": "http://x/y",
+    "application_url": "https://kb.example.org/",
+    "application_language": "en_US",
+    "password_reset": "1",
+    "application_timezone": "UTC",
+    "application_date_format": "m/d/Y",
+    "application_time_format": "H:i",
+    "notifications_enabled": "0",
+    "application_stylesheet": "a { b: c }",
+    "board_highlight_period": "172800",
+    "board_public_refresh_interval": "60",
+    "board_private_refresh_interval": "10",
+    "default_color": "yellow",
+    "board_columns": "Backlog, Done",
+    "project_categories": "Bug",
+    "disable_private_project": "1",
+    "subtask_restriction": "0",
+    "subtask_time_tracking": "1",
+    "cfd_include_closed_tasks": "1",
+    "mail_sender_address": "a@b.c",
+    "mail_transport": "smtp"
+   },
+   "errors": {}
+  },
+  "fixture": "config/webhook.html",
+  "state": {
+   "route": [
+    "ConfigController",
+    "webhook"
+   ]
+  }
+ }
+]

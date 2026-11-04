@@ -1,0 +1,56 @@
+
+
+<header>
+    <div class="title-container">
+        <h1>
+    <span class="logo">
+        <a href="/?controller=DashboardController&amp;action=show" class="" title='Dashboard' >K<span>B</span></a>    </span>
+    <span class="title">
+                    Board                          (<span>2</span> / <span title="Task limit"><span class="ui-helper-hidden-accessible">Task limit </span>5</span>)
+                        </span>
+    </h1>
+    </div>
+    <div class="board-selector-container">
+            </div>
+    <div class="menus-container">
+        <span class="notification">
+    <a href="/?controller=WebNotificationController&amp;action=show&amp;user_id=1" class="js-modal-medium" title='Unread notifications' ><i class="fa fa-bell web-notification-icon fa-fw js-modal-medium" aria-hidden="true"></i></a></span>
+&nbsp;
+    <div class="dropdown header-creation-menu">
+        <a href="#" class="dropdown-menu dropdown-menu-link-icon"><i class="fa fa-plus fa-fw"></i><i class="fa fa-caret-down"></i></a>
+        <ul>
+                            <li>
+                    <a href="/?controller=ProjectCreationController&amp;action=create" class="js-modal-medium" title='' ><i class="fa fa-plus fa-fw js-modal-medium" aria-hidden="true"></i>New project</a>                </li>
+                                        <li>
+                    <a href="/?controller=ProjectCreationController&amp;action=createPrivate" class="js-modal-medium" title='' ><i class="fa fa-lock fa-fw js-modal-medium" aria-hidden="true"></i>New personal project</a>                </li>
+                                </ul>
+    </div>
+&nbsp;<div class="dropdown">
+    <a href="#" class="dropdown-menu dropdown-menu-link-icon"><div class="avatar avatar-20 avatar-inline"><div class="avatar-letter" style="background-color: rgb(134, 45, 132)" title="admin" role="img" aria-label="admin">A</div></div><i class="fa fa-caret-down"></i></a>
+    <ul>
+        <li class="no-hover"><strong>admin</strong></li>
+        <li>
+            <a href="/?controller=DashboardController&amp;action=show&amp;user_id=1" class="" title='' ><i class="fa fa-fw fa-tachometer" aria-hidden="true"></i>My dashboard</a>        </li>
+        <li>
+            <a href="/?controller=UserViewController&amp;action=show&amp;user_id=1" class="" title='' ><i class="fa fa-fw fa-home" aria-hidden="true"></i>My profile</a>        </li>
+        <li>
+            <a href="/?controller=ProjectListController&amp;action=show" class="" title='' ><i class="fa fa-fw fa-folder" aria-hidden="true"></i>Projects management</a>        </li>
+                    <li>
+                <a href="/?controller=UserListController&amp;action=show" class="" title='' ><i class="fa fa-fw fa-user" aria-hidden="true"></i>Users management</a>            </li>
+            <li>
+                <a href="/?controller=GroupListController&amp;action=index" class="" title='' ><i class="fa fa-fw fa-group" aria-hidden="true"></i>Groups management</a>            </li>
+            <li>
+                <a href="/?controller=PluginController&amp;action=show" class="" title='' ><i class="fa fa-fw fa-cubes" aria-hidden="true"></i>Plugins</a>            </li>
+            <li>
+                <a href="/?controller=ConfigController&amp;action=index" class="" title='' ><i class="fa fa-fw fa-cog" aria-hidden="true"></i>Settings</a>            </li>
+        
+        
+        <li>
+            <i class="fa fa-fw fa-life-ring" aria-hidden="true"></i>
+            <a href="https://docs.kanboard.org/v1/user/" target="_blank">Documentation</a>        </li>
+                    <li>
+                <a href="/?controller=AuthController&amp;action=logout&amp;csrf_token=e47dd81fb3f2f6d77d77dcdf731ddeabd63aa41dec20d0009c11472e46a02b6e" class="" title='' ><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>Logout</a>            </li>
+            </ul>
+</div>
+    </div>
+</header>

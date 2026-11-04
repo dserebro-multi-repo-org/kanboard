@@ -1,0 +1,15 @@
+{#- Port of app/Template/config/integrations.php. Variables: values -#}
+<div class="page-header">
+    <h2>{{ t('Integration with third-party services') }}</h2>
+</div>
+
+<form method="post" action="{{ helper.url.href('ConfigController', 'save', {'redirect': 'integrations'}) }}" autocomplete="off">
+    {{ helper.form.csrf() }}
+    {% set contents = helper.hook.render('template:config:integrations', {'values': values}) %}
+
+    {% if not (contents | length) %}
+        <p class="alert">{{ t('There is no external integration installed.') }}</p>
+    {% else %}
+        {{ contents }}
+    {% endif %}
+</form>

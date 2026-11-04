@@ -1,0 +1,31 @@
+{#-
+  Port of app/Template/config/email.php.
+  Variables: values, errors, mail_transports, plus (see prepareConfigVars in src/views/prepare/config.ts):
+    mail_configuration  the MAIL_CONFIGURATION constant
+    mail_from           the MAIL_FROM constant
+-#}
+<div class="page-header">
+    <h2>{{ t('Email settings') }}</h2>
+</div>
+<form method="post" action="{{ helper.url.href('ConfigController', 'save', {'redirect': 'email'}) }}" autocomplete="off">
+    {{ helper.form.csrf() }}
+
+    <fieldset>
+        <legend>{{ t('Outgoing Emails') }}</legend>
+        {% if mail_configuration %}
+            {{ helper.form.label(t('Email sender address'), 'mail_sender_address') }}
+            {{ helper.form.text('mail_sender_address', values, errors, ['placeholder="' ~ mail_from ~ '"']) }}
+
+            {{ helper.form.label(t('Email transport'), 'mail_transport') }}
+            {{ helper.form.select('mail_transport', mail_transports, values, errors) }}
+        {% else %}
+            <p class="alert">{{ t('The email configuration has been disabled by the administrator.') }}</p>
+        {% endif %}
+    </fieldset>
+
+    {{ helper.hook.render('template:config:email', {'values': values, 'errors': errors}) }}
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-blue">{{ t('Save') }}</button>
+    </div>
+</form>
