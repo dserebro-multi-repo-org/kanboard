@@ -28,3 +28,9 @@ node_modules
 .phpunit.result.cache
 app/version.txt
 .php-cs-fixer.cache
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
