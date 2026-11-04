@@ -5,7 +5,13 @@ import { BaseSubscriber } from './base-subscriber.js';
 /*
  * Typed stubs of the subscribers wired in `app/ServiceProvider/EventDispatcherProvider.php`.
  * They declare the events they subscribe to (identical to the PHP classes) but their handlers are
- * intentionally no-ops: the behaviour is ported by the milestones owning the related models.
+ * intentionally no-ops (removed in M15). Owning milestone of each behaviour:
+ *   BootstrapSubscriber                                  M3 (automatic actions), M5 (user language/timezone), M7 (translations)
+ *   AuthSubscriber, LdapUserPhotoSubscriber              M5
+ *   ProjectDailySummarySubscriber, ProjectModificationDateSubscriber  M3
+ *   NotificationSubscriber                               M13
+ *   RecurringTaskSubscriber                              M13 (needs the M4 task model)
+ *   TransitionSubscriber                                 M4 (task model), M13
  */
 
 export class BootstrapSubscriber extends BaseSubscriber {
@@ -14,7 +20,7 @@ export class BootstrapSubscriber extends BaseSubscriber {
   }
 
   execute(): void {
-    // Later milestone: load language, timezone and attach automatic action events.
+    // TODO(M5/M7): load user language and timezone; TODO(M3): attach automatic action events.
   }
 }
 
@@ -27,9 +33,15 @@ export class AuthSubscriber extends BaseSubscriber {
     };
   }
 
-  afterLogin(): void {}
-  onLoginFailure(): void {}
-  afterLogout(): void {}
+  afterLogin(): void {
+    // TODO(M5): port behaviour.
+  }
+  onLoginFailure(): void {
+    // TODO(M5): port behaviour.
+  }
+  afterLogout(): void {
+    // TODO(M5): port behaviour.
+  }
 }
 
 export class ProjectDailySummarySubscriber extends BaseSubscriber {
@@ -43,7 +55,9 @@ export class ProjectDailySummarySubscriber extends BaseSubscriber {
     };
   }
 
-  execute(): void {}
+  execute(): void {
+    // TODO(M3): port behaviour.
+  }
 }
 
 export class ProjectModificationDateSubscriber extends BaseSubscriber {
@@ -58,7 +72,9 @@ export class ProjectModificationDateSubscriber extends BaseSubscriber {
     };
   }
 
-  execute(): void {}
+  execute(): void {
+    // TODO(M3): port behaviour.
+  }
 }
 
 export class NotificationSubscriber extends BaseSubscriber {
@@ -77,7 +93,9 @@ export class NotificationSubscriber extends BaseSubscriber {
     };
   }
 
-  handleEvent(): void {}
+  handleEvent(): void {
+    // TODO(M13): port behaviour.
+  }
 }
 
 export class TransitionSubscriber extends BaseSubscriber {
@@ -85,7 +103,9 @@ export class TransitionSubscriber extends BaseSubscriber {
     return { [TaskEvents.MOVE_COLUMN]: 'execute' };
   }
 
-  execute(): void {}
+  execute(): void {
+    // TODO(M4/M13): port behaviour.
+  }
 }
 
 export class RecurringTaskSubscriber extends BaseSubscriber {
@@ -96,8 +116,12 @@ export class RecurringTaskSubscriber extends BaseSubscriber {
     };
   }
 
-  onMove(): void {}
-  onClose(): void {}
+  onMove(): void {
+    // TODO(M13): port behaviour.
+  }
+  onClose(): void {
+    // TODO(M13): port behaviour.
+  }
 }
 
 export class LdapUserPhotoSubscriber extends BaseSubscriber {
@@ -105,5 +129,7 @@ export class LdapUserPhotoSubscriber extends BaseSubscriber {
     return { [UserProfileEvents.AFTER_SYNC]: 'syncUserPhoto' };
   }
 
-  syncUserPhoto(): void {}
+  syncUserPhoto(): void {
+    // TODO(M5): port behaviour.
+  }
 }
