@@ -1,0 +1,57 @@
+
+
+<header>
+    <div class="title-container">
+        <h1>
+    <span class="logo">
+        <a href="/?controller=DashboardController&amp;action=show" class="" title='Dashboard' >K<span>B</span></a>    </span>
+    <span class="title">
+                    Dashboard                        </span>
+            <span class="tooltip"><i class="fa fa-info-circle"></i><script type="text/template"><div class="markdown">Hello</div></script></span>    </h1>
+    </div>
+    <div class="board-selector-container">
+                    <div class="js-select-dropdown-autocomplete" data-params='{"name":"boardId","placeholder":"Display another project","ariaLabel":"Display another project","items":{"1":"Project one","2":"Project <two>"},"redirect":{"regex":"PROJECT_ID","url":"\/?controller=BoardViewController&action=show&project_id=PROJECT_ID"},"onFocus":["board.selector.open"]}'></div>            </div>
+    <div class="menus-container">
+        <span class="notification">
+    <a href="/?controller=WebNotificationController&amp;action=show&amp;user_id=1" class="js-modal-medium" title='My notifications' ><i class="fa fa-bell fa-fw js-modal-medium" aria-hidden="true"></i></a></span>
+&nbsp;
+    <div class="dropdown header-creation-menu">
+        <a href="#" class="dropdown-menu dropdown-menu-link-icon"><i class="fa fa-plus fa-fw"></i><i class="fa fa-caret-down"></i></a>
+        <ul>
+                            <li>
+                    <a href="/?controller=ProjectCreationController&amp;action=create" class="js-modal-medium" title='' ><i class="fa fa-plus fa-fw js-modal-medium" aria-hidden="true"></i>New project</a>                </li>
+                                        <li>
+                    <a href="/?controller=ProjectCreationController&amp;action=createPrivate" class="js-modal-medium" title='' ><i class="fa fa-lock fa-fw js-modal-medium" aria-hidden="true"></i>New personal project</a>                </li>
+                        <span class="hook"></span>
+        </ul>
+    </div>
+&nbsp;<div class="dropdown">
+    <a href="#" class="dropdown-menu dropdown-menu-link-icon"><div class="avatar avatar-20 avatar-inline"><div class="avatar-letter" style="background-color: rgb(134, 45, 132)" title="admin" role="img" aria-label="admin">A</div></div><i class="fa fa-caret-down"></i></a>
+    <ul>
+        <li class="no-hover"><strong>admin</strong></li>
+        <li>
+            <a href="/?controller=DashboardController&amp;action=show&amp;user_id=1" class="" title='' ><i class="fa fa-fw fa-tachometer" aria-hidden="true"></i>My dashboard</a>        </li>
+        <li>
+            <a href="/?controller=UserViewController&amp;action=show&amp;user_id=1" class="" title='' ><i class="fa fa-fw fa-home" aria-hidden="true"></i>My profile</a>        </li>
+        <li>
+            <a href="/?controller=ProjectListController&amp;action=show" class="" title='' ><i class="fa fa-fw fa-folder" aria-hidden="true"></i>Projects management</a>        </li>
+                    <li>
+                <a href="/?controller=UserListController&amp;action=show" class="" title='' ><i class="fa fa-fw fa-user" aria-hidden="true"></i>Users management</a>            </li>
+            <li>
+                <a href="/?controller=GroupListController&amp;action=index" class="" title='' ><i class="fa fa-fw fa-group" aria-hidden="true"></i>Groups management</a>            </li>
+            <li>
+                <a href="/?controller=PluginController&amp;action=show" class="" title='' ><i class="fa fa-fw fa-cubes" aria-hidden="true"></i>Plugins</a>            </li>
+            <li>
+                <a href="/?controller=ConfigController&amp;action=index" class="" title='' ><i class="fa fa-fw fa-cog" aria-hidden="true"></i>Settings</a>            </li>
+        
+        <span class="hook"></span>
+
+        <li>
+            <i class="fa fa-fw fa-life-ring" aria-hidden="true"></i>
+            <a href="https://docs.kanboard.org/v1/user/" target="_blank">Documentation</a>        </li>
+                    <li>
+                <a href="/?controller=AuthController&amp;action=logout&amp;csrf_token=c4d0dc0653f19bebd7cb441dc4c0a12fd5b763e11bae40203db03a02390aaf8e" class="" title='' ><i class="fa fa-fw fa-sign-out" aria-hidden="true"></i>Logout</a>            </li>
+            </ul>
+</div>
+    </div>
+</header>

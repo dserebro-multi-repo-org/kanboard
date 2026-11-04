@@ -1,0 +1,19 @@
+<div class="page-header">
+    <h2>Project settings</h2>
+</div>
+<form method="post" action="/?controller=ConfigController&amp;action=save&amp;redirect=project" autocomplete="off">
+    <input type="hidden" name="csrf_token" value="de65b33abdc5b4b9ecf0ea0211e9d7e647f2e431fc9ddb7759dea23a558166d3"/>
+    <fieldset>
+        <label for="form-default_color" >Default task color</label>        <select name="default_color" id="form-default_color" class="" ><option value="yellow" selected="selected">Yellow</option><option value="blue">Blue</option></select>
+        <label for="form-board_columns" >Default columns for new projects (Comma-separated)</label>        <input type="text" name="board_columns" id="form-board_columns" value="Backlog, Done" class="" >        <p class="form-help">Default values are &quot;Backlog, Ready&quot;</p>
+
+        <label for="form-project_categories" >Default categories for new projects (Comma-separated)</label>        <input type="text" name="project_categories" id="form-project_categories" value="Bug" class="" >        <p class="form-help">Example: &quot;Bug, Feature Request, Improvement&quot;</p>
+    </fieldset>
+
+    <fieldset>
+        <label><input type="checkbox" name="disable_private_project" class="" value="1" >&nbsp;Disable personal projects</label>        <label><input type="checkbox" name="subtask_restriction" class="" value="1" >&nbsp;Allow only one subtask in progress at the same time for a user</label>        <label><input type="checkbox" name="subtask_time_tracking" class="" value="1" checked="checked">&nbsp;Trigger automatically subtask time tracking</label>        <label><input type="checkbox" name="cfd_include_closed_tasks" class="" value="1" checked="checked">&nbsp;Include closed tasks in the cumulative flow diagram</label>    </fieldset>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-blue">Save</button>
+    </div>
+</form>

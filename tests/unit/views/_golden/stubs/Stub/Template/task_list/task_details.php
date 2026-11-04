@@ -1,0 +1,1 @@
+<!-- task_list/task_details task=<?= $task["id"] ?> redirect=<?= $redirect ?? "" ?> user_id=<?= $user_id ?? "" ?> -->

@@ -1,0 +1,32 @@
+<section id="main">
+    <div class="page-header">
+        <ul>
+                            <li>
+                    <a href="/?controller=ProjectCreationController&amp;action=create" class="js-modal-medium" title='' ><i class="fa fa-plus fa-fw js-modal-medium" aria-hidden="true"></i>New project</a>                </li>
+                                        <li>
+                    <a href="/?controller=ProjectCreationController&amp;action=createPrivate" class="js-modal-medium" title='' ><i class="fa fa-lock fa-fw js-modal-medium" aria-hidden="true"></i>New personal project</a>                </li>
+                        <li>
+                <a href="/?controller=ProjectListController&amp;action=show" class="" title='' ><i class="fa fa-fw fa-folder" aria-hidden="true"></i>Project management</a>            </li>
+            <li>
+                <a href="/?controller=ActivityController&amp;action=user" class="js-modal-medium" title='' ><i class="fa fa-dashboard fa-fw js-modal-medium" aria-hidden="true"></i>My activity stream</a>            </li>
+            <span class="hook"> user=1</span>
+        </ul>
+    </div>
+    <section class="sidebar-container" id="dashboard">
+        <div class="sidebar">
+    <ul>
+        <li class="active">
+            <a href="/?controller=DashboardController&amp;action=show&amp;user_id=1" class="" title='' >Overview</a>        </li>
+        <li >
+            <a href="/?controller=DashboardController&amp;action=projects&amp;user_id=1" class="" title='' >My projects</a>        </li>
+        <li >
+            <a href="/?controller=DashboardController&amp;action=tasks&amp;user_id=1" class="" title='' >My tasks</a>        </li>
+        <li >
+            <a href="/?controller=DashboardController&amp;action=subtasks&amp;user_id=1" class="" title='' >My subtasks</a>        </li>
+        <span class="hook"> user=1</span>
+    </ul>
+</div>
+        <div class="sidebar-content">
+            <p>sub</p>        </div>
+    </section>
+</section>

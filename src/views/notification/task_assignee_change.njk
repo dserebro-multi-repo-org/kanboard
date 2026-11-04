@@ -1,0 +1,26 @@
+{# Notification template. Pre-resolved variable (see prepareNotificationVars in views/prepare/notification.ts): application_url. #}
+<html>
+<body>
+<h2>{{ task.title }} (#{{ task.id }})</h2>
+
+<ul>
+    <li>
+        <strong>
+        {% if task.assignee_username %}
+            {{ t('Assigned to %s', task.assignee_name or task.assignee_username) }}
+        {% else %}
+            {{ t('There is nobody assigned') }}
+        {% endif %}
+        </strong>
+    </li>
+</ul>
+
+{% if task.description %}
+    <h2>{{ t('Description') }}</h2>
+    {% set description_html = helper.text.markdown(task.description, true) %}
+    {% if description_html.length %}{{ description_html | safe }}{% else %}{{ t('There is no description.') }}{% endif %}
+{% endif %}
+
+{% include "notification/footer" %}
+</body>
+</html>

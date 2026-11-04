@@ -1,0 +1,12 @@
+{# Notification template. Pre-resolved variable (see prepareNotificationVars in views/prepare/notification.ts): application_url. #}
+<html>
+<body>
+<h2>{{ task.title }} (#{{ task.id }})</h2>
+
+{# Includes task/changes (owned by the task views): pass `changes`, `task` and public = true; any variables task/changes needs must be merged into the render vars by the caller. #}
+{% set public = true %}
+{% include "task/changes" %}
+
+{% include "notification/footer" %}
+</body>
+</html>

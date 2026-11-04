@@ -1,0 +1,62 @@
+<div class="filter-box">
+    <form method="get" action="/" class="search">
+        <input type="hidden" name="controller" id="form-controller" value="BoardViewController"/>        <input type="hidden" name="action" id="form-action" value="show"/>        <input type="hidden" name="plugin" id="form-plugin" value=""/>        <input type="hidden" name="project_id" id="form-project_id" value="3"/>
+        <div class="input-addon">
+            <input type="text" name="search" id="form-search" value="status:open &lt;x&gt;" class="input-addon-field" placeholder="Filter" aria-label="Filter">            <div class="input-addon-item">
+                <span class="hook">project=3</span>
+<div class="dropdown">
+    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="Default filters" aria-label="Default filters"><i class="fa fa-filter fa-fw"></i><i class="fa fa-caret-down"></i></a>
+    <ul>
+        <li><a href="#" class="filter-helper filter-reset" data-filter="status:open" title="Keyboard shortcut: &quot;r&quot;">Reset filters</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:me">My tasks</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:me due:tomorrow">My tasks due tomorrow</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open due:today">Tasks due today</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open due:tomorrow">Tasks due tomorrow</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open due:yesterday">Tasks due yesterday</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:closed">Closed tasks</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open">Open tasks</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:nobody">Not assigned</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:anybody">Assigned</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open category:none">No category</a></li>
+        <li>
+            <a href="https://docs.kanboard.org/v1/user/search" target="_blank">View advanced search syntax</a>        </li>
+    </ul>
+</div>
+            </div>
+
+                        <div class="input-addon-item">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="Custom filters" aria-label="Custom filters"><i class="fa fa-bookmark fa-fw"></i><i class="fa fa-caret-down"></i></a>
+                    <ul>
+                                                    <li><a href="#" class="filter-helper" data-append-filter='assignee:me &#039;x&#039;'>Mine &lt;b&gt;</a></li>
+                                                    <li><a href="#" class="filter-helper" data-filter='status:open'>Other</a></li>
+                                            </ul>
+                </div>
+            </div>
+            
+                        <div class="input-addon-item">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="User filters" aria-label="Custom filters"><i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i></a>
+                    <ul>
+                        <li><a href="#" class="filter-helper" data-unique-filter="assignee:nobody">Not assigned</a></li>
+                        <li><a href="#" class="filter-helper" data-unique-filter="assignee:anybody">Assigned</a></li>
+                                                    <li><a href="#" class="filter-helper" data-unique-filter='assignee:"alice"'>alice</a></li>
+                                                    <li><a href="#" class="filter-helper" data-unique-filter='assignee:"bob &lt;z&gt;"'>bob &lt;z&gt;</a></li>
+                                            </ul>
+                </div>
+            </div>
+            
+                        <div class="input-addon-item">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="Category filters" aria-label="Category filters"><i class="fa fa-folder-open fa-fw"></i><i class="fa fa-caret-down"></i></a>
+                    <ul>
+                        <li><a href="#" class="filter-helper" data-unique-filter="category:none">No category</a></li>
+                                                    <li><a href="#" class="filter-helper" data-unique-filter='category:"Bug"'>Bug</a></li>
+                                                    <li><a href="#" class="filter-helper" data-unique-filter='category:"Feat &amp; Ure"'>Feat &amp; Ure</a></li>
+                                            </ul>
+                </div>
+            </div>
+                    </div>
+
+    </form>
+</div>

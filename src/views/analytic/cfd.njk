@@ -1,0 +1,24 @@
+{# Variables: is_ajax, display_graph, metrics, project, values. #}
+{% if not is_ajax %}
+    <div class="page-header">
+        <h2>{{ t('Cumulative flow diagram') }}</h2>
+    </div>
+{% endif %}
+
+{% if not display_graph %}
+    <p class="alert">{{ t('You need at least 2 days of data to show the chart.') }}</p>
+{% else %}
+    {{ helper.app.component('chart-project-cumulative-flow', {
+        metrics: metrics,
+        dateFormat: e('%%Y-%%m-%%d')
+    }) | safe }}
+{% endif %}
+
+<hr/>
+
+<form method="post" class="form-inline" action="{{ helper.url.href('AnalyticController', 'cfd', {project_id: project.id}) }}" autocomplete="off">
+    {{ helper.form.csrf() }}
+    {{ helper.form.date(t('Start date'), 'from', values) }}
+    {{ helper.form.date(t('End date'), 'to', values) }}
+    {{ helper.modal.submitButtons({submitLabel: t('Execute')}) }}
+</form>

@@ -1,0 +1,19 @@
+<div class="page-header">
+    <h2>Webhook settings</h2>
+</div>
+<form method="post" action="/?controller=ConfigController&amp;action=save&amp;redirect=webhook" autocomplete="off">
+    <input type="hidden" name="csrf_token" value="6d72d620aca00df1348700862f33da3224380432ca58e0529c11cfbb7459c7c5"/>
+    <label for="form-webhook_url" >Webhook URL</label>    <input type="text" name="webhook_url" id="form-webhook_url" value="http://x/y" class="" >
+    <div class="form-actions">
+        <button type="submit" class="btn btn-blue">Save</button>
+    </div>
+</form>
+
+<div class="page-header margin-top">
+    <h2>Webhook token</h2>
+</div>
+<div class="panel">
+    Webhook token:    <strong>wh&amp;tok</strong>
+</div>
+
+<a href="/?controller=ConfigController&amp;action=token&amp;type=webhook&amp;csrf_token=e3712e23e77afc10f2ddf83a26cbad23fa79056bf8377f3db555278addf06121" class="btn btn-red" title='' >Reset token</a>

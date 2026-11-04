@@ -1,0 +1,10 @@
+    <div class="page-header">
+        <h2>Cumulative flow diagram</h2>
+    </div>
+
+    <p class="alert">You need at least 2 days of data to show the chart.</p>
+
+<hr/>
+
+<form method="post" class="form-inline" action="?controller=AnalyticController&amp;action=cfd&amp;project_id=5" autocomplete="off">
+    <input type="hidden" name="csrf_token" value="fd5dc6b6286bfe16eeb042efde338a729c4b48bb5de21e977451b51de456c587"/>    <label for="form-from" >Start date</label><input type="text" name="from" id="form-from" value="" class="form-date" placeholder="11/04/2026">    <label for="form-to" >End date</label><input type="text" name="to" id="form-to" value="" class="form-date" placeholder="11/04/2026">    <div class="js-submit-buttons" data-params='{"submitLabel":"Execute","orLabel":"or","cancelLabel":"cancel","color":"blue","tabindex":null,"disabled":false}'></div></form>

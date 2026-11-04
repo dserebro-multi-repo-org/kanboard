@@ -14,3 +14,4 @@ export * from './array-helpers.js';
 export { t, setTranslator, sprintf, htmlspecialchars } from './translator.js';
 export type { TranslatorLike } from './translator.js';
 export * from './formatter-collaborators.js';
+export * from './helper-collaborators.js';

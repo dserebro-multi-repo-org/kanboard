@@ -1,0 +1,87 @@
+{#-
+  Port of app/Template/layout.php.
+  Variables: content_for_layout (safe HTML), title, page_title?, description?, board_selector?, project?, task?,
+  no_layout?, not_editable?, board_public_refresh_interval?
+  Pre-resolved (async helper results, see prepareLayoutVars in src/views/prepare/layout.ts):
+    custom_css  HTML of helper.asset.customCss()
+  Also needs the variables of `header` (see header.njk) unless no_layout is set.
+-#}
+<!DOCTYPE html>
+<html lang="{{ helper.app.jsLang() }}"{% if helper.app.isRtlLanguage() %} dir="rtl"{% endif %}>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="robots" content="noindex,nofollow">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="referrer" content="no-referrer">
+
+        {% if board_public_refresh_interval is defined and board_public_refresh_interval is not null %}
+            <meta http-equiv="refresh" content="{{ board_public_refresh_interval }}">
+        {% endif %}
+
+        {{ helper.asset.colorCss() }}
+        {{ helper.asset.css('assets/css/vendor.min.css') }}
+        {% if not_editable is not defined or not_editable is null %}
+            {{ helper.asset.css('assets/css/' ~ helper.user.getTheme() ~ '.min.css') }}
+        {% else %}
+            {{ helper.asset.css('assets/css/light.min.css') }}
+        {% endif %}
+        {{ helper.asset.css('assets/css/print.min.css', true, 'print') }}
+        {{ custom_css | safe }}
+
+        {% if not_editable is not defined or not_editable is null %}
+            {{ helper.asset.js('assets/js/vendor.min.js') }}
+            {{ helper.asset.js('assets/js/app.min.js') }}
+        {% endif %}
+
+        {{ helper.hook.asset('css', 'template:layout:css') }}
+        {{ helper.hook.asset('js', 'template:layout:js') }}
+
+        <link rel="icon" href="{{ helper.url.dir() }}assets/img/adaptive-favicon.svg" type="image/svg+xml">
+        <link rel="icon" type="image/png" href="{{ helper.url.dir() }}assets/img/favicon.png">
+        <link rel="apple-touch-icon" href="{{ helper.url.dir() }}assets/img/touch-icon-iphone.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ helper.url.dir() }}assets/img/touch-icon-ipad.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ helper.url.dir() }}assets/img/touch-icon-iphone-retina.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ helper.url.dir() }}assets/img/touch-icon-ipad-retina.png">
+
+        <title>
+            {% if page_title is defined and page_title is not null %}
+                {{ helper.text.e(page_title) }}
+            {% elif title is defined and title is not null %}
+                {{ helper.text.e(title) }}
+            {% else %}
+                Kanboard
+            {% endif %}
+        </title>
+
+        {{ helper.hook.render('template:layout:head') }}
+    </head>
+    <body data-status-url="{{ helper.url.href('UserAjaxController', 'status') }}"
+          data-login-url="{{ helper.url.href('AuthController', 'login') }}"
+          data-keyboard-shortcut-url="{{ helper.url.href('DocumentationController', 'shortcuts') }}"
+          data-timezone="{{ helper.app.getTimezone() }}"
+          data-js-date-format="{{ helper.app.getJsDateFormat() }}"
+          data-js-time-format="{{ helper.app.getJsTimeFormat() }}"
+    >
+
+    {% if no_layout %}
+        {{ helper.app.flashMessage() }}
+        {{ content_for_layout | safe }}
+    {% else %}
+        {{ helper.hook.render('template:layout:top') }}
+        {#- `header` only receives title, description, board_selector and project (never task), like in PHP -#}
+        {% set description = description or '' %}
+        {% set board_selector = board_selector or {} %}
+        {% set project = project or {} %}
+        {% set task = null %}
+        {% include "header" %}
+        <section class="page">
+            {{ helper.app.flashMessage() }}
+            {{ content_for_layout | safe }}
+        </section>
+        {{ helper.hook.render('template:layout:bottom') }}
+    {% endif %}
+    </body>
+</html>

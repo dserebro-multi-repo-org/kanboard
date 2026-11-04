@@ -1,0 +1,64 @@
+{#-
+  Port of app/Template/project_header/search.php.
+  Variables: project, filters, custom_filters_list?, users_list?, categories_list?
+  (the filter dropdowns of users_list/custom_filters_list/categories_list are shown like PHP isset/!empty)
+-#}
+<div class="filter-box">
+    <form method="get" action="{{ helper.url.dir() }}" class="search">
+        {{ helper.form.hidden('controller', filters) }}
+        {{ helper.form.hidden('action', filters) }}
+        {{ helper.form.hidden('plugin', filters) }}
+        {{ helper.form.hidden('project_id', filters) }}
+
+        <div class="input-addon">
+            {{ helper.form.text('search', filters, {}, ['placeholder="' ~ t('Filter') ~ '"', 'aria-label="' ~ t('Filter') ~ '"'], 'input-addon-field') }}
+            <div class="input-addon-item">
+                {% set reset = 'status:open' %}
+                {% include "app/filters_helper" %}
+            </div>
+
+            {% if custom_filters_list and (custom_filters_list | length) %}
+            <div class="input-addon-item">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="{{ t('Custom filters') }}" aria-label="{{ t('Custom filters') }}"><i class="fa fa-bookmark fa-fw"></i><i class="fa fa-caret-down"></i></a>
+                    <ul>
+                        {% for filter in custom_filters_list %}
+                            <li><a href="#" class="filter-helper" data-{% if filter.append and filter.append != 0 %}append-{% endif %}filter='{{ helper.text.e(filter.filter) }}'>{{ helper.text.e(filter.name) }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if users_list is defined and users_list is not null %}
+            <div class="input-addon-item">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="{{ t('User filters') }}" aria-label="{{ t('Custom filters') }}"><i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i></a>
+                    <ul>
+                        <li><a href="#" class="filter-helper" data-unique-filter="assignee:nobody">{{ t('Not assigned') }}</a></li>
+                        <li><a href="#" class="filter-helper" data-unique-filter="assignee:anybody">{{ t('Assigned') }}</a></li>
+                        {% for u in users_list %}
+                            <li><a href="#" class="filter-helper" data-unique-filter='assignee:"{{ helper.text.e(u) }}"'>{{ helper.text.e(u) }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if categories_list and (categories_list | length) %}
+            <div class="input-addon-item">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="{{ t('Category filters') }}" aria-label="{{ t('Category filters') }}"><i class="fa fa-folder-open fa-fw"></i><i class="fa fa-caret-down"></i></a>
+                    <ul>
+                        <li><a href="#" class="filter-helper" data-unique-filter="category:none">{{ t('No category') }}</a></li>
+                        {% for category in categories_list %}
+                            <li><a href="#" class="filter-helper" data-unique-filter='category:"{{ helper.text.e(category) }}"'>{{ helper.text.e(category) }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,121 @@
+<div class="project-header">
+    <span class="hook">project=3</span>
+
+    <div class="dropdown-component">
+        <div class="dropdown">
+    <a href="#" class="dropdown-menu action-menu" title="Configure this project" aria-label="Configure this project"><i class="fa fa-cog"></i><i class="fa fa-caret-down"></i></a>
+    <ul>
+                <li>
+            <span class="filter-display-mode" style="display: none;">
+                <a href="/?controller=BoardAjaxController&amp;action=expand&amp;project_id=3&amp;csrf_token=e3e72a6f2e1be01e1b533d15ac4b55fea0815994b758303b211cff1faff9c94d" class="board-display-mode" title='Keyboard shortcut: &quot;s&quot;' ><i class="fa fa-fw fa-expand" aria-hidden="true"></i>Expand tasks</a>            </span>
+            <span class="filter-display-mode" >
+                <a href="/?controller=BoardAjaxController&amp;action=collapse&amp;project_id=3&amp;csrf_token=691d8cd292f0e13f68b0bba38f0551614b51816696538a13948433afc619bf95" class="board-display-mode" title='Keyboard shortcut: &quot;s&quot;' ><i class="fa fa-fw fa-compress" aria-hidden="true"></i>Collapse tasks</a>            </span>
+        </li>
+        <li>
+            <span class="filter-compact">
+                <i class="fa fa-th fa-fw"></i> <a href="#" class="filter-toggle-scrolling" title="Keyboard shortcut: &quot;c&quot;">Compact view</a>
+            </span>
+            <span class="filter-wide" style="display: none">
+                <i class="fa fa-arrows-h fa-fw"></i> <a href="#" class="filter-toggle-scrolling" title="Keyboard shortcut: &quot;c&quot;">Horizontal scrolling</a>
+            </span>
+        </li>
+        <li>
+            <span class="filter-vert-collapse">
+                <i class="fa fa-arrow-up fa-fw"></i> <a href="#" class="filter-vert-toggle-collapse">Collapse vertically</a>
+            </span>
+            <span class="filter-vert-expand" style="display: none">
+                <i class="fa fa-arrow-down fa-fw"></i> <a href="#" class="filter-vert-toggle-collapse">Expand vertically</a>
+            </span>
+        </li>
+        
+                    <li>
+                <a href="/?controller=TaskCreationController&amp;action=show&amp;project_id=3" class="js-modal-large" title='' ><i class="fa fa-plus fa-fw js-modal-large" aria-hidden="true"></i>Add a new task</a>            </li>
+        
+        <li>
+            <a href="/?controller=ActivityController&amp;action=project&amp;project_id=3" class="js-modal-medium" title='' ><i class="fa fa-dashboard fa-fw js-modal-medium" aria-hidden="true"></i>Activity</a>        </li>
+
+                    <li>
+                <a href="/?controller=CustomFilterController&amp;action=create&amp;project_id=3" class="js-modal-medium" title='' ><i class="fa fa-filter fa-fw js-modal-medium" aria-hidden="true"></i>Add custom filters</a>            </li>
+        
+        
+        <span class="hook">project=3</span>
+
+                    <li>
+                <a href="/?controller=AnalyticController&amp;action=taskDistribution&amp;project_id=3" class="js-modal-large" title='' ><i class="fa fa-line-chart fa-fw js-modal-large" aria-hidden="true"></i>Analytics</a>            </li>
+        
+                    <li>
+                <a href="/?controller=ExportController&amp;action=tasks&amp;project_id=3" class="js-modal-medium" title='' ><i class="fa fa-upload fa-fw js-modal-medium" aria-hidden="true"></i>Exports</a>            </li>
+        
+                    <li>
+                <a href="/?controller=TaskImportController&amp;action=show&amp;project_id=3" class="js-modal-medium" title='' ><i class="fa fa-download fa-fw js-modal-medium" aria-hidden="true"></i>Import tasks</a>            </li>
+        
+                    <li>
+                <a href="/?controller=ProjectViewController&amp;action=show&amp;project_id=3" class="" title='' ><i class="fa fa-fw fa-cog" aria-hidden="true"></i>Configure this project</a>            </li>
+        
+        <li>
+            <a href="/?controller=ProjectListController&amp;action=show" class="" title='' ><i class="fa fa-fw fa-folder" aria-hidden="true"></i>Manage projects</a>        </li>
+    </ul>
+</div>
+    </div>
+    <div class="views-switcher-component">
+        <ul class="views">
+    
+    
+    <li >
+        <a href="/?controller=ProjectOverviewController&amp;action=show&amp;project_id=3&amp;search=status%3Aopen+%3Cx%3E" class="view-overview" title='Keyboard shortcut: &quot;v o&quot;' ><i class="fa fa-fw fa-eye" aria-hidden="true"></i>Overview</a>    </li>
+
+    
+    <li class="active">
+        <a href="/?controller=BoardViewController&amp;action=show&amp;project_id=3&amp;search=status%3Aopen+%3Cx%3E" class="view-board" title='Keyboard shortcut: &quot;v b&quot;' ><i class="fa fa-fw fa-th" aria-hidden="true"></i>Board</a>    </li>
+
+    
+    <li >
+        <a href="/?controller=TaskListController&amp;action=show&amp;project_id=3&amp;search=status%3Aopen+%3Cx%3E" class="view-listing" title='Keyboard shortcut: &quot;v l&quot;' ><i class="fa fa-fw fa-list" aria-hidden="true"></i>List</a>    </li>
+
+    </ul>
+    </div>
+    <div class="filter-box-component">
+        <div class="filter-box">
+    <form method="get" action="/" class="search">
+        <input type="hidden" name="controller" id="form-controller" value="BoardViewController"/>        <input type="hidden" name="action" id="form-action" value="show"/>        <input type="hidden" name="plugin" id="form-plugin" value=""/>        <input type="hidden" name="project_id" id="form-project_id" value="3"/>
+        <div class="input-addon">
+            <input type="text" name="search" id="form-search" value="status:open &lt;x&gt;" class="input-addon-field" placeholder="Filter" aria-label="Filter">            <div class="input-addon-item">
+                <div class="dropdown">
+    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="Default filters" aria-label="Default filters"><i class="fa fa-filter fa-fw"></i><i class="fa fa-caret-down"></i></a>
+    <ul>
+        <li><a href="#" class="filter-helper filter-reset" data-filter="status:open" title="Keyboard shortcut: &quot;r&quot;">Reset filters</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:me">My tasks</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:me due:tomorrow">My tasks due tomorrow</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open due:today">Tasks due today</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open due:tomorrow">Tasks due tomorrow</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open due:yesterday">Tasks due yesterday</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:closed">Closed tasks</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open">Open tasks</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:nobody">Not assigned</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:anybody">Assigned</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open category:none">No category</a></li>
+        <li>
+            <a href="https://docs.kanboard.org/v1/user/search" target="_blank">View advanced search syntax</a>        </li>
+    </ul>
+</div>
+            </div>
+
+            
+                        <div class="input-addon-item">
+                <div class="dropdown">
+                    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="User filters" aria-label="Custom filters"><i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i></a>
+                    <ul>
+                        <li><a href="#" class="filter-helper" data-unique-filter="assignee:nobody">Not assigned</a></li>
+                        <li><a href="#" class="filter-helper" data-unique-filter="assignee:anybody">Assigned</a></li>
+                                            </ul>
+                </div>
+            </div>
+            
+                    </div>
+
+    </form>
+</div>
+    </div>
+
+    <span class="hook">project=3</span>
+</div>

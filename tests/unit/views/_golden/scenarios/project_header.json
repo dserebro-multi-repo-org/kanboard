@@ -1,0 +1,340 @@
+[
+ {
+  "name": "dropdown_board_admin",
+  "template": "project_header/dropdown",
+  "vars": {
+   "project": {
+    "id": 3,
+    "name": "My <Project> & Co",
+    "task_limit": 0,
+    "is_public": 0,
+    "is_private": 0,
+    "token": "tok"
+   },
+   "board_view": true
+  },
+  "fixture": "project_header/dropdown_board_admin.html",
+  "state": {
+   "hooks": [
+    {
+     "hook": "template:project:dropdown",
+     "template": "stub:hook_echo"
+    }
+   ],
+   "collapsed": []
+  },
+  "prepare": [
+   "project_header"
+  ],
+  "board_view": true
+ },
+ {
+  "name": "dropdown_board_collapsed",
+  "template": "project_header/dropdown",
+  "vars": {
+   "project": {
+    "id": 3,
+    "name": "My <Project> & Co",
+    "task_limit": 0,
+    "is_public": 0,
+    "is_private": 0,
+    "token": "tok"
+   },
+   "board_view": true
+  },
+  "fixture": "project_header/dropdown_board_collapsed.html",
+  "state": {
+   "hooks": [
+    {
+     "hook": "template:project:dropdown",
+     "template": "stub:hook_echo"
+    }
+   ],
+   "collapsed": [
+    3
+   ]
+  },
+  "prepare": [
+   "project_header"
+  ],
+  "board_view": true
+ },
+ {
+  "name": "dropdown_nonboard_public",
+  "template": "project_header/dropdown",
+  "vars": {
+   "project": {
+    "id": 3,
+    "name": "My <Project> & Co",
+    "task_limit": 0,
+    "is_public": 1,
+    "is_private": 0,
+    "token": "tok"
+   },
+   "board_view": false
+  },
+  "fixture": "project_header/dropdown_nonboard_public.html",
+  "state": {
+   "hooks": [
+    {
+     "hook": "template:project:dropdown",
+     "template": "stub:hook_echo"
+    }
+   ],
+   "collapsed": []
+  },
+  "prepare": [
+   "project_header"
+  ],
+  "board_view": false
+ },
+ {
+  "name": "dropdown_user",
+  "template": "project_header/dropdown",
+  "vars": {
+   "project": {
+    "id": 3,
+    "name": "My <Project> & Co",
+    "task_limit": 0,
+    "is_public": 0,
+    "is_private": 0,
+    "token": "tok"
+   },
+   "board_view": true
+  },
+  "fixture": "project_header/dropdown_user.html",
+  "state": {
+   "hooks": [
+    {
+     "hook": "template:project:dropdown",
+     "template": "stub:hook_echo"
+    }
+   ],
+   "collapsed": [],
+   "user": {
+    "id": 2,
+    "username": "jdoe",
+    "name": "John Doe",
+    "role": "app-user",
+    "email": "",
+    "avatar_path": "",
+    "theme": "light"
+   }
+  },
+  "prepare": [
+   "project_header"
+  ],
+  "board_view": true
+ },
+ {
+  "name": "views",
+  "template": "project_header/views",
+  "vars": {
+   "project": {
+    "id": 3,
+    "name": "My <Project> & Co",
+    "task_limit": 0,
+    "is_public": 0,
+    "is_private": 0,
+    "token": "tok"
+   },
+   "filters": {
+    "controller": "BoardViewController",
+    "action": "show",
+    "plugin": "",
+    "project_id": 3,
+    "search": "status:open <x>"
+   }
+  },
+  "fixture": "project_header/views.html",
+  "state": {
+   "route": [
+    "BoardViewController",
+    "show"
+   ],
+   "hooks": [
+    {
+     "hook": "template:project-header:view-switcher-before-project-overview",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:project-header:view-switcher-before-board-view",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:project-header:view-switcher-before-task-list",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:project-header:view-switcher",
+     "template": "stub:hook_echo"
+    }
+   ]
+  }
+ },
+ {
+  "name": "search_minimal",
+  "template": "project_header/search",
+  "vars": {
+   "project": {
+    "id": 3,
+    "name": "My <Project> & Co",
+    "task_limit": 0,
+    "is_public": 0,
+    "is_private": 0,
+    "token": "tok"
+   },
+   "filters": {
+    "controller": "BoardViewController",
+    "action": "show",
+    "plugin": "",
+    "project_id": 3,
+    "search": "status:open <x>"
+   }
+  },
+  "fixture": "project_header/search_minimal.html"
+ },
+ {
+  "name": "search_lists",
+  "template": "project_header/search",
+  "vars": {
+   "project": {
+    "id": 3,
+    "name": "My <Project> & Co",
+    "task_limit": 0,
+    "is_public": 0,
+    "is_private": 0,
+    "token": "tok"
+   },
+   "filters": {
+    "controller": "BoardViewController",
+    "action": "show",
+    "plugin": "",
+    "project_id": 3,
+    "search": "status:open <x>"
+   },
+   "custom_filters_list": [
+    {
+     "name": "Mine <b>",
+     "filter": "assignee:me 'x'",
+     "append": 1
+    },
+    {
+     "name": "Other",
+     "filter": "status:open",
+     "append": 0
+    }
+   ],
+   "users_list": [
+    "alice",
+    "bob <z>"
+   ],
+   "categories_list": [
+    "Bug",
+    "Feat & Ure"
+   ]
+  },
+  "fixture": "project_header/search_lists.html",
+  "state": {
+   "hooks": [
+    {
+     "hook": "template:app:filters-helper:before",
+     "template": "stub:hook_echo"
+    }
+   ]
+  }
+ },
+ {
+  "name": "header_default",
+  "template": "project_header/header",
+  "vars": {
+   "project": {
+    "id": 3,
+    "name": "My <Project> & Co",
+    "task_limit": 0,
+    "is_public": 0,
+    "is_private": 0,
+    "token": "tok"
+   },
+   "board_view": true,
+   "filters": {
+    "controller": "BoardViewController",
+    "action": "show",
+    "plugin": "",
+    "project_id": 3,
+    "search": "status:open <x>"
+   }
+  },
+  "fixture": "project_header/header_default.html",
+  "state": {
+   "route": [
+    "BoardViewController",
+    "show"
+   ],
+   "hooks": [
+    {
+     "hook": "template:project:header:before",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:project:header:after",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:project:dropdown",
+     "template": "stub:hook_echo"
+    }
+   ]
+  },
+  "prepare": [
+   "project_header"
+  ],
+  "board_view": true
+ },
+ {
+  "name": "header_full",
+  "template": "project_header/header",
+  "vars": {
+   "project": {
+    "id": 3,
+    "name": "My <Project> & Co",
+    "task_limit": 0,
+    "is_public": 0,
+    "is_private": 0,
+    "token": "tok"
+   },
+   "board_view": false,
+   "filters": {
+    "controller": "BoardViewController",
+    "action": "show",
+    "plugin": "",
+    "project_id": 3,
+    "search": "status:open <x>"
+   },
+   "custom_filters_list": [
+    {
+     "name": "Mine",
+     "filter": "assignee:me",
+     "append": 0
+    }
+   ],
+   "users_list": [
+    "alice"
+   ],
+   "categories_list": [
+    "Bug"
+   ]
+  },
+  "fixture": "project_header/header_full.html",
+  "state": {
+   "route": [
+    "TaskListController",
+    "show"
+   ]
+  },
+  "prepare": [
+   "project_header"
+  ],
+  "board_view": false
+ }
+]

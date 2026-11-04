@@ -1,0 +1,19 @@
+{#
+  Pre-resolved variables (see prepareEventVars in src/views/prepare/event.ts):
+    date_creation_formatted  result of the async helper dt.datetime(date_creation)
+  Other variables: author, task, task_link, date_creation (as in app/Template/event/task_internal_link_delete.php)
+#}
+<p class="activity-title">
+    {{ e('%s removed an internal link for the task %s',
+        text.e(author),
+        url.link(t('#%d', task.id), 'TaskViewController', 'show', {task_id: task.id})
+    ) }}
+    <small class="activity-date">{{ date_creation_formatted }}</small>
+</p>
+<div class="activity-description">
+    <p class="activity-task-title">
+        {{ e('The link with the relation "%s" to the task %s has been removed',
+            text.e(task_link.label),
+            url.link(t('#%d', task_link.opposite_task_id), 'TaskViewController', 'show', {task_id: task_link.opposite_task_id})) }}
+    </p>
+</div>

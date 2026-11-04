@@ -1,0 +1,70 @@
+
+<div class="filter-box margin-bottom">
+    <form method="get" action="/" class="search">
+        <input type="hidden" name="controller" id="form-controller" value="SearchController"/>        <input type="hidden" name="action" id="form-action" value="index"/>
+        <div class="input-addon">
+            <input type="text" name="search" id="form-search"  class="input-addon-field" placeholder="Search" aria-label="Search">            <div class="input-addon-item">
+                <div class="dropdown">
+    <a href="#" class="dropdown-menu dropdown-menu-link-icon" title="Default filters" aria-label="Default filters"><i class="fa fa-filter fa-fw"></i><i class="fa fa-caret-down"></i></a>
+    <ul>
+        <li><a href="#" class="filter-helper filter-reset" data-filter="" title="Keyboard shortcut: &quot;r&quot;">Reset filters</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:me">My tasks</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:me due:tomorrow">My tasks due tomorrow</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open due:today">Tasks due today</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open due:tomorrow">Tasks due tomorrow</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open due:yesterday">Tasks due yesterday</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:closed">Closed tasks</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open">Open tasks</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:nobody">Not assigned</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open assignee:anybody">Assigned</a></li>
+        <li><a href="#" class="filter-helper" data-filter="status:open category:none">No category</a></li>
+        <li>
+            <a href="https://docs.kanboard.org/v1/user/search" target="_blank">View advanced search syntax</a>        </li>
+    </ul>
+</div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+    <div class="table-list">
+        <!-- project_list/header paginator_total=2 -->
+                    <div class="table-list-row table-border-left">
+                <div>
+                                            <strong>#3</strong>
+                    
+                    
+                    <span class="table-list-title ">
+                        <a href="/?controller=BoardViewController&amp;action=show&amp;project_id=3" class="" title='' >Proj &lt;A&gt;</a>                    </span>
+
+                    
+                    
+                </div>
+                <div class="table-list-details">
+                                            <strong title="Task count"><span class="ui-helper-hidden-accessible">Task count </span>2</strong>
+                        <small>Todo &lt;1&gt;</small>
+                                            <strong title="Task count"><span class="ui-helper-hidden-accessible">Task count </span>0</strong>
+                        <small>Done</small>
+                                    </div>
+            </div>
+                    <div class="table-list-row table-border-left">
+                <div>
+                                            <strong>#4</strong>
+                    
+                    
+                    <span class="table-list-title status-closed">
+                        <a href="/?controller=BoardViewController&amp;action=show&amp;project_id=4" class="" title='' >Closed &amp; private</a>                    </span>
+
+                                            <i class="fa fa-lock fa-fw" title="Personal project" role="img" aria-label="Personal project"></i>
+                    
+                    
+                </div>
+                <div class="table-list-details">
+                                    </div>
+            </div>
+            </div>
+
+    <div class="pagination">pg</div>
+    <p class="alert">There is nothing assigned to you.</p>
+

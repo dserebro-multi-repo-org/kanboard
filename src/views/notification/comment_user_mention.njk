@@ -1,0 +1,12 @@
+{# Notification template. Pre-resolved variable (see prepareNotificationVars in views/prepare/notification.ts): application_url. #}
+<html>
+<body>
+<h2>{{ t('You were mentioned in a comment on the task #%d', task.id) }}</h2>
+
+<p>{{ task.title }}</p>
+
+{{ helper.text.markdown(comment.comment, true) | safe }}
+
+{% include "notification/footer" %}
+</body>
+</html>

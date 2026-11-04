@@ -1,0 +1,23 @@
+{#
+  Pre-resolved variables (see prepareEventVars in src/views/prepare/event.ts):
+    date_creation_formatted  result of the async helper dt.datetime(date_creation)
+  Other variables: author, task, date_creation (as in app/Template/event/task_move_swimlane.php)
+#}
+<p class="activity-title">
+    {% if task.swimlane_id == 0 %}
+        {{ e('%s moved the task %s to the first swimlane',
+            text.e(author),
+            url.link(t('#%d', task.id), 'TaskViewController', 'show', {task_id: task.id})
+        ) }}
+    {% else %}
+        {{ e('%s moved the task %s to the swimlane "%s"',
+            text.e(author),
+            url.link(t('#%d', task.id), 'TaskViewController', 'show', {task_id: task.id}),
+            text.e(task.swimlane_name)
+        ) }}
+    {% endif %}
+    <small class="activity-date">{{ date_creation_formatted }}</small>
+</p>
+<div class="activity-description">
+    <p class="activity-task-title">{{ task.title }}</p>
+</div>

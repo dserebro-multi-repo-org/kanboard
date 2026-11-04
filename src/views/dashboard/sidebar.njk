@@ -1,0 +1,18 @@
+{#- Port of app/Template/dashboard/sidebar.php. Variables: user -#}
+<div class="sidebar">
+    <ul>
+        <li {{ helper.app.checkMenuSelection('DashboardController', 'show') }}>
+            {{ helper.url.link(t('Overview'), 'DashboardController', 'show', {'user_id': user.id}) }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('DashboardController', 'projects') }}>
+            {{ helper.url.link(t('My projects'), 'DashboardController', 'projects', {'user_id': user.id}) }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('DashboardController', 'tasks') }}>
+            {{ helper.url.link(t('My tasks'), 'DashboardController', 'tasks', {'user_id': user.id}) }}
+        </li>
+        <li {{ helper.app.checkMenuSelection('DashboardController', 'subtasks') }}>
+            {{ helper.url.link(t('My subtasks'), 'DashboardController', 'subtasks', {'user_id': user.id}) }}
+        </li>
+        {{ helper.hook.render('template:dashboard:sidebar', {'user': user}) }}
+    </ul>
+</div>

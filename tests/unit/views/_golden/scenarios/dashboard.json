@@ -1,0 +1,538 @@
+[
+ {
+  "name": "layout_admin",
+  "template": "dashboard/layout",
+  "vars": {
+   "user": {
+    "id": 1,
+    "username": "admin",
+    "name": "Admin <A>"
+   },
+   "sidebar_template": "dashboard/sidebar",
+   "content_for_sublayout": "<p>sub</p>"
+  },
+  "fixture": "dashboard/layout_admin.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ],
+   "hooks": [
+    {
+     "hook": "template:dashboard:page-header:menu",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:dashboard:sidebar",
+     "template": "stub:hook_echo"
+    }
+   ]
+  },
+  "prepare": [
+   "dashboard_layout"
+  ]
+ },
+ {
+  "name": "layout_user_private_disabled",
+  "template": "dashboard/layout",
+  "vars": {
+   "user": {
+    "id": 1,
+    "username": "admin",
+    "name": "Admin <A>"
+   },
+   "sidebar_template": "dashboard/sidebar",
+   "content_for_sublayout": "<p>sub</p>"
+  },
+  "fixture": "dashboard/layout_user_private_disabled.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "tasks"
+   ],
+   "user": {
+    "id": 2,
+    "username": "jdoe",
+    "name": "John Doe",
+    "role": "app-user",
+    "email": "",
+    "avatar_path": "",
+    "theme": "light"
+   },
+   "config": {
+    "disable_private_project": "1"
+   }
+  },
+  "prepare": [
+   "dashboard_layout"
+  ]
+ },
+ {
+  "name": "sidebar",
+  "template": "dashboard/sidebar",
+  "vars": {
+   "user": {
+    "id": 1,
+    "username": "admin",
+    "name": "Admin <A>"
+   }
+  },
+  "fixture": "dashboard/sidebar.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "projects"
+   ],
+   "hooks": [
+    {
+     "hook": "template:dashboard:sidebar",
+     "template": "stub:hook_echo"
+    }
+   ]
+  }
+ },
+ {
+  "name": "projects",
+  "template": "dashboard/projects",
+  "vars": {
+   "user": {
+    "id": 1,
+    "username": "admin",
+    "name": "Admin <A>"
+   },
+   "paginator": {
+    "$paginator": {
+     "collection": [
+      {
+       "id": 3,
+       "name": "Proj <A>",
+       "is_active": 1,
+       "is_private": 0,
+       "columns": [
+        {
+         "nb_open_tasks": 2,
+         "title": "Todo <1>"
+        },
+        {
+         "nb_open_tasks": 0,
+         "title": "Done"
+        }
+       ]
+      },
+      {
+       "id": 4,
+       "name": "Closed & private",
+       "is_active": 0,
+       "is_private": 1,
+       "columns": []
+      }
+     ],
+     "total": 7,
+     "html": "<div class=\"pagination\">pg</div>"
+    }
+   }
+  },
+  "fixture": "dashboard/projects.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ]
+  }
+ },
+ {
+  "name": "projects_empty",
+  "template": "dashboard/projects",
+  "vars": {
+   "user": {
+    "id": 1,
+    "username": "admin",
+    "name": "Admin <A>"
+   },
+   "paginator": {
+    "$paginator": {
+     "collection": [],
+     "total": 0,
+     "html": ""
+    }
+   }
+  },
+  "fixture": "dashboard/projects_empty.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ]
+  }
+ },
+ {
+  "name": "tasks",
+  "template": "dashboard/tasks",
+  "vars": {
+   "user": {
+    "id": 1,
+    "username": "admin",
+    "name": "Admin <A>"
+   },
+   "paginator": {
+    "$paginator": {
+     "collection": [
+      {
+       "id": 11,
+       "color_id": "blue",
+       "title": "T1"
+      },
+      {
+       "id": 12,
+       "color_id": "red & x",
+       "title": "T2"
+      }
+     ],
+     "total": 2,
+     "html": "<div class=\"pagination\">pg</div>"
+    }
+   }
+  },
+  "fixture": "dashboard/tasks.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "tasks"
+   ],
+   "hooks": [
+    {
+     "hook": "template:dashboard:task:footer",
+     "template": "stub:hook_echo"
+    }
+   ]
+  }
+ },
+ {
+  "name": "tasks_empty",
+  "template": "dashboard/tasks",
+  "vars": {
+   "user": {
+    "id": 1,
+    "username": "admin",
+    "name": "Admin <A>"
+   },
+   "paginator": {
+    "$paginator": {
+     "collection": [],
+     "total": 0,
+     "html": ""
+    }
+   }
+  },
+  "fixture": "dashboard/tasks_empty.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ]
+  }
+ },
+ {
+  "name": "subtasks",
+  "template": "dashboard/subtasks",
+  "vars": {
+   "user": {
+    "id": 1,
+    "username": "admin",
+    "name": "Admin <A>"
+   },
+   "nb_subtasks": 2,
+   "paginator": {
+    "$paginator": {
+     "collection": [
+      {
+       "id": 11,
+       "color_id": "blue",
+       "title": "T1"
+      },
+      {
+       "id": 12,
+       "color_id": "red & x",
+       "title": "T2"
+      }
+     ],
+     "total": 2,
+     "html": "<div class=\"pagination\">pg</div>"
+    }
+   }
+  },
+  "fixture": "dashboard/subtasks.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ]
+  }
+ },
+ {
+  "name": "subtasks_one",
+  "template": "dashboard/subtasks",
+  "vars": {
+   "user": {
+    "id": 1,
+    "username": "admin",
+    "name": "Admin <A>"
+   },
+   "nb_subtasks": 1,
+   "paginator": {
+    "$paginator": {
+     "collection": [
+      {
+       "id": 11,
+       "color_id": "blue",
+       "title": "T1"
+      }
+     ],
+     "total": 1,
+     "html": "<div class=\"pagination\">pg</div>"
+    }
+   }
+  },
+  "fixture": "dashboard/subtasks_one.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ]
+  }
+ },
+ {
+  "name": "subtasks_none",
+  "template": "dashboard/subtasks",
+  "vars": {
+   "user": {
+    "id": 1,
+    "username": "admin",
+    "name": "Admin <A>"
+   },
+   "nb_subtasks": 0,
+   "paginator": {
+    "$paginator": {
+     "collection": [],
+     "total": 0,
+     "html": "<div class=\"pagination\">pg</div>"
+    }
+   }
+  },
+  "fixture": "dashboard/subtasks_none.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ]
+  }
+ },
+ {
+  "name": "overview",
+  "template": "dashboard/overview",
+  "vars": {
+   "user": {
+    "id": 1,
+    "username": "admin",
+    "name": "Admin <A>"
+   },
+   "project_paginator": {
+    "$paginator": {
+     "collection": [
+      {
+       "id": 3,
+       "name": "Proj <A>",
+       "is_active": 1,
+       "is_private": 0,
+       "columns": [
+        {
+         "nb_open_tasks": 2,
+         "title": "Todo <1>"
+        },
+        {
+         "nb_open_tasks": 0,
+         "title": "Done"
+        }
+       ]
+      },
+      {
+       "id": 4,
+       "name": "Closed & private",
+       "is_active": 0,
+       "is_private": 1,
+       "columns": []
+      }
+     ],
+     "total": 2,
+     "html": "<div class=\"pagination\">pg</div>"
+    }
+   },
+   "overview_paginator": [
+    {
+     "project_id": 3,
+     "project_name": "Proj <A>",
+     "paginator": {
+      "$paginator": {
+       "collection": [
+        {
+         "id": 11,
+         "color_id": "blue",
+         "title": "T1"
+        },
+        {
+         "id": 12,
+         "color_id": "red & x",
+         "title": "T2"
+        }
+       ],
+       "total": 2,
+       "html": "<div class=\"pagination\">pg</div>"
+      }
+     }
+    },
+    {
+     "project_id": 4,
+     "project_name": "Empty",
+     "paginator": {
+      "$paginator": {
+       "collection": [],
+       "total": 0,
+       "html": "<div class=\"pagination\">pg</div>"
+      }
+     }
+    }
+   ]
+  },
+  "fixture": "dashboard/overview.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ],
+   "hooks": [
+    {
+     "hook": "template:dashboard:show:before-filter-box",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:dashboard:show:after-filter-box",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:dashboard:project:before-title",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:dashboard:project:after-title",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:dashboard:task:footer",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:dashboard:show",
+     "template": "stub:hook_echo"
+    },
+    {
+     "hook": "template:app:filters-helper:before",
+     "template": "stub:hook_echo"
+    }
+   ]
+  },
+  "prepare": [
+   "dashboard_overview"
+  ]
+ },
+ {
+  "name": "overview_empty",
+  "template": "dashboard/overview",
+  "vars": {
+   "user": {
+    "id": 1,
+    "username": "admin",
+    "name": "Admin <A>"
+   },
+   "project_paginator": {
+    "$paginator": {
+     "collection": [],
+     "total": 0,
+     "html": ""
+    }
+   },
+   "overview_paginator": []
+  },
+  "fixture": "dashboard/overview_empty.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ]
+  },
+  "prepare": [
+   "dashboard_overview"
+  ]
+ },
+ {
+  "name": "overview_nonadmin",
+  "template": "dashboard/overview",
+  "vars": {
+   "user": {
+    "id": 1,
+    "username": "admin",
+    "name": "Admin <A>"
+   },
+   "project_paginator": {
+    "$paginator": {
+     "collection": [
+      {
+       "id": 3,
+       "name": "Proj <A>",
+       "is_active": 1,
+       "is_private": 0,
+       "columns": [
+        {
+         "nb_open_tasks": 2,
+         "title": "Todo <1>"
+        },
+        {
+         "nb_open_tasks": 0,
+         "title": "Done"
+        }
+       ]
+      },
+      {
+       "id": 4,
+       "name": "Closed & private",
+       "is_active": 0,
+       "is_private": 1,
+       "columns": []
+      }
+     ],
+     "total": 2,
+     "html": "<div class=\"pagination\">pg</div>"
+    }
+   },
+   "overview_paginator": []
+  },
+  "fixture": "dashboard/overview_nonadmin.html",
+  "state": {
+   "route": [
+    "DashboardController",
+    "show"
+   ],
+   "user": {
+    "id": 2,
+    "username": "jdoe",
+    "name": "John Doe",
+    "role": "app-user",
+    "email": "",
+    "avatar_path": "",
+    "theme": "light"
+   }
+  },
+  "prepare": [
+   "dashboard_overview"
+  ]
+ }
+]

@@ -1,0 +1,25 @@
+{#-
+  Port of app/Template/project_header/header.php.
+  Variables: project, board_view, filters, custom_filters_list?, users_list?, categories_list?, plus the
+  pre-resolved variables of project_header/dropdown (see prepareProjectHeaderVars in
+  src/views/prepare/project_header.ts)
+-#}
+<div class="project-header">
+    {{ helper.hook.render('template:project:header:before', {'project': project}) }}
+
+    <div class="dropdown-component">
+        {% include "project_header/dropdown" %}
+    </div>
+    <div class="views-switcher-component">
+        {% include "project_header/views" %}
+    </div>
+    <div class="filter-box-component">
+        {#- PHP always passes these three lists (defaulting to an empty array) -#}
+        {% set custom_filters_list = custom_filters_list or [] %}
+        {% set users_list = users_list or [] %}
+        {% set categories_list = categories_list or [] %}
+        {% include "project_header/search" %}
+    </div>
+
+    {{ helper.hook.render('template:project:header:after', {'project': project}) }}
+</div>

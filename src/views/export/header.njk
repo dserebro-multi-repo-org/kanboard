@@ -1,0 +1,19 @@
+{# Variables: project, title (trusted HTML, echoed raw like PHP) #}
+<div class="page-header">
+    <h2>{{ project.name }} &gt; {{ title | safe }}</h2>
+    <ul>
+        <li {{ app.checkMenuSelection('ExportController', 'tasks') }}>
+            {{ modal.replaceLink(t('Tasks'), 'ExportController', 'tasks', {project_id: project.id}) }}
+        </li>
+        <li {{ app.checkMenuSelection('ExportController', 'subtasks') }}>
+            {{ modal.replaceLink(t('Subtasks'), 'ExportController', 'subtasks', {project_id: project.id}) }}
+        </li>
+        <li {{ app.checkMenuSelection('ExportController', 'transitions') }}>
+            {{ modal.replaceLink(t('Task transitions'), 'ExportController', 'transitions', {project_id: project.id}) }}
+        </li>
+        <li {{ app.checkMenuSelection('ExportController', 'summary') }}>
+            {{ modal.replaceLink(t('Daily project summary'), 'ExportController', 'summary', {project_id: project.id}) }}
+        </li>
+        {{ hook.render('template:export:header', {project_id: project.id}) }}
+    </ul>
+</div>

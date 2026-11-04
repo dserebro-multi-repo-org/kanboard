@@ -1,0 +1,16 @@
+{# Notification template. Pre-resolved variable (see prepareNotificationVars in views/prepare/notification.ts): application_url. #}
+<html>
+<body>
+<h2>{{ task.title }} (#{{ task.id }})</h2>
+
+<h3>{{ t('Subtask removed') }}</h3>
+
+<ul>
+    <li>{{ t('Title:') }} {{ subtask.title }}</li>
+    <li>{{ t('Status:') }} {{ t(subtask.status_name) }}</li>
+    <li>{{ t('Assignee:') }} {{ subtask.name or subtask.username or '?' }}</li>
+</ul>
+
+{% include "notification/footer" %}
+</body>
+</html>

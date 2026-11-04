@@ -1,0 +1,31 @@
+{# Variables: is_ajax, metrics (list of {title, hours_spent, hours_estimated}). #}
+{% if not is_ajax %}
+    <div class="page-header">
+        <h2>{{ t('Estimated vs actual time per column') }}</h2>
+    </div>
+{% endif %}
+
+{% if not (metrics | length) %}
+    <p class="alert">{{ t('Not enough data to show the graph.') }}</p>
+{% else %}
+    {{ helper.app.component('chart-project-estimated-actual-column', {
+        metrics: metrics,
+        labelSpent: t('Hours Spent'),
+        labelEstimated: t('Hours Estimated')
+    }) | safe }}
+
+    <table class="table-striped">
+        <tr>
+            <th>{{ t('Column') }}</th>
+            <th>{{ t('Hours Spent') }}</th>
+            <th>{{ t('Hours Estimated') }}</th>
+        </tr>
+        {% for column in metrics %}
+            <tr>
+                <td>{{ column.title }}</td>
+                <td>{{ helper.dt.durationHours(column.hours_spent) }}</td>
+                <td>{{ helper.dt.durationHours(column.hours_estimated) }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}

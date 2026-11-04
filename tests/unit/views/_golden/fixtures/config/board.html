@@ -1,0 +1,19 @@
+<div class="page-header">
+    <h2>Board settings</h2>
+</div>
+<form method="post" action="/?controller=ConfigController&amp;action=save&amp;redirect=board" autocomplete="off">
+    <input type="hidden" name="csrf_token" value="036af8088751331d2e684c25d58a4df4a3c63deba701ef7031a56c928588c476"/>
+    <fieldset>
+        <label for="form-board_highlight_period" >Task highlight period</label>        <input type="number" name="board_highlight_period" id="form-board_highlight_period" value="172800" class="" >        <p class="form-help">Period (in second) to consider a task was modified recently (0 to disable, 2 days by default)</p>
+
+        <label for="form-board_public_refresh_interval" >Refresh interval for public board</label>        <input type="number" name="board_public_refresh_interval" id="form-board_public_refresh_interval" value="60" class="" >        <p class="form-help">Frequency in second (60 seconds by default)</p>
+
+        <label for="form-board_private_refresh_interval" >Refresh interval for personal board</label>        <input type="number" name="board_private_refresh_interval" id="form-board_private_refresh_interval" value="10" class="" >        <p class="form-help">Frequency in second (0 to disable this feature, 10 seconds by default)</p>
+    </fieldset>
+
+    <span class="hook"> values=23</span>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-blue">Save</button>
+    </div>
+</form>

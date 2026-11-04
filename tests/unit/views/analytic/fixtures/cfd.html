@@ -1,0 +1,9 @@
+    <div class="page-header">
+        <h2>Cumulative flow diagram</h2>
+    </div>
+
+    <div class="js-chart-project-cumulative-flow" data-params='{"metrics":[["Date","Ready"],["2023-01-01",5]],"dateFormat":"%Y-%m-%d"}'></div>
+<hr/>
+
+<form method="post" class="form-inline" action="?controller=AnalyticController&amp;action=cfd&amp;project_id=5" autocomplete="off">
+    <input type="hidden" name="csrf_token" value="e2a2a0f9a60d5349c15c7fbfe6cc90cbb39003947508b7dae5fd333f52a9c3f1"/>    <label for="form-from" >Start date</label><input type="text" name="from" id="form-from" value="01/01/2023" class="form-date" placeholder="11/04/2026">    <label for="form-to" >End date</label><input type="text" name="to" id="form-to" value="02/01/2023" class="form-date" placeholder="11/04/2026">    <div class="js-submit-buttons" data-params='{"submitLabel":"Execute","orLabel":"or","cancelLabel":"cancel","color":"blue","tabindex":null,"disabled":false}'></div></form>

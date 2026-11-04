@@ -1,0 +1,19 @@
+{% if not events or events | length == 0 %}
+    <p class="alert">{{ t('There is no activity yet.') }}</p>
+{% else %}
+    {% for event in events %}
+        <div class="activity-event">
+            {{ avatar.render(
+                event.creator_id,
+                event.author_username,
+                event.author_name,
+                event.email,
+                event.avatar_path
+            ) }}
+
+            <div class="activity-content">
+                {{ event.event_content | safe }}
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

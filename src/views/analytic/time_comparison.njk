@@ -1,0 +1,64 @@
+{# Variables: is_ajax, metrics ({open,closed:{time_estimated,time_spent}}), paginator (object with isEmpty(), order(label, column) -> HTML, getCollection(), toHtml() -> HTML). #}
+{% if not is_ajax %}
+    <div class="page-header">
+        <h2>{{ t('Estimated vs actual time') }}</h2>
+    </div>
+{% endif %}
+
+<div class="panel">
+    <ul>
+        <li>{{ t('Estimated hours: ') }}<strong>{{ (metrics.open.time_estimated | float) + (metrics.closed.time_estimated | float) }}</strong></li>
+        <li>{{ t('Actual hours: ') }}<strong>{{ (metrics.open.time_spent | float) + (metrics.closed.time_spent | float) }}</strong></li>
+    </ul>
+</div>
+
+{% if not (metrics | length) %}
+    <p class="alert">{{ t('Not enough data to show the graph.') }}</p>
+{% else %}
+    {% if paginator.isEmpty() %}
+        <p class="alert">{{ t('No tasks found.') }}</p>
+    {% else %}
+        {{ helper.app.component('chart-project-time-comparison', {
+            metrics: metrics,
+            labelSpent: t('Hours Spent'),
+            labelEstimated: t('Hours Estimated'),
+            labelClosed: t('Closed'),
+            labelOpen: t('Open')
+        }) | safe }}
+
+        <table class="table-fixed table-small table-scrolling">
+            <tr>
+                <th class="column-5">{{ paginator.order(t('Id'), 'tasks.id') | safe }}</th>
+                <th>{{ paginator.order(t('Title'), 'tasks.title') | safe }}</th>
+                <th class="column-10">{{ paginator.order(t('Status'), 'tasks.is_active') | safe }}</th>
+                <th class="column-12">{{ paginator.order(t('Estimated Time'), 'tasks.time_estimated') | safe }}</th>
+                <th class="column-12">{{ paginator.order(t('Actual Time'), 'tasks.time_spent') | safe }}</th>
+            </tr>
+            {% for task in paginator.getCollection() %}
+            <tr>
+                <td class="task-table color-{{ task.color_id }}">
+                    {{ helper.url.link('#' ~ helper.text.e(task.id), 'TaskViewController', 'show', {task_id: task.id}, false, '', t('View this task')) }}
+                </td>
+                <td>
+                    {{ helper.url.link(helper.text.e(task.title), 'TaskViewController', 'show', {task_id: task.id}, false, '', t('View this task')) }}
+                </td>
+                <td>
+                    {% if task.is_active == 1 %}
+                        {{ t('Open') }}
+                    {% else %}
+                        {{ t('Closed') }}
+                    {% endif %}
+                </td>
+                <td>
+                    {{ task.time_estimated }}
+                </td>
+                <td>
+                    {{ task.time_spent }}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        {{ paginator.toHtml() | safe }}
+    {% endif %}
+{% endif %}
