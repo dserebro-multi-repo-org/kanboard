@@ -7,9 +7,8 @@ export default defineConfig({
   use: {
     baseURL: "http://localhost:8080",
     headless: true,
-    launchOptions: { executablePath: process.env.CHROME_PATH || "/l2l/.agent-browser/browsers/chrome-157.0.8103.38/chrome", args: ["--no-sandbox"] },
     screenshot: "on",
-    video: "off",
+    video: "retain-on-failure",
     trace: "retain-on-failure",
   },
   reporter: [
